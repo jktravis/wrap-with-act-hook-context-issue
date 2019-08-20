@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/Map/Components/ListWindows/FacilityListWindow/FacilityListWindow.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/Map/Components/ListWindows/FacilityListWindow</a> FacilityListWindow.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>29/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.82% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>9/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component, Fragment } from "react";
+import Button from "reactstrap/lib/Button";
+import { FaPlus } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaCrosshairs } from "react-icons/fa";
+import ButtonGroup from "reactstrap/lib/ButtonGroup";
+import Select from "react-select";
+&nbsp;
+import FacilityListItem from "Controllers/Tools/Map/Components/ListWindows/FacilityListWindow/FacilityListItem";
+import isOdd from "Utilities/isOdd";
+import { MapLocalizationConsumer } from "Controllers/Tools/Map/Components/MapLocalization";
+import VirtualizedFeatureList from "Controllers/Tools/Map/Components/FeatureList";
+import { curry } from "ramda";
+import { isLoading } from "Controllers/Tools/Map/Components/utilities/loadingFsm/loadingFsm";
+import LoadSpinner from "Controllers/Tools/Map/Components/LoadSpinner";
+import BasicListWindow from "Controllers/Tools/Map/Components/ListWindows/BasicListWindow";
+&nbsp;
+interface Props {
+  features: any[];
+  dismissFn: Function;
+  setFeatureToDisplayFn: Function;
+  toggleFeatureVisibilityFn: Function;
+  showAllFn: Function;
+  hideAllFn: Function;
+  zoomToFeatureFn: Function;
+  panToFeatureFn: Function;
+  zoomToAllFeaturesFn: Function;
+  toggleFacilitySelectorFn: Function;
+  deleteFn: Function;
+  loadingStatus: string;
+&nbsp;
+  /**
+   * Options for sorting. The value key needs to match the key to the sort function
+   * as found in the corresponding sortFnMap
+   */
+  sortOptions: any[];
+  /**
+   * A map of sort functions with each function keyed to the value from the sortOptions.
+   */
+  sortFnMap: {};
+}
+&nbsp;
+class FacilityListWindow extends Component&lt;Props, any&gt; {
+  static defaultProps: Partial&lt;Props&gt; = {
+    features: [],
+    setFeatureToDisplayFn: Function.prototype,
+    sortOptions: [],
+    sortFnMap: {},
+  };
+&nbsp;
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (!prevState.sortType &amp;&amp; nextProps.sortOptions.length) {
+      return {
+        sortType: nextProps.sortOptions[0],
+      };
+    }
+    return null;
+  }
+&nbsp;
+  state = {
+    sortType: null,
+  };
+&nbsp;
+  handleSortChange = <span class="fstat-no" title="function not covered" >sortType =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    this.setState(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>({ sortType }))</span>;</span>
+  };
+&nbsp;
+  sortItems(items) {
+    const { sortFnMap } = this.props;
+    const {
+      sortType: { value },
+    } = this.state;
+    const sortFn = sortFnMap[value];
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (sortFn) {
+      return sortFn(items);
+    }
+<span class="cstat-no" title="statement not covered" >    return items;</span>
+  }
+&nbsp;
+  renderFooter = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+    const <span class="cstat-no" title="statement not covered" >{ <span class="cstat-no" title="statement not covered" >showAllFn,</span> <span class="cstat-no" title="statement not covered" >hideAllFn,</span> <span class="cstat-no" title="statement not covered" >zoomToAllFeaturesFn,</span> <span class="cstat-no" title="statement not covered" >sortOptions,</span> <span class="cstat-no" title="statement not covered" >toggleFacilitySelectorFn,</span> <span class="cstat-no" title="statement not covered" >features } = this.props;</span></span>
+    const { <span class="cstat-no" title="statement not covered" >sortType </span>} = this.state;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;MapLocalizationConsumer&gt;
+        {<span class="fstat-no" title="function not covered" >(</span>{ <span class="cstat-no" title="statement not covered" >ZoomToExtent,</span> <span class="cstat-no" title="statement not covered" >HideAll,</span> <span class="cstat-no" title="statement not covered" >ShowAll,</span> <span class="cstat-no" title="statement not covered" >AddFacilitiesToIncidentMap </span>}) =&gt; <span class="cstat-no" title="statement not covered" >(</span>
+          &lt;Fragment&gt;
+            &lt;ButtonGroup size="sm"&gt;
+              &lt;Button color="success" onClick={toggleFacilitySelectorFn as any} title={AddFacilitiesToIncidentMap}&gt;
+                &lt;FaPlus /&gt;
+              &lt;/Button&gt;
+              &lt;Button onClick={showAllFn as any} disabled={!features.length} title={ShowAll}&gt;
+                &lt;FaEye /&gt;
+              &lt;/Button&gt;
+              &lt;Button onClick={hideAllFn as any} disabled={!features.length} title={HideAll}&gt;
+                &lt;FaEyeSlash /&gt;
+              &lt;/Button&gt;
+              &lt;Button onClick={zoomToAllFeaturesFn as any} disabled={!features.length} title={ZoomToExtent}&gt;
+                &lt;FaCrosshairs /&gt;
+              &lt;/Button&gt;
+            &lt;/ButtonGroup&gt;
+            &lt;div style={{ minWidth: "150px", marginLeft: ".5rem" }}&gt;
+              &lt;Select value={sortType} options={sortOptions} menuPlacement="auto" onChange={this.handleSortChange} /&gt;
+            &lt;/div&gt;
+          &lt;/Fragment&gt;
+        )}
+      &lt;/MapLocalizationConsumer&gt;
+    );
+  };
+&nbsp;
+  rowRenderer = curry(<span class="fstat-no" title="function not covered" >(</span>features: any, { <span class="cstat-no" title="statement not covered" >index,</span> <span class="cstat-no" title="statement not covered" >style </span>}) =&gt; {
+    const feature = <span class="cstat-no" title="statement not covered" >features[index];</span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;FacilityListItem
+        key={feature.PrimaryKey}
+        isAlt={isOdd(index)}
+        feature={feature}
+        showFeatureDetailFn={this.props.setFeatureToDisplayFn}
+        toggleFeatureVisibilityFn={this.props.toggleFeatureVisibilityFn}
+        zoomToFeatureFn={this.props.zoomToFeatureFn}
+        panToFeatureFn={this.props.panToFeatureFn}
+        deleteFn={this.props.deleteFn}
+        style={style}
+      /&gt;
+    );
+  });
+&nbsp;
+  render() {
+    const { features, dismissFn, loadingStatus } = this.props;
+    const sortedFeatures = this.sortItems(features);
+    return (
+      &lt;MapLocalizationConsumer&gt;
+        {({ FacilityWindowLabel }) =&gt; (
+          &lt;BasicListWindow headerText={FacilityWindowLabel} dismissFn={dismissFn} footerRenderer={this.renderFooter}&gt;
+            {isLoading(loadingStatus) ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >              &lt;LoadSpinner /&gt;</span>
+            ) : (
+              &lt;VirtualizedFeatureList features={sortedFeatures} rowRenderer={this.rowRenderer(sortedFeatures)} /&gt;
+            )}
+          &lt;/BasicListWindow&gt;
+        )}
+      &lt;/MapLocalizationConsumer&gt;
+    );
+  }
+}
+&nbsp;
+export default FacilityListWindow;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

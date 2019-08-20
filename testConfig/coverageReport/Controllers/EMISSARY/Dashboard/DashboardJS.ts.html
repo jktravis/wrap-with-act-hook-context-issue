@@ -1,0 +1,1487 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/EMISSARY/Dashboard/DashboardJS.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/EMISSARY/Dashboard</a> DashboardJS.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/245</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/101</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/63</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/245</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*export*/ <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >namespace </span>Dashboard {</span>
+  declare function GetToolModalWindowURL(dragid: string, dropTool: string, isEdit: boolean, extraInfo: any): string;
+  declare function loadMap(imgPath: string): void;
+&nbsp;
+  interface IDashboardScope extends ng.IScope {
+    createEntry(dragid: string, dropTool: string, extraInfo?: string): void;
+    closeModal(): void;
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >countryChanged(e) {</span></span>
+<span class="cstat-no" title="statement not covered" >    $("#State_Province")</span>
+      .data("kendoComboBox")
+      .dataSource.read();
+  }
+  //since we aren't wired TOTALLY using angular, we're using this jquery method to find the angular controller and close the modal
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >jqueryclosemodal() {</span></span>
+    (&lt;IDashboardScope&gt;<span class="cstat-no" title="statement not covered" >angular.element("#dashControllerID").scope()).closeModal();</span>
+  }
+  function <span class="fstat-no" title="function not covered" >returnItemsNotInArray(newarray, oldarray) {</span>
+    const ret = <span class="cstat-no" title="statement not covered" >[];</span>
+    let i = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >    $.each(newarray, <span class="fstat-no" title="function not covered" >function(</span>index, value) {</span>
+<span class="cstat-no" title="statement not covered" >      if ($.inArray(value, oldarray) === -1) {</span>
+<span class="cstat-no" title="statement not covered" >        ret[i++] = value;</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    return ret;</span>
+  }
+  //kendo stuff, for dragging and dropping
+  function <span class="fstat-no" title="function not covered" >bindDropTarget() {</span>
+<span class="cstat-no" title="statement not covered" >    if ($("#divCards")) {</span>
+<span class="cstat-no" title="statement not covered" >      $("#divCards").kendoDropTargetArea({</span>
+        filter: ".dropable",
+        dragenter: Main.droptargetOnDragEnter,
+        dragleave: Main.droptargetOnDragLeave,
+        drop: droptargetOnDrop,
+      });
+    }
+  }
+  function <span class="fstat-no" title="function not covered" >droptargetOnDrop(e) {</span>
+<span class="cstat-no" title="statement not covered" >    $(".dragging").removeClass("dragging");</span>
+    const newEl = <span class="cstat-no" title="statement not covered" >$(e.draggable.currentTarget).clone();</span>
+    const dragid = <span class="cstat-no" title="statement not covered" >newEl.attr("id");</span>
+    const dt = <span class="cstat-no" title="statement not covered" >e.dropTarget;</span>
+<span class="cstat-no" title="statement not covered" >    Main.droptargetOnDragLeave(e);</span>
+    const angDT = <span class="cstat-no" title="statement not covered" >angular.element(dt)[0];</span>
+    const dropTool = <span class="cstat-no" title="statement not covered" >angDT.getAttribute("data-toolName");</span>
+    const extraInfo = (&lt;HTMLInputElement&gt;<span class="cstat-no" title="statement not covered" >document.getElementById("MediumLogRoomDropdown")).value;</span>
+<span class="cstat-no" title="statement not covered" >    if ($("#wasDragged").length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      $("#wasDragged").val("true");</span>
+    }
+    (&lt;IDashboardScope&gt;<span class="cstat-no" title="statement not covered" >angular.element("#dashControllerID").scope()).createEntry(dragid, dropTool, extraInfo);</span>
+  }
+  //end kendo stuff
+&nbsp;
+  export var <span class="cstat-no" title="statement not covered" >cbraModule = angular.module("cobraapp", ["ngAnimate", "ngSanitize", "kendo.directives"], <span class="fstat-no" title="function not covered" >function(</span></span>
+    $httpProvider,
+  ) {
+    // from http://victorblog.com/2012/12/20/make-angularjs-http-service-behave-like-jquery-ajax/
+    // use x-www-form-urlencoded Content-Type
+<span class="cstat-no" title="statement not covered" >    $httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=utf-8";</span>
+    // override $http service's default transformRequest
+<span class="cstat-no" title="statement not covered" >    $httpProvider.defaults.transformRequest = [</span>
+<span class="fstat-no" title="function not covered" >      function(</span>data) {
+        const param = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function(</span>obj) {</span>
+          let query = <span class="cstat-no" title="statement not covered" >"";</span>
+          let name, value, fullSubName, subName, subValue, innerObj, i;
+<span class="cstat-no" title="statement not covered" >          for (name in obj) {</span>
+<span class="cstat-no" title="statement not covered" >            if (obj.hasOwnProperty(name)) {</span>
+<span class="cstat-no" title="statement not covered" >              value = obj[name];</span>
+<span class="cstat-no" title="statement not covered" >              if (value instanceof Array) {</span>
+<span class="cstat-no" title="statement not covered" >                for (i = 0; i &lt; value.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >                  subValue = value[i];</span>
+<span class="cstat-no" title="statement not covered" >                  fullSubName = name + "[" + i + "]";</span>
+<span class="cstat-no" title="statement not covered" >                  innerObj = {};</span>
+<span class="cstat-no" title="statement not covered" >                  innerObj[fullSubName] = subValue;</span>
+<span class="cstat-no" title="statement not covered" >                  query += param(innerObj) + "&amp;";</span>
+                }
+              } else <span class="cstat-no" title="statement not covered" >if (value instanceof Object) {</span>
+<span class="cstat-no" title="statement not covered" >                for (subName in value) {</span>
+<span class="cstat-no" title="statement not covered" >                  if (value.hasOwnProperty(subName)) {</span>
+<span class="cstat-no" title="statement not covered" >                    subValue = value[subName];</span>
+<span class="cstat-no" title="statement not covered" >                    fullSubName = name + "[" + subName + "]";</span>
+<span class="cstat-no" title="statement not covered" >                    innerObj = {};</span>
+<span class="cstat-no" title="statement not covered" >                    innerObj[fullSubName] = subValue;</span>
+<span class="cstat-no" title="statement not covered" >                    query += param(innerObj) + "&amp;";</span>
+                  }
+                }
+              } else <span class="cstat-no" title="statement not covered" >if (value !== undefined &amp;&amp; value !== null) {</span>
+<span class="cstat-no" title="statement not covered" >                query += encodeURIComponent(name) + "=" + encodeURIComponent(value) + "&amp;";</span>
+              }
+            }
+          }
+<span class="cstat-no" title="statement not covered" >          return query.length ? query.substr(0, query.length - 1) : query;</span>
+        };
+<span class="cstat-no" title="statement not covered" >        return angular.isObject(data) &amp;&amp; String(data) !== "[object File]" ? param(data) : data;</span>
+      },
+    ];
+  });
+<span class="cstat-no" title="statement not covered" >  cbraModule.directive("ngEnter", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >function(</span>scope, element, attrs) {</span>
+<span class="cstat-no" title="statement not covered" >      element.bind("keydown keypress", <span class="fstat-no" title="function not covered" >function(</span>event) {</span>
+<span class="cstat-no" title="statement not covered" >        if (event.which === 13) {</span>
+<span class="cstat-no" title="statement not covered" >          scope.$apply(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            scope.$eval((&lt;any&gt;attrs).ngEnter);</span>
+          });
+<span class="cstat-no" title="statement not covered" >          event.preventDefault();</span>
+        }
+      });
+    };
+  });
+<span class="cstat-no" title="statement not covered" >  cbraModule.controller("dashController", <span class="fstat-no" title="function not covered" >function(</span>$scope, dashRepository, opPeriodRepository) {</span>
+    // once angular has actually loaded, hide the spinner.
+<span class="cstat-no" title="statement not covered" >    $("#mainSpinner").hide();</span>
+&nbsp;
+    // this is the initial call that loads the small/medium cards onto the dashboard
+<span class="cstat-no" title="statement not covered" >    $scope.getMediumCardData = <span class="fstat-no" title="function not covered" >function(</span>hostURL, projectGUID, configProjectGUID) {</span>
+<span class="cstat-no" title="statement not covered" >      $scope.hostURL = hostURL;</span>
+<span class="cstat-no" title="statement not covered" >      $scope.projectGUID = projectGUID;</span>
+<span class="cstat-no" title="statement not covered" >      $scope.configProjectGUID = configProjectGUID;</span>
+<span class="cstat-no" title="statement not covered" >      opPeriodRepository.init(hostURL, projectGUID).then(<span class="fstat-no" title="function not covered" >function(</span>data) {</span>
+<span class="cstat-no" title="statement not covered" >        $scope.curOpPeriod = opPeriodRepository.curOpPeriod();</span>
+<span class="cstat-no" title="statement not covered" >        $scope.allOpPeriods = opPeriodRepository.allOpPeriods();</span>
+      });
+<span class="cstat-no" title="statement not covered" >      dashRepository.getMediumCards().then(<span class="fstat-no" title="function not covered" >function(</span>cards) {</span>
+<span class="cstat-no" title="statement not covered" >        cards.map(<span class="fstat-no" title="function not covered" >function(</span>c) {</span>
+<span class="cstat-no" title="statement not covered" >          return $.extend(c, { isLoading: true });</span>
+        });
+<span class="cstat-no" title="statement not covered" >        $scope.cards = cards;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.numberofcardsloaded = 0;</span>
+<span class="cstat-no" title="statement not covered" >        bindDropTarget();</span>
+<span class="cstat-no" title="statement not covered" >        Main.cbraPush.client.logentryUpdated = $scope.refreshAllCards;</span>
+<span class="cstat-no" title="statement not covered" >        $.connection.hub.start();</span>
+        //HACK: I am riding this, right or wrong, beacause i know this function only happens once, and i can't find anywhere an angular 'contentLoaded' function for the splitter
+<span class="cstat-no" title="statement not covered" >        $scope.onSplitLoad(null);</span>
+      });
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.getSmallCardData = <span class="fstat-no" title="function not covered" >function(</span>hostURL, projectGUID, configProjectGUID) {</span>
+<span class="cstat-no" title="statement not covered" >      dashRepository.getSmallCards().then(<span class="fstat-no" title="function not covered" >function(</span>smcards) {</span>
+<span class="cstat-no" title="statement not covered" >        smcards.map(<span class="fstat-no" title="function not covered" >function(</span>c) {</span>
+<span class="cstat-no" title="statement not covered" >          return $.extend(c, { isLoading: true });</span>
+        });
+<span class="cstat-no" title="statement not covered" >        $scope.smcards = smcards;</span>
+      });
+    };
+    // loads from the repository the large card
+<span class="cstat-no" title="statement not covered" >    $scope.getLargeCardData = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      dashRepository.getLargeCard().then(<span class="fstat-no" title="function not covered" >function(</span>card) {</span>
+<span class="cstat-no" title="statement not covered" >        angular.isObject(card) ? angular.extend(card, { isLoading: true }) : {};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard = card;</span>
+      });
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.onSplitResize = <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!angular.isUndefined($scope.splitter)) {</span>
+<span class="cstat-no" title="statement not covered" >        if ($scope.areCardsDoneLoading) {</span>
+          const panesize = <span class="cstat-no" title="statement not covered" >$scope.splitter.options.panes[0].size;</span>
+          const collapse = <span class="cstat-no" title="statement not covered" >$scope.splitter.options.panes[0].collapsed;</span>
+<span class="cstat-no" title="statement not covered" >          if ($scope.dashboardPanesize !== panesize || $scope.dashboardCollapsed !== collapse) {</span>
+            //so this doesn't run on every windows resize
+<span class="cstat-no" title="statement not covered" >            if (!panesize.includes("%")) {</span>
+              //resizing by the user doesn't have a percentage, this is a way to filter out other error states, or calls to this method NOT done by a human
+<span class="cstat-no" title="statement not covered" >              $scope.dashboardPanesize = panesize;</span>
+<span class="cstat-no" title="statement not covered" >              $scope.dashboardCollapsed = collapse;</span>
+              const prefix = <span class="cstat-no" title="statement not covered" >currentUrlPrefix();</span>
+              const newurl = <span class="cstat-no" title="statement not covered" >prefix + "EMISSARY/Dashboard/SaveSplitterPreference";</span>
+<span class="cstat-no" title="statement not covered" >              $Ajax.ajaxAntiForgery({</span>
+                url: newurl,
+                type: "POST",
+                data: {
+                  paneSize: panesize,
+                  collapsed: collapse,
+                },
+                cache: true,
+                success: <span class="fstat-no" title="function not covered" >function(</span>response: any) {
+<span class="cstat-no" title="statement not covered" >                  if (response.success) {</span>
+                    //do nothing?
+                  } else {
+<span class="cstat-no" title="statement not covered" >                    $.notify({ message: response.Messge }, { type: "danger" });</span>
+                  }
+                },
+                error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >                  Main.handlejqerr(xhr, status, error);</span>
+                },
+              });
+            }
+          }
+        }
+      }
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.onSplitLoad = <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!angular.isUndefined($scope.splitter)) {</span>
+        const paneWidth = (&lt;HTMLInputElement&gt;<span class="cstat-no" title="statement not covered" >document.getElementById("PanelWidth")).value;</span>
+        const paneCollapsed = (&lt;HTMLInputElement&gt;<span class="cstat-no" title="statement not covered" >document.getElementById("PanelCollapsed")).value;</span>
+<span class="cstat-no" title="statement not covered" >        if (paneWidth.length &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >          $scope.splitter.options.panes[0].size = paneWidth;</span>
+          //can't get collapsed to work for some reason.  it's basically always collapsed
+          //$scope.splitter.options.panes[0].collapsed = paneCollapsed.toLowerCase();
+          //they reccommend something like below, although it's for jquery
+          //$scope.splitter.toggle(pane, $(pane).width() &lt;= 0);
+<span class="cstat-no" title="statement not covered" >          kendo.resize($($scope.splitter.wrapper[0]), true);</span>
+        }
+      }
+    };
+    // method, mostly used for the timer, to refresh EVERYTHING
+<span class="cstat-no" title="statement not covered" >    $scope.refreshAllCards = <span class="fstat-no" title="function not covered" >function(</span>LogEntryGUID, projectGUID, toolname) {</span>
+<span class="cstat-no" title="statement not covered" >      if (projectGUID === $scope.projectGUID || projectGUID === $scope.configProjectGUID) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!angular.isUndefined($scope.cards) &amp;&amp; $scope.cards !== null) {</span>
+<span class="cstat-no" title="statement not covered" >          $scope.$broadcast("refreshSelf", toolname);</span>
+          // for (const i = 0; i &lt; $scope.cards.length; i++) {
+          //    $scope.cards[i].refreshSelf();  //this means the small card needs to create this value itself.  Interface would be nice here
+          //    //this also means that if you have a large card that doesn't have a corresponding small/medium card, it won't refresh.  I could
+          //    //find a way around that, but it would be much more complicated and i'd rather leave it like this for now
+          // };
+<span class="cstat-no" title="statement not covered" >          $scope.refreshCount();</span>
+        }
+      }
+    };
+    // gets the small cards from the repository to refresh the count of items for each card
+<span class="cstat-no" title="statement not covered" >    $scope.refreshCount = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      dashRepository.getMediumCards().then(<span class="fstat-no" title="function not covered" >function(</span>cards) {</span>
+<span class="cstat-no" title="statement not covered" >        for (let i = 0; i &lt; cards.length; i++) {</span>
+          // this is kinda sloppy, looks like i assume the same card order each time.
+<span class="cstat-no" title="statement not covered" >          if ($scope.cards[i].AllowLogEntryCount) {</span>
+<span class="cstat-no" title="statement not covered" >            if (!angular.isUndefined($scope.cards[i].newLogEntries) &amp;&amp; $scope.cards[i].newLogEntries !== null) {</span>
+<span class="cstat-no" title="statement not covered" >              $scope.cards[i].newLogEntries = $scope.cards[i].newLogEntries.concat(</span>
+                returnItemsNotInArray(cards[i].totalLogEntries, $scope.cards[i].totalLogEntries),
+              );
+            } else {
+<span class="cstat-no" title="statement not covered" >              $scope.cards[i].newLogEntries = returnItemsNotInArray(</span>
+                cards[i].totalLogEntries,
+                $scope.cards[i].totalLogEntries,
+              );
+            }
+<span class="cstat-no" title="statement not covered" >            $scope.cards[i].totalLogEntries = cards[i].totalLogEntries;</span>
+          }
+        }
+      });
+    };
+    // checks a specified card to see if it contains a logentry or not
+<span class="cstat-no" title="statement not covered" >    $scope.checkIfNew = <span class="fstat-no" title="function not covered" >function(</span>guidtocheck, ocard) {</span>
+      const res = <span class="cstat-no" title="statement not covered" >jQuery.inArray(guidtocheck, ocard.newLogEntries);</span>
+<span class="cstat-no" title="statement not covered" >      return res;</span>
+    };
+    // same as above, but checks ALL cards.  used by the large card.
+    // TODO:  might be useful to put a toolname in here, so i don't have to use inArray each time.  Don't know how expensive that operation is
+<span class="cstat-no" title="statement not covered" >    $scope.checkIfNewFromAllCards = <span class="fstat-no" title="function not covered" >function(</span>guidtocheck) {</span>
+      // if (($scope.cards !== null) &amp;&amp; ($scope.cards !== 'undefined')) {
+<span class="cstat-no" title="statement not covered" >      if (!angular.isUndefined($scope.cards) &amp;&amp; $scope.cards !== null) {</span>
+<span class="cstat-no" title="statement not covered" >        for (let i = 0; i &lt; $scope.cards.length; i++) {</span>
+          const resp = <span class="cstat-no" title="statement not covered" >$scope.checkIfNew(guidtocheck, $scope.cards[i]);</span>
+<span class="cstat-no" title="statement not covered" >          if (resp &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >            return resp;</span>
+          }
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      return -1;</span>
+    };
+    // method that is called when a card (medium or small) has been loaded.  also, it checks if ALL the cards have been loaded yet, and if so we resort them so that the masonry doesn't look weird
+    // lot of potential here for a card to get lost, perhaps not the best method to tell if a page is finished loading
+<span class="cstat-no" title="statement not covered" >    $scope.incrementForCard = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!angular.isUndefined($scope.cards) &amp;&amp; $scope.cards !== null) {</span>
+<span class="cstat-no" title="statement not covered" >        $scope.numberofcardsloaded++;</span>
+<span class="cstat-no" title="statement not covered" >        if ($scope.numberofcardsloaded === $scope.cards.length) {</span>
+<span class="cstat-no" title="statement not covered" >          $scope.numberofcardsloaded = 0; // reset</span>
+        }
+      }
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.areCardsDoneLoading = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!angular.isUndefined($scope.cards) &amp;&amp; $scope.cards !== null) {</span>
+<span class="cstat-no" title="statement not covered" >        for (let i = 0; i &lt; $scope.cards.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >          if ($scope.cards[i].isLoading === true) {</span>
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+          }
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+    };
+    // tells when any card is finished loading.  runs the increment method too
+<span class="cstat-no" title="statement not covered" >    $scope.cardFinishedLoading = <span class="fstat-no" title="function not covered" >function(</span>theCard) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!angular.isUndefined(theCard) &amp;&amp; theCard !== null) {</span>
+<span class="cstat-no" title="statement not covered" >        if (theCard.SelectedSize !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >          $scope.incrementForCard();</span>
+        }
+        // do something here with the card
+<span class="cstat-no" title="statement not covered" >        theCard.isLoading = false;</span>
+      }
+    };
+    // shows the selected card in the large window
+<span class="cstat-no" title="statement not covered" >    $scope.expandCard = <span class="fstat-no" title="function not covered" >function(</span>ocard) {</span>
+<span class="cstat-no" title="statement not covered" >      $scope.clearNewEntries(ocard);</span>
+      // $scope.largecard = ocard;  //can't just do that, cause it passes a reference object.  gets screwy
+<span class="cstat-no" title="statement not covered" >      if (ocard.toolName !== $scope.largecard.toolName) {</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.isLoading = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.SelectedSize = 0;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.AllowDrop = ocard.AllowDrop;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.AllowLogEntryCount = ocard.AllowLogEntryCount;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.JavascriptFile = ocard.JavascriptFile;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.MobileJavascriptFile = ocard.MobileJavascriptFile;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.action = ocard.action;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.area = ocard.area;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.cardFriendlyName = ocard.cardFriendlyName;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.controller = ocard.controller;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.fullScreenUrl = ocard.fullScreenUrl;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.id = ocard.id;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.imageUrl = ocard.imageUrl;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.largecardUrl = ocard.largecardUrl;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.medcardUrl = ocard.medcardUrl;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.smallcardUrl = ocard.smallcardUrl;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.largecard.toolName = ocard.toolName;</span>
+      }
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.angDateFormatter = <span class="fstat-no" title="function not covered" >function(</span>datetouse) {</span>
+      const dateToCheck = <span class="cstat-no" title="statement not covered" >new Date(datetouse).setHours(0, 0, 0, 0);</span>
+      // Get today's date
+      const todaysDate = <span class="cstat-no" title="statement not covered" >new Date().setHours(0, 0, 0, 0);</span>
+      // call setHours to take the time out of the comparison
+<span class="cstat-no" title="statement not covered" >      if (dateToCheck === todaysDate) {</span>
+        // Date equals today's date, just show time
+<span class="cstat-no" title="statement not covered" >        return kendo.toString(datetouse, "T");</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        return kendo.toString(datetouse, "G");</span>
+      }
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.angTextFormatter = <span class="fstat-no" title="function not covered" >function(</span>text, maxlength) {</span>
+      const ret = <span class="cstat-no" title="statement not covered" >Main.textFormatter(text, maxlength);</span>
+<span class="cstat-no" title="statement not covered" >      return ret;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.angparseLogLinks = <span class="fstat-no" title="function not covered" >function(</span>logGUIDs) {</span>
+      let ret = <span class="cstat-no" title="statement not covered" >"";</span>
+<span class="cstat-no" title="statement not covered" >      if (logGUIDs !== undefined &amp;&amp; logGUIDs !== null &amp;&amp; logGUIDs.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        for (let x = 0; x &lt; logGUIDs.length; x++) {</span>
+          const linkURL =
+<span class="cstat-no" title="statement not covered" >            $scope.hostURL + "Incident/IncidentHome/GetToolLinkURL/" + $scope.projectGUID + "?logGUID=" + logGUIDs[x];</span>
+<span class="cstat-no" title="statement not covered" >          ret =</span>
+            ret +
+            "&lt;sup&gt;&lt;a class='btn btn-link btn-sm' title='Click to view associated entry' href='" +
+            linkURL +
+            "' target='_blank' rel='noopener noreferrer'&gt;&lt;span class='fa fa-link'&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;";
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      return ret;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.getUserRoleToolTip = <span class="fstat-no" title="function not covered" >function(</span>logGUID, roleusrtype) {</span>
+      let ret = <span class="cstat-no" title="statement not covered" >$scope.hostURL + "Incident/IncidentHome/GetUserRoleToolTip/" + $scope.projectGUID;</span>
+<span class="cstat-no" title="statement not covered" >      ret = ret + "?LogEntryGUID=" + logGUID + "&amp;roleusrtype=" + roleusrtype;</span>
+<span class="cstat-no" title="statement not covered" >      return ret;</span>
+    };
+    // clears out the 'new entries' number for a particular card
+<span class="cstat-no" title="statement not covered" >    $scope.clearNewEntries = <span class="fstat-no" title="function not covered" >function(</span>ocard) {</span>
+<span class="cstat-no" title="statement not covered" >      for (let i = 0; i &lt; $scope.cards.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        if ($scope.cards[i].toolName === ocard.toolName) {</span>
+<span class="cstat-no" title="statement not covered" >          $scope.cards[i].newLogEntries = []; // this is in case the same tool has both a small and medium card of itself on the Dashboard_  don't know why this would happen, but here we go</span>
+        }
+      }
+      // ocard.newLogEntries = new Array();
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.isModalLoading = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.createEntry = <span class="fstat-no" title="function not covered" >function(</span>dragid, dropTool, extraInfo, imagePath) {</span>
+<span class="cstat-no" title="statement not covered" >      $scope.isModalLoading = true;</span>
+      const tmpURL = <span class="cstat-no" title="statement not covered" >GetToolModalWindowURL(dragid, dropTool, false, extraInfo);</span>
+<span class="cstat-no" title="statement not covered" >      $("#modal-container").load(tmpURL, <span class="fstat-no" title="function not covered" >function(</span>result) {</span>
+<span class="cstat-no" title="statement not covered" >        $("#myModal").modal({ show: true, backdrop: "static", keyboard: false });</span>
+<span class="cstat-no" title="statement not covered" >        $("#myModal").on("shown.bs.modal", <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >          $scope.isModalLoading = false;</span>
+<span class="cstat-no" title="statement not covered" >          $scope.$broadcast("initModalJS");</span>
+          const mapdiv = <span class="cstat-no" title="statement not covered" >"#divmapcontainer";</span>
+<span class="cstat-no" title="statement not covered" >          loadMap(imagePath);</span>
+        });
+      });
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.editEntry = <span class="fstat-no" title="function not covered" >function(</span>sourceLogGUID, toolname, next) {</span>
+      const tmpURL = <span class="cstat-no" title="statement not covered" >GetToolModalWindowURL(sourceLogGUID, toolname, true, null);</span>
+<span class="cstat-no" title="statement not covered" >      $("#modal-container").load(tmpURL, <span class="fstat-no" title="function not covered" >function(</span>result) {</span>
+<span class="cstat-no" title="statement not covered" >        $("#myModal").modal({ show: true });</span>
+<span class="cstat-no" title="statement not covered" >        $("#myModal").on("shown.bs.modal", <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >          $scope.$broadcast("initModalJS");</span>
+          const mapdiv = <span class="cstat-no" title="statement not covered" >"#divmapcontainer";</span>
+<span class="cstat-no" title="statement not covered" >          if ($(mapdiv)) {</span>
+            const imgPath = <span class="cstat-no" title="statement not covered" >$(mapdiv).attr("data-imgurl");</span>
+<span class="cstat-no" title="statement not covered" >            loadMap(imgPath);</span>
+          }
+<span class="cstat-no" title="statement not covered" >          if (angular.isFunction(next)) {</span>
+<span class="cstat-no" title="statement not covered" >            next();</span>
+          }
+        });
+      });
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.closeModal = <span class="fstat-no" title="function not covered" >function() {</span></span>
+      //not the cleanest way to do this, but since angularUI puts the modalinstance in another controller, didn't really know how else to access it from here
+      //$scope.$broadcast('closeModel');
+<span class="cstat-no" title="statement not covered" >      $("#myModal").modal("hide");</span>
+    };
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  cbraModule.factory("opPeriodRepository", <span class="fstat-no" title="function not covered" >function(</span>$http, $q) {</span>
+    const allOpPeriodsURL = <span class="cstat-no" title="statement not covered" >"Incident/IncidentHome/GetOperationalPeriodsAsJSON/";</span>
+    const curOpPeriodURL = <span class="cstat-no" title="statement not covered" >"Incident/IncidentHome/GetCurrentOpPeriodAsJSON/";</span>
+    let projGUID;
+    let hostURL = <span class="cstat-no" title="statement not covered" >"";</span>
+    let _allOpPeriods = <span class="cstat-no" title="statement not covered" >[];</span>
+    let _curOpPeriod = <span class="cstat-no" title="statement not covered" >null;</span>
+    function <span class="fstat-no" title="function not covered" >getAllOpPeriods() {</span>
+      const deferred = <span class="cstat-no" title="statement not covered" >$q.defer();</span>
+<span class="cstat-no" title="statement not covered" >      $.ajax({</span>
+        url: hostURL + allOpPeriodsURL + projGUID,
+        type: "GET",
+        success: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >          deferred.resolve(response);</span>
+        },
+        error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >          Main.handlejqerr(xhr, status, error);</span>
+        },
+      });
+      //$http.get(hostURL + allOpPeriodsURL + projGUID)
+      //  .success(function (data) {
+      //    deferred.resolve(data);
+      //  }).error(function (msg, code) {
+      //    deferred.reject(msg);
+      //    //$log.error(msg, code);
+      //  });
+<span class="cstat-no" title="statement not covered" >      return deferred.promise;</span>
+    }
+    function <span class="fstat-no" title="function not covered" >getCurOpPeriod() {</span>
+      const deferred = <span class="cstat-no" title="statement not covered" >$q.defer();</span>
+<span class="cstat-no" title="statement not covered" >      $.ajax({</span>
+        url: hostURL + curOpPeriodURL + projGUID,
+        type: "GET",
+        success: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >          deferred.resolve(response);</span>
+        },
+        error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >          Main.handlejqerr(xhr, status, error);</span>
+        },
+      });
+<span class="cstat-no" title="statement not covered" >      return deferred.promise;</span>
+    }
+    function <span class="fstat-no" title="function not covered" >refresh() {</span>
+      const deferred = <span class="cstat-no" title="statement not covered" >$q.defer();</span>
+<span class="cstat-no" title="statement not covered" >      $q.all([</span>
+        getCurOpPeriod().then(<span class="fstat-no" title="function not covered" >function(</span>data) {
+<span class="cstat-no" title="statement not covered" >          if (data === "") {</span>
+<span class="cstat-no" title="statement not covered" >            _curOpPeriod = null;</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            _curOpPeriod = data;</span>
+          }
+        }),
+        getAllOpPeriods()
+          .then(<span class="fstat-no" title="function not covered" >function(</span>data) {
+<span class="cstat-no" title="statement not covered" >            _allOpPeriods = data;</span>
+          })
+          .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            deferred.resolve();</span>
+          }),
+      ]);
+<span class="cstat-no" title="statement not covered" >      return deferred.promise;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      init: <span class="fstat-no" title="function not covered" >function(</span>hstURL, projectGUID) {
+<span class="cstat-no" title="statement not covered" >        hostURL = hstURL;</span>
+<span class="cstat-no" title="statement not covered" >        projGUID = projectGUID;</span>
+<span class="cstat-no" title="statement not covered" >        return refresh();</span>
+      },
+      refresh: refresh,
+      allOpPeriods: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return _allOpPeriods;</span>
+      },
+      curOpPeriod: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return _curOpPeriod;</span>
+      },
+    };
+  });
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

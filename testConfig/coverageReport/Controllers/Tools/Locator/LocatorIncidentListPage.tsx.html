@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/Locator/LocatorIncidentListPage.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/Locator</a> LocatorIncidentListPage.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/94</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/85</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { Component } from "react";</span>
+<span class="cstat-no" title="statement not covered" >import {</span>
+  getListOfLocators,
+  addActiveLocatorToProject,
+  removeActiveLocatorFromProject,
+  getListOfActiveLocatorsForProject,
+} from "Api/LocatorApi";
+<span class="cstat-no" title="statement not covered" >import { currentOrg } from "Api/constants";</span>
+<span class="cstat-no" title="statement not covered" >import { CardBody, Card, CardHeader } from "reactstrap";</span>
+<span class="cstat-no" title="statement not covered" >import "../../../../Content/ExtraStyles/Locator.scss";</span>
+<span class="cstat-no" title="statement not covered" >import Row from "reactstrap/lib/Row";</span>
+<span class="cstat-no" title="statement not covered" >import Col from "reactstrap/lib/Col";</span>
+<span class="cstat-no" title="statement not covered" >import { FaHeartbeat } from "react-icons/fa";</span>
+<span class="cstat-no" title="statement not covered" >import ReactCSSTransitionGroup from "react-addons-css-transition-group";</span>
+&nbsp;
+const FIVE_MIN = <span class="cstat-no" title="statement not covered" >5 * 60 * 1000; //In ms</span>
+&nbsp;
+type Props = {
+  translatedFields?: any;
+  project?: string;
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >class LocatorIncidentListPage extends <span class="cstat-no" title="statement not covered" >Component&lt;Props, any&gt; {</span></span></span>
+  static <span class="cstat-no" title="statement not covered" >defaultProps: Partial&lt;Props&gt; = {</span>
+    translatedFields: {},
+    project: "",
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  state = {</span>
+    selectedOption: { label: currentOrg, value: currentOrg },
+    tableData: [],
+    selectedTableData: [],
+  };
+&nbsp;
+<span class="fstat-no" title="function not covered" >  constructor(props) {</span>
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.moveToSelectedList = this.moveToSelectedList.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >    this.moveToAvailableList = this.moveToAvailableList.bind(this);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  async <span class="cstat-no" title="statement not covered" >getTableData(</span>orgName) {</span>
+    let <span class="cstat-no" title="statement not covered" >data = <span class="cstat-no" title="statement not covered" >await getListOfLocators({ OrganizationName: orgName });</span></span>
+    let <span class="cstat-no" title="statement not covered" >selectedLocators = [];</span>
+    if (<span class="cstat-no" title="statement not covered" >this.props.project) {</span>
+<span class="cstat-no" title="statement not covered" >      selectedLocators = <span class="cstat-no" title="statement not covered" >await getListOfActiveLocatorsForProject({ id: this.props.project });</span></span>
+&nbsp;
+      //This for loop removes all Selected locators, IE Active locators in an incident
+      //From the data grid, so that active locators do not appear in the Inactive table
+<span class="cstat-no" title="statement not covered" >      if (selectedLocators &amp;&amp; selectedLocators.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        data = data.filter(<span class="fstat-no" title="function not covered" >function(</span>value, index, err) {</span>
+<span class="cstat-no" title="statement not covered" >          for (let k = 0; k &lt; selectedLocators.length; k++) {</span>
+<span class="cstat-no" title="statement not covered" >            if (selectedLocators[k].LocatorSerialNum === value.LocatorSerialNum) {</span>
+<span class="cstat-no" title="statement not covered" >              return false;</span>
+            }
+          }
+<span class="cstat-no" title="statement not covered" >          return true;</span>
+        });
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setState(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >({</span></span></span>
+      tableData: data,
+      selectedTableData: selectedLocators,
+    }));
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  async <span class="cstat-no" title="statement not covered" >componentDidMount() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.getTableData(currentOrg);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  async <span class="cstat-no" title="statement not covered" >moveToSelectedList(</span>rowVal) {</span>
+<span class="cstat-no" title="statement not covered" >    this.setState(<span class="fstat-no" title="function not covered" >(</span>{ tableData, selectedTableData }) =&gt; {</span>
+      const selectedItem = <span class="cstat-no" title="statement not covered" >tableData.find(<span class="fstat-no" title="function not covered" >function(</span>value, index, err) {</span>
+<span class="cstat-no" title="statement not covered" >        return value.LocatorSerialNum === rowVal;</span>
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.props.project) {</span>
+        const result = <span class="cstat-no" title="statement not covered" >addActiveLocatorToProject(selectedItem.LocatorSerialNum, this.props.project).then(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          return true;</span>
+        });
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      tableData = tableData.filter(<span class="fstat-no" title="function not covered" >function(</span>value, index, err) {</span>
+<span class="cstat-no" title="statement not covered" >        return value.LocatorSerialNum !== rowVal;</span>
+      });
+<span class="cstat-no" title="statement not covered" >      selectedTableData.push(selectedItem);</span>
+<span class="cstat-no" title="statement not covered" >      selectedTableData.sort(<span class="fstat-no" title="function not covered" >function(</span>a, b) {</span>
+<span class="cstat-no" title="statement not covered" >        if (a.LocatorName &gt; b.LocatorName) {</span>
+<span class="cstat-no" title="statement not covered" >          return 1;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          return -1;</span>
+        }
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      tableData.sort(<span class="fstat-no" title="function not covered" >function(</span>a, b) {</span>
+<span class="cstat-no" title="statement not covered" >        if (a.LocatorName &gt; b.LocatorName) {</span>
+<span class="cstat-no" title="statement not covered" >          return 1;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          return -1;</span>
+        }
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        tableData: tableData,
+        selectedTableData: selectedTableData,
+      };
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  async <span class="cstat-no" title="statement not covered" >moveToAvailableList(</span>rowVal) {</span>
+<span class="cstat-no" title="statement not covered" >    this.setState(<span class="fstat-no" title="function not covered" >(</span>{ tableData, selectedTableData }) =&gt; {</span>
+      const selectedItem = <span class="cstat-no" title="statement not covered" >selectedTableData.find(<span class="fstat-no" title="function not covered" >function(</span>value, index, err) {</span>
+<span class="cstat-no" title="statement not covered" >        return value.LocatorSerialNum === rowVal;</span>
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.props.project) {</span>
+        const result = <span class="cstat-no" title="statement not covered" >removeActiveLocatorFromProject(selectedItem.LocatorSerialNum, this.props.project).then(</span>
+<span class="fstat-no" title="function not covered" >          response =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            return true;</span>
+          },
+        );
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      selectedTableData = selectedTableData.filter(<span class="fstat-no" title="function not covered" >function(</span>value, index, err) {</span>
+<span class="cstat-no" title="statement not covered" >        return value.LocatorSerialNum !== rowVal;</span>
+      });
+<span class="cstat-no" title="statement not covered" >      tableData.push(selectedItem);</span>
+<span class="cstat-no" title="statement not covered" >      tableData.sort(<span class="fstat-no" title="function not covered" >function(</span>a, b) {</span>
+<span class="cstat-no" title="statement not covered" >        if (a.LocatorName &gt; b.LocatorName) {</span>
+<span class="cstat-no" title="statement not covered" >          return 1;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          return -1;</span>
+        }
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      selectedTableData.sort(<span class="fstat-no" title="function not covered" >function(</span>a, b) {</span>
+<span class="cstat-no" title="statement not covered" >        if (a.LocatorName &gt; b.LocatorName) {</span>
+<span class="cstat-no" title="statement not covered" >          return 1;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          return -1;</span>
+        }
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        tableData: tableData,
+        selectedTableData: selectedTableData,
+      };
+    });
+  }
+&nbsp;
+  /**
+   *  If current time minus the time of the reading is less than 5 minutes, return true.
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  validateMostRecentReading(</span>time) {</span>
+<span class="cstat-no" title="statement not covered" >    return !time &amp;&amp; Date.now() - new Date(time).getUTCMilliseconds() &lt; FIVE_MIN;</span>
+  }
+&nbsp;
+  //Saved for future when using the DateRangePicker again
+  // async handleDateRangePickerEvent(event, picker) {
+  //   const serial = picker.locale.weekLabel;
+  //   const startDate = picker.startDate.toDate().getTime() / 1000;
+  //   const endDate = picker.endDate.toDate().getTime() / 1000;
+  //   const result = await UpdateActiveLocatorDateRange(this.props.project, serial, startDate, endDate);
+  //   if (result) {
+  //     this.getTableData(currentOrg);
+  //   }
+  // }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  render() {</span></span></span>
+    const <span class="cstat-no" title="statement not covered" >{ <span class="cstat-no" title="statement not covered" >translatedFields, <span class="cstat-no" title="statement not covered" >project } = this.props;</span></span></span>
+    const <span class="cstat-no" title="statement not covered" >{ <span class="cstat-no" title="statement not covered" >tableData, <span class="cstat-no" title="statement not covered" >selectedTableData } = this.state;</span></span></span>
+&nbsp;
+    //Saved for future use of the DateRangePicker
+    //   &lt;DateRangePicker
+    //   locale={{ weekLabel: row.LocatorSerialNum }}
+    //   onApply={this.handleDateRangePickerEvent as any}
+    //   startDate={row.StartReadingsDate ? new Date(row.StartReadingsDate) : new Date()}
+    //   endDate={row.EndReadingsDate ? new Date(row.EndReadingsDate) : new Date()}
+    // &gt;
+    //   &lt;i className="fas fa-calendar-alt" /&gt;
+    // &lt;/DateRangePicker&gt;
+    let availableElementsList = <span class="cstat-no" title="statement not covered" >null;</span>
+<span class="cstat-no" title="statement not covered" >    if (tableData &amp;&amp; tableData.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      availableElementsList = tableData.map(<span class="fstat-no" title="function not covered" >(</span>item, index) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return (</span>
+          &lt;Row key={item.LocatorSerialNum} style={{ position: "relative", marginBottom: "10px" }}&gt;
+            &lt;Col xs="1"&gt;
+              &lt;input
+                type="checkbox"
+                defaultChecked={false}
+                onChange={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >this.moveToSelectedList(item.LocatorSerialNum)}</span></span>
+                style={{ position: "absolute", top: "35%" }}
+              /&gt;
+            &lt;/Col&gt;
+            &lt;Col xs="10"&gt;
+              &lt;b&gt;{translatedFields.LocatorName}:&lt;/b&gt; {item.LocatorName}
+              &lt;br /&gt;
+              &lt;b&gt;{translatedFields.SerialNumber}:&lt;/b&gt; {item.LocatorSerialNum}
+            &lt;/Col&gt;
+            &lt;Col xs="1"&gt;
+              {this.validateMostRecentReading(item.TimeOfReading) ? (
+                &lt;FaHeartbeat style={{ color: "green", position: "absolute", top: "40%" }} /&gt;
+              ) : (
+                &lt;FaHeartbeat style={{ color: "red", position: "absolute", top: "40%" }} /&gt;
+              )}
+            &lt;/Col&gt;
+          &lt;/Row&gt;
+        );
+      });
+    }
+&nbsp;
+    let selectedElementsList = <span class="cstat-no" title="statement not covered" >null;</span>
+<span class="cstat-no" title="statement not covered" >    if (selectedTableData &amp;&amp; selectedTableData.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      selectedElementsList = selectedTableData.map(<span class="fstat-no" title="function not covered" >(</span>item, index) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return (</span>
+          &lt;Row key={item.LocatorSerialNum} style={{ position: "relative", marginBottom: "10px" }}&gt;
+            &lt;Col xs="1"&gt;
+              &lt;input
+                type="checkbox"
+                defaultChecked={true}
+                onChange={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >this.moveToAvailableList(item.LocatorSerialNum)}</span></span>
+                style={{ position: "absolute", top: "35%" }}
+              /&gt;
+            &lt;/Col&gt;
+            &lt;Col xs="10"&gt;
+              &lt;b&gt;{translatedFields.LocatorName}:&lt;/b&gt; {item.LocatorName}
+              &lt;br /&gt;
+              &lt;b&gt;{translatedFields.SerialNumber}:&lt;/b&gt; {item.LocatorSerialNum}
+            &lt;/Col&gt;
+            &lt;Col xs="1"&gt;
+              {this.validateMostRecentReading(item.TimeOfReading) ? (
+                &lt;FaHeartbeat style={{ color: "green", position: "absolute", top: "40%" }} /&gt;
+              ) : (
+                &lt;FaHeartbeat style={{ color: "red", position: "absolute", top: "40%" }} /&gt;
+              )}
+            &lt;/Col&gt;
+          &lt;/Row&gt;
+        );
+      });
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;div&gt;
+        &lt;Row&gt;
+          &lt;Col xs="6"&gt;
+            &lt;Card&gt;
+              &lt;CardHeader style={{ textAlign: "center" }}&gt;
+                &lt;b&gt;{translatedFields.OrgLocators}&lt;/b&gt;
+              &lt;/CardHeader&gt;
+              &lt;CardBody&gt;
+                {availableElementsList &amp;&amp; availableElementsList.length &gt; 0 ? (
+                  &lt;ReactCSSTransitionGroup
+                    transitionName="active"
+                    transitionEnterTimeout={300}
+                    transitionLeaveTimeout={300}
+                  &gt;
+                    {availableElementsList}
+                  &lt;/ReactCSSTransitionGroup&gt;
+                ) : null}
+              &lt;/CardBody&gt;
+            &lt;/Card&gt;
+          &lt;/Col&gt;{" "}
+          &lt;Col xs="6"&gt;
+            &lt;Card&gt;
+              &lt;CardHeader style={{ textAlign: "center" }}&gt;
+                &lt;b&gt;{translatedFields.SelectedLocators}&lt;/b&gt;
+              &lt;/CardHeader&gt;
+              &lt;CardBody&gt;
+                {selectedElementsList &amp;&amp; selectedElementsList.length &gt; 0 ? (
+                  &lt;ReactCSSTransitionGroup
+                    transitionName="active"
+                    transitionEnterTimeout={300}
+                    transitionLeaveTimeout={300}
+                  &gt;
+                    {selectedElementsList}
+                  &lt;/ReactCSSTransitionGroup&gt;
+                ) : null}
+              &lt;/CardBody&gt;
+            &lt;/Card&gt;
+          &lt;/Col&gt;
+        &lt;/Row&gt;
+      &lt;/div&gt;
+    );
+  }
+<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
+export default LocatorIncidentListPage;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

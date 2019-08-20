@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Utilities/onPageLoad.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">Utilities</a> onPageLoad.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*eslint-disable @typescript-eslint/no-angle-bracket-type-assertion*/
+/* global
+Main,
+currentUrlPrefix,
+stringEndsWithPolyfill,
+stringStartsWithPolyfill,
+*/
+//import { currentUrlPrefix } from './Simple/currentUrlPrefix';
+/**
+ * Are you wanting these to run on every page? If so, I'd create something like a baseScript
+ * entry point and import all those other functions.
+ */
+<span class="cstat-no" title="statement not covered" >$(document).ajaxStart(<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>) =&gt; {</span></span></span>
+<span class="cstat-no" title="statement not covered" >  $("#imgHeader").attr("style", "animation: blink 2s ease-in infinite");</span>
+<span class="cstat-no" title="statement not covered" >  $("#imgHeaderwide").attr("style", "animation: blink 2s ease-in infinite");</span>
+});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >$(document).ajaxStop(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+  //$("#imgHeader").attr("style", "animation: ");
+<span class="cstat-no" title="statement not covered" >  $("#imgHeader").css("animation", "");</span>
+<span class="cstat-no" title="statement not covered" >  $("#imgHeaderwide").css("animation", "");</span>
+});
+// http://opserver2/gemini5/project/Web4434/10038/item/111598
+//$(window).on("beforeunload", function () {
+<span class="cstat-no" title="statement not covered" >$(window).on("unload", <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  if (Main.serverBuildType !== "Belgium") {</span>
+    const urlToSend = <span class="cstat-no" title="statement not covered" >currentUrlPrefix() + "Monitor/BootSelf";</span>
+<span class="cstat-no" title="statement not covered" >    $.ajax({</span>
+      url: urlToSend,
+      async: true,
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      /**
+       * What's the point of having the success/error blocks if you're not
+       * doing anything with them?
+       */
+      success: <span class="fstat-no" title="function not covered" >(</span>response: any) =&gt; {
+        // do nothing
+      },
+      error: <span class="fstat-no" title="function not covered" >(</span>xhr, status, error) =&gt; {
+        // do nothing
+      },
+    });
+  }
+<span class="cstat-no" title="statement not covered" >  return false;</span>
+});
+&nbsp;
+/**
+ * This should be moved to a module, but without being completely familiar with
+ * jQuery plugins and overrides, and how the `this` context is set, I'm afraid
+ * to do so.  //PJ: Me too.
+ * @param degrees
+ * @return {JQuery}
+ */
+(&lt;any&gt;<span class="cstat-no" title="statement not covered" >jQuery.fn).rotate = <span class="fstat-no" title="function not covered" >function(</span>degrees) {</span>
+<span class="cstat-no" title="statement not covered" >  $(this).css({</span>
+    "-webkit-transform": "rotate(" + degrees + "deg)",
+    "-moz-transform": "rotate(" + degrees + "deg)",
+    "-ms-transform": "rotate(" + degrees + "deg)",
+    transform: "rotate(" + degrees + "deg)",
+  });
+<span class="cstat-no" title="statement not covered" >  return $(this);</span>
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >stringEndsWithPolyfill();</span>
+<span class="cstat-no" title="statement not covered" >stringStartsWithPolyfill();</span>
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

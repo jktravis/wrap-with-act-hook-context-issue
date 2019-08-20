@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/ESF/ESF/ESFJS.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/ESF/ESF</a> ESFJS.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/49</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >namespace </span>Dashboard_ESF {</span>
+  interface IESFScope extends ng.IScope {
+    esfDataSourceL: kendo.data.DataSource;
+    esfDataSourceM: kendo.data.DataSource;
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >saveESF(baseurl) {</span></span>
+    var esftype = <span class="cstat-no" title="statement not covered" >$("#ESFType").val();</span>
+    var objname = <span class="cstat-no" title="statement not covered" >$("#ObjectName").val();</span>
+    var statval = <span class="cstat-no" title="statement not covered" >$("#StatusValue").val();</span>
+    var znguid = <span class="cstat-no" title="statement not covered" >$("#ZoneGuid").val();</span>
+    var comm = <span class="cstat-no" title="statement not covered" >$("#Comments").val();</span>
+    var latval;
+<span class="cstat-no" title="statement not covered" >    if ($("#Lat")) {</span>
+<span class="cstat-no" title="statement not covered" >      latval = $("#Lat").val();</span>
+    }
+    var lonval;
+<span class="cstat-no" title="statement not covered" >    if ($("#Lon")) {</span>
+<span class="cstat-no" title="statement not covered" >      lonval = $("#Lon").val();</span>
+    }
+    var logguid = <span class="cstat-no" title="statement not covered" >$("#LogEntryGUID").val();</span>
+    var statguid = <span class="cstat-no" title="statement not covered" >$("#StaticGUID").val();</span>
+<span class="cstat-no" title="statement not covered" >    if (objname !== null &amp;&amp; objname.length &gt; 0) {</span>
+      var url = <span class="cstat-no" title="statement not covered" >baseurl;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      $Ajax.ajaxAntiForgery({</span>
+        url: url,
+        type: "POST",
+        data: {
+          Lat: latval,
+          Lon: lonval,
+          ESFType: esftype,
+          ObjectName: objname,
+          StatusValue: statval,
+          ZoneGUID: znguid,
+          Comments: comm,
+          LogEntryGUID: logguid,
+          StaticGUID: statguid,
+        },
+        success: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >          if (response !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            Dashboard.jqueryclosemodal();</span>
+            //add refresh to RR window here if you like
+            //refreshAllESF(true);
+          }
+        },
+        error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >          Main.handlejqerr(xhr, status, error);</span>
+        },
+      });
+    }
+  }
+  function <span class="fstat-no" title="function not covered" >refreshAllESF() {</span>
+<span class="cstat-no" title="statement not covered" >    if (angular.element("#esfControllerID").length) {</span>
+      (&lt;IESFScope&gt;<span class="cstat-no" title="statement not covered" >angular.element("#esfControllerID").scope()).esfDataSourceL.read();</span>
+    }
+    //would like to figure out a way to make this repository reside in the dashboard controller somehow, so that i
+    //only need to refresh this once.
+<span class="cstat-no" title="statement not covered" >    if (angular.element("#esfControllerIDM").length) {</span>
+      (&lt;IESFScope&gt;<span class="cstat-no" title="statement not covered" >angular.element("#esfControllerIDM").scope()).esfDataSourceM.read();</span>
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  angular.module("cobraapp").factory("esfRepository", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      getDataSourceM: <span class="fstat-no" title="function not covered" >function(</span>hostURL, projectGUID) {
+<span class="cstat-no" title="statement not covered" >        return new kendo.data.DataSource({</span>
+          transport: {
+            read: {
+              url: hostURL + "/ESF/ESF/_GetEvListJSON/" + projectGUID,
+            },
+          },
+          schema: {
+            model: {
+              id: "LogEntryGUID",
+              fields: {
+                LogEntryGUID: { editable: false },
+                ObjectName: { editable: false },
+                StatusValue: { editable: false },
+                ESFTypeString: { editable: false },
+                StatusClass: { editable: false },
+                Description: { editable: false },
+                FormattedDateCreated: { type: "date", editable: false },
+                Comments: { editable: false },
+                Coordinates: { editable: false },
+                ZoneName: { editable: false },
+              },
+            },
+          },
+        });
+      },
+      getDataSourceL: <span class="fstat-no" title="function not covered" >function(</span>hostURL, projectGUID) {
+<span class="cstat-no" title="statement not covered" >        return new kendo.data.DataSource({</span>
+          transport: {
+            read: {
+              url: hostURL + "/ESF/ESF/_GetEvListJSON/" + projectGUID,
+            },
+          },
+          pageSize: 7,
+          schema: {
+            model: {
+              id: "LogEntryGUID",
+              fields: {
+                LogEntryGUID: { editable: false },
+                ObjectName: { editable: false },
+                StatusValue: { editable: false },
+                StatusClass: { editable: false },
+                ESFTypeString: { editable: false },
+                Description: { editable: false },
+                FormattedDateCreated: { type: "date", editable: false },
+                Comments: { editable: false },
+                Coordinates: { editable: false },
+                ZoneName: { editable: false },
+              },
+            },
+          },
+        });
+      },
+    };
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  angular.module("cobraapp").controller("esfController", <span class="fstat-no" title="function not covered" >function(</span>$scope, esfRepository) {</span>
+<span class="cstat-no" title="statement not covered" >    $scope.loadcard = <span class="fstat-no" title="function not covered" >function(</span>ocard) {</span>
+<span class="cstat-no" title="statement not covered" >      $scope.currentCard = ocard;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.$on("initModalJS", <span class="fstat-no" title="function not covered" >function() {});</span></span>
+<span class="cstat-no" title="statement not covered" >    $scope.$on("refreshSelf", <span class="fstat-no" title="function not covered" >function(</span>event, toolname) {</span>
+<span class="cstat-no" title="statement not covered" >      if (</span>
+        toolname === "ESFTransportationTool" ||
+        toolname === "ESFCommunicationsTool" ||
+        toolname === "ESFPublicWorksTool" ||
+        toolname === "ESFFirefightingTool" ||
+        toolname === "ESFEMTool" ||
+        toolname === "ESFMassCareTool" ||
+        toolname === "ESFLogisticsTool" ||
+        toolname === "ESFPublicHealthTool" ||
+        toolname === "ESFSearchAndRescueTool" ||
+        toolname === "ESFOilHazmatTool" ||
+        toolname === "ESFAgriTool" ||
+        toolname === "ESFEnergyTool" ||
+        toolname === "ESFPublicSafeTool" ||
+        toolname === "ESFCommRecovTool" ||
+        toolname === "ESFExtAffairsTool"
+      ) {
+<span class="cstat-no" title="statement not covered" >        refreshAllESF();</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    $scope.esfDataSourceM = esfRepository.getDataSourceM($scope.hostURL, $scope.projectGUID);</span>
+<span class="cstat-no" title="statement not covered" >    $scope.esfGridOptions = {</span>
+      selectable: false,
+      pageable: false,
+      dataSource: $scope.esfDataSourceM,
+      template:
+        "&lt;div class='listviewtmp' ng-class='{highlightedrow: checkIfNew(dataItem.LogEntryGUID,ocard) != -1}'&gt;&lt;dl&gt;&lt;dt ng-class='dataItem.StatusClass'&gt;&lt;time data-format='lll' datetime='{{ dataItem.UnixDateCreated }}'&gt;{{ angDateFormatter(dataItem.FormattedDateCreated) }}&lt;/time&gt;&lt;/dt&gt;&lt;dd&gt;{{ dataItem.Coordinates }}&lt;/dd&gt;&lt;dd&gt;{{ dataItem.Description }}&lt;/dd&gt;&lt;dd&gt;{{ dataItem.Comments }}&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt;",
+      altTemplate:
+        "&lt;div class='listviewalttmp' ng-class='{highlightedrow: checkIfNew(dataItem.LogEntryGUID,ocard) != -1}'&gt;&lt;dl&gt;&lt;dt ng-class='dataItem.StatusClass'&gt;&lt;time data-format='lll' datetime='{{ dataItem.UnixDateCreated }}'&gt;{{ angDateFormatter(dataItem.FormattedDateCreated) }}&lt;/time&gt;&lt;/dt&gt;&lt;dd&gt;{{ dataItem.Coordinates }}&lt;/dd&gt;&lt;dd&gt;{{ dataItem.Description }}&lt;/dd&gt;&lt;dd&gt;{{ dataItem.Comments }}&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt;",
+      dataBinding: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        $scope.currentHeight = $("#esfMlst")[0].offsetHeight;</span>
+      },
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.esfDataSourceL = esfRepository.getDataSourceL($scope.hostURL, $scope.projectGUID);</span>
+<span class="cstat-no" title="statement not covered" >    $scope.esfGridOptionsL = {</span>
+      selectable: false,
+      sortable: true,
+      filterable: true,
+      pageable: {
+        refresh: false,
+        pageSizes: false,
+        buttonCount: 5,
+      },
+      columns: [
+        { field: "LogEntryGUID", title: " ", sortable: false, filterable: false, width: "1.563em" },
+        { field: "StatusValue", title: "Status" },
+        { field: "COBARTSType", title: "Type" },
+        { field: "ZoneName", title: "Zone" },
+        { field: "FormattedDateCreated", title: "Date Created", format: "{0:G}", width: "95px" },
+      ],
+      rowTemplate:
+        "&lt;tr class='k-cust' ng-class='{highlightedrow: checkIfNewFromAllCards(dataItem.LogEntryGUID) != -1}' data-uid='#= uid #'&gt;&lt;td class='text-center p-0 m-0'&gt;&lt;div class='btn btn-info btn-sm movable rounded-circle p-0 m-0' id='{{dataItem.LogEntryGUID}}'&gt;&lt;span class='fa fa-crosshairs' /&gt;&lt;/div&gt;&lt;/td&gt;&lt;td&gt;&lt;span class='label' ng-class='dataItem.StatusClass'&gt;{{ dataItem.StatusValue }}&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;a title='Click to Edit' class='btn btn-link' ng-click='editEntry(dataItem.LogEntryGUID,dataItem.ToolName)' &gt;&lt;span&gt;{{ dataItem.ESFTypeString }}&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;&lt;td&gt;{{dataItem.ZoneName}}&lt;/td&gt;&lt;td&gt;&lt;time data-format='lll' datetime='{{ dataItem.UnixDateCreated }}'&gt;{{ angDateFormatter(dataItem.FormattedDateCreated) }}&lt;/time&gt;&lt;/td&gt;&lt;/tr&gt;",
+      altRowTemplate:
+        "&lt;tr class='k-custalt' ng-class='{highlightedrow: checkIfNewFromAllCards(dataItem.LogEntryGUID) != -1}' data-uid='#= uid #'&gt;&lt;td class='text-center p-0 m-0'&gt;&lt;div class='btn btn-info btn-sm movable rounded-circle p-0 m-0' id='{{dataItem.LogEntryGUID}}'&gt;&lt;span class='fa fa-crosshairs' /&gt;&lt;/div&gt;&lt;/td&gt;&lt;td&gt;&lt;span class='label' ng-class='dataItem.StatusClass'&gt;{{ dataItem.StatusValue }}&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;a title='Click to Edit' class='btn btn-link' ng-click='editEntry(dataItem.LogEntryGUID,dataItem.ToolName)' &gt;&lt;span&gt;{{ dataItem.ESFTypeString }}&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;&lt;td&gt;{{dataItem.ZoneName}}&lt;/td&gt;&lt;td&gt;&lt;time data-format='lll' datetime='{{ dataItem.UnixDateCreated }}'&gt;{{ angDateFormatter(dataItem.FormattedDateCreated) }}&lt;/time&gt;&lt;/td&gt;&lt;/tr&gt;",
+      dataSource: $scope.esfDataSourceL,
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.ldatabound = <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >      if ($scope.largecard.isLoading === true) {</span>
+<span class="cstat-no" title="statement not covered" >        if ($("#esfGrid")) {</span>
+<span class="cstat-no" title="statement not covered" >          $("#esfGrid").kendoDraggable({</span>
+            filter: ".movable",
+            hint: <span class="fstat-no" title="function not covered" >function(</span>element) {
+<span class="cstat-no" title="statement not covered" >              return element.clone();</span>
+            },
+            dragstart: Main.draggableOnDragStart,
+            dragend: Main.draggableOnDragEnd,
+          });
+        }
+<span class="cstat-no" title="statement not covered" >        $scope.cardFinishedLoading($scope.largecard);</span>
+      }
+    };
+<span class="cstat-no" title="statement not covered" >    $scope.mdatabound = <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+      var tmp = <span class="cstat-no" title="statement not covered" >$("#esfMlst")[0].offsetHeight;</span>
+<span class="cstat-no" title="statement not covered" >      if (tmp !== $scope.currentHeight &amp;&amp; $scope.currentCard.isLoading === false) {</span>
+        //only want to refreshmasonry if the page has finished loading, otherwise just wait, it's coming
+        //Dashboard.refreshMasonry();
+      }
+<span class="cstat-no" title="statement not covered" >      $scope.cardFinishedLoading($scope.currentCard);</span>
+    };
+  });
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/KMLExport/KMLExport.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/KMLExport</a> KMLExport.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/55</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/55</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >namespace </span>KMLExport {</span>
+  let _postKMLUrl;
+  let _showKMLUrl;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >init(postKMLUrl, showKMLUrl) {</span></span>
+    // Bind handler to click event of tree checkboxes to toggle visibility of layers
+<span class="cstat-no" title="statement not covered" >    $("#layertreeview").on("click", ".k-checkbox input:checkbox", <span class="fstat-no" title="function not covered" >function() {</span></span>
+      var state = <span class="cstat-no" title="statement not covered" >"unchecked";</span>
+<span class="cstat-no" title="statement not covered" >      if ($(this).is(":checked")) {</span>
+<span class="cstat-no" title="statement not covered" >        state = "checked";</span>
+      }
+      var itemId = <span class="cstat-no" title="statement not covered" >$(this)</span>
+        .closest("li")
+        .attr("data-id");
+      var itemName = <span class="cstat-no" title="statement not covered" >encodeURIComponent(</span>
+        $(this)
+          .closest("li")
+          .find(".k-in")
+          .html(),
+      );
+<span class="cstat-no" title="statement not covered" >      if (</span>
+        (itemId.search("ParentNode") &amp;&amp; $(this).closest("li")[0].childNodes[1] != null) ||
+        $(this)
+          .closest("li")
+          .children("ul.k-group").length &gt; 0
+      ) {
+        var nodeIds = <span class="cstat-no" title="statement not covered" >new Array();</span>
+        var nodeNames = <span class="cstat-no" title="statement not covered" >new Array();</span>
+        //first add the checked node
+<span class="cstat-no" title="statement not covered" >        nodeIds.push(itemId);</span>
+<span class="cstat-no" title="statement not covered" >        nodeNames.push(itemName);</span>
+<span class="cstat-no" title="statement not covered" >        $(this)</span>
+          .closest("li")
+          .find("li.k-item")
+          .each(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            nodeIds.push($(this).attr("data-id"));</span>
+            //nodeNames.push($(this).find(".k-in").html());
+            var name = <span class="cstat-no" title="statement not covered" >$(this)</span>
+              .find(".k-in")
+              .html();
+<span class="cstat-no" title="statement not covered" >            name = encodeURIComponent(name);</span>
+<span class="cstat-no" title="statement not covered" >            nodeNames.push(name);</span>
+          });
+<span class="cstat-no" title="statement not covered" >        AddOrRemoveNodes(nodeIds, nodeNames, state);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        AddOrRemoveNode(itemId, itemName, state);</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    if (Main.currentProjectGUID.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      $.connection.hub.start();</span>
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >AddOrRemoveNode(itemUid, itemName, state) {</span>
+    var ids = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >    ids.push(itemUid);</span>
+    var names = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >    names.push(itemName);</span>
+<span class="cstat-no" title="statement not covered" >    AddOrRemoveNodes(ids, names, state);</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >AddOrRemoveNodes(itemUids, itemNames, state) {</span>
+    var nodesToIgnore = <span class="cstat-no" title="statement not covered" >$("#nodesToIgnore").val();</span>
+<span class="cstat-no" title="statement not covered" >    if (nodesToIgnore == "" || nodesToIgnore == null) {</span>
+<span class="cstat-no" title="statement not covered" >      nodesToIgnore = "[]";</span>
+    }
+    var namesToIgnore = <span class="cstat-no" title="statement not covered" >$("#nodeNamesToIgnore").val();</span>
+<span class="cstat-no" title="statement not covered" >    if (namesToIgnore == "" || namesToIgnore == null) {</span>
+<span class="cstat-no" title="statement not covered" >      namesToIgnore = "[]";</span>
+    }
+    var NodesToUpdate;
+<span class="cstat-no" title="statement not covered" >    NodesToUpdate.NodeIds = JSON.stringify(itemUids);</span>
+<span class="cstat-no" title="statement not covered" >    NodesToUpdate.NodeNames = JSON.stringify(itemNames);</span>
+<span class="cstat-no" title="statement not covered" >    NodesToUpdate.NodesToIgnore = nodesToIgnore; //JSON.stringify(nodesToIgnore);</span>
+<span class="cstat-no" title="statement not covered" >    NodesToUpdate.NodeNamesToIgnore = namesToIgnore; //JSON.stringify(namesToIgnore);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (state == "checked") {</span>
+<span class="cstat-no" title="statement not covered" >      NodesToUpdate.CheckState = true;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      NodesToUpdate.CheckState = false;</span>
+    }
+    //var params = { nodeIDs: itemUid, itemNames: itemName, stringState: state, nodesToIgnore: nodesToIgnore};
+<span class="cstat-no" title="statement not covered" >    Main.blockit($("#submitDiv"));</span>
+<span class="cstat-no" title="statement not covered" >    $.ajax({</span>
+      url: _postKMLUrl,
+      data: JSON.stringify(NodesToUpdate),
+      //contentType: 'application/json; charset=utf-8',
+      type: "POST",
+      success: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >        $("#nodesToIgnore").val(response[0]);</span>
+<span class="cstat-no" title="statement not covered" >        $("#nodeNamesToIgnore").val(response[1]);</span>
+<span class="cstat-no" title="statement not covered" >        Main.unblockit($("#submitDiv"));</span>
+      },
+      error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >        Main.handlejqerr(xhr, status, error);</span>
+      },
+    });
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getSelectedURL(asNetworkLink, includeOrgData) {</span>
+    //var dwnType = $('#DownloadType').val();
+<span class="cstat-no" title="statement not covered" >    if (includeOrgData === null || includeOrgData === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      includeOrgData = false;</span>
+    }
+    var url;
+<span class="cstat-no" title="statement not covered" >    if (asNetworkLink == true) {</span>
+<span class="cstat-no" title="statement not covered" >      url = _showKMLUrl + "&amp;UseExplicitKML=false&amp;IncludeOrgData=" + includeOrgData;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      url = _showKMLUrl + "&amp;UseExplicitKML=true&amp;IncludeOrgData=" + includeOrgData;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return url;</span>
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetKML(asNetworkLink) {</span></span>
+    var url = <span class="cstat-no" title="statement not covered" >getSelectedURL(asNetworkLink, $("#includeOrgData").prop("checked"));</span>
+<span class="cstat-no" title="statement not covered" >    window.location.href = url;</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

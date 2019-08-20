@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/Map/Components/MapDrawingTools/utilities.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/Map/Components/MapDrawingTools</a> utilities.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.64% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.95% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>6/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* global
+Main,
+*/
+import WKT from "ol/format/WKT";
+import { Draw, Modify, Snap } from "ol/interaction";
+import { fromCircle } from "ol/geom/Polygon";
+import { getLength, getArea } from "ol/sphere.js";
+import rgba from "polished/lib/color/rgba";
+import { invoker, compose } from "ramda";
+import { format } from "d3";
+&nbsp;
+function <span class="fstat-no" title="function not covered" >getWkt(</span>geometry) {
+  const wktFormat = <span class="cstat-no" title="statement not covered" >new WKT();</span>
+<span class="cstat-no" title="statement not covered" >  return wktFormat.writeGeometry(geometry, {</span>
+    dataProjection: "EPSG:4326",
+    featureProjection: "EPSG:3857",
+  } as any);
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >calculateArea(</span>polygon) {
+  const area = <span class="cstat-no" title="statement not covered" >getArea(polygon);</span>
+  const output = <span class="cstat-no" title="statement not covered" >{ value: 0, unit: "" };</span>
+<span class="cstat-no" title="statement not covered" >  if (Main.UseMetric()) {</span>
+<span class="cstat-no" title="statement not covered" >    if (area &gt; 10000) {</span>
+<span class="cstat-no" title="statement not covered" >      output.value = Math.round((area / 1000000) * 100) / 100;</span>
+<span class="cstat-no" title="statement not covered" >      output.unit = "km2";</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      output.value = Math.round(area * 100) / 100;</span>
+<span class="cstat-no" title="statement not covered" >      output.unit = "m2";</span>
+    }
+  } else {
+    const feetSq = <span class="cstat-no" title="statement not covered" >area * 10.7639;</span>
+<span class="cstat-no" title="statement not covered" >    if (feetSq &gt; 107639.1) {</span>
+      const miSq = <span class="cstat-no" title="statement not covered" >feetSq * 3.587e-8;</span>
+<span class="cstat-no" title="statement not covered" >      output.value = Math.round(miSq * 100) / 100;</span>
+<span class="cstat-no" title="statement not covered" >      output.unit = "mi2";</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      output.value = Math.round(feetSq * 100) / 100;</span>
+<span class="cstat-no" title="statement not covered" >      output.unit = "ft2";</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  return output;</span>
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >calculateLength(</span>line) {
+  const length = <span class="cstat-no" title="statement not covered" >getLength(line);</span>
+  let output = <span class="cstat-no" title="statement not covered" >{ value: 0, unit: "" };</span>
+<span class="cstat-no" title="statement not covered" >  if (Main.UseMetric()) {</span>
+<span class="cstat-no" title="statement not covered" >    if (length &gt; 100) {</span>
+<span class="cstat-no" title="statement not covered" >      output.value = Math.round((length / 1000) * 100) / 100;</span>
+<span class="cstat-no" title="statement not covered" >      output.unit = "km";</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      output.value = Math.round(length * 100) / 100;</span>
+<span class="cstat-no" title="statement not covered" >      output.unit = "m";</span>
+    }
+  } else {
+    //in feet, do we switch to miles?
+    const feet = <span class="cstat-no" title="statement not covered" >length * 3.28084;</span>
+<span class="cstat-no" title="statement not covered" >    if (feet &gt; 5280) {</span>
+      //switch to miles
+      const miles = <span class="cstat-no" title="statement not covered" >feet / 5280;</span>
+<span class="cstat-no" title="statement not covered" >      output.value = Math.round(miles * 100) / 100;</span>
+<span class="cstat-no" title="statement not covered" >      output.unit = "mi";</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      output.value = Math.round(feet * 100) / 100;</span>
+<span class="cstat-no" title="statement not covered" >      output.unit = "ft";</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  return output;</span>
+}
+&nbsp;
+/**
+ * Simply extract and join the unit and value from the object.
+ * Useful in conjunction with the formatLength and formatArea
+ * @param unit
+ * @param value
+ */
+function <span class="fstat-no" title="function not covered" >joinUnitsValue(</span>{ <span class="cstat-no" title="statement not covered" >unit,</span> <span class="cstat-no" title="statement not covered" >value </span>}) {
+<span class="cstat-no" title="statement not covered" >  return `${format(",")(value)} ${unit}`;</span>
+}
+&nbsp;
+const formatArea = compose(
+  joinUnitsValue,
+  calculateArea,
+);
+&nbsp;
+const formatLength = compose(
+  joinUnitsValue,
+  calculateLength,
+);
+&nbsp;
+/**
+ * The color object is in the format from react-color. This primarily extracts the `rbg` object
+ * and converts it to a string.
+ * @param color
+ */
+function <span class="fstat-no" title="function not covered" >convertColorObjectToRgba(</span>color) {
+<span class="cstat-no" title="statement not covered" >  return rgba(color.rgb.r, color.rgb.g, color.rgb.b, color.rgb.a);</span>
+}
+&nbsp;
+/**
+ * @param {Feature} feature The feature with the Geometry
+ */
+const getGeometryFromFeature = invoker(0, "getGeometry");
+&nbsp;
+/**
+ * @param {Feature} feature The feature with the Geometry
+ */
+const getWktFromShape = compose(
+  getWkt,
+  getGeometryFromFeature,
+);
+&nbsp;
+/**
+ * Takes a Circle geometry, converts it to a Polygon, then gets the length
+ * @param {Geometry} geometry
+ */
+const formatLengthOfCircle = compose(
+  joinUnitsValue,
+  calculateLength,
+  fromCircle,
+);
+&nbsp;
+/**
+ * @param {Feature} feature The feature with the Geometry
+ */
+const getWktFromCircle = compose(
+  getWkt,
+  fromCircle,
+  getGeometryFromFeature,
+);
+&nbsp;
+export {
+  getWkt,
+  calculateArea,
+  calculateLength,
+  convertColorObjectToRgba,
+  getWktFromCircle,
+  getWktFromShape,
+  formatLengthOfCircle,
+  formatArea,
+  formatLength,
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

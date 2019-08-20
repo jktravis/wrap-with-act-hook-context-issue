@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/Forms/OperationalPeriodModule.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/Forms</a> OperationalPeriodModule.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//import { Main } from '../../../basicCoBRAScript';
+/*export*/ <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >namespace </span>operationalPeriodModule {</span>
+  let config = <span class="cstat-no" title="statement not covered" >{};</span>
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >init(cnfg) {</span></span>
+<span class="cstat-no" title="statement not covered" >    config = cnfg;</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >showModal(modalID, comboboxID, saveButtonID, instanceGUID, val, done) {</span></span>
+    //opPeriodChangeComboBox
+    let dropDown = <span class="cstat-no" title="statement not covered" >$("#" + comboboxID);</span>
+<span class="cstat-no" title="statement not covered" >    populateOpPeriodDropDown(dropDown, val, null);</span>
+&nbsp;
+    let modalWindow = <span class="cstat-no" title="statement not covered" >$("#" + modalID);</span>
+&nbsp;
+    let deferred = <span class="cstat-no" title="statement not covered" >$.Deferred&lt;void&gt;();</span>
+    let promise = <span class="cstat-no" title="statement not covered" >deferred.promise();</span>
+<span class="cstat-no" title="statement not covered" >    promise.done(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      done(instanceGUID, dropDown.data("kendoDropDownList").value());</span>
+    });
+    //promise.fail(dismissAndContinueAction);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    promise.always(<span class="fstat-no" title="function not covered" >function() {</span></span>
+      //close the dialog
+<span class="cstat-no" title="statement not covered" >      modalWindow.modal("hide");</span>
+    });
+&nbsp;
+    // DOM interaction
+<span class="cstat-no" title="statement not covered" >    $("#" + saveButtonID).click(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      deferred.resolve();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return false; // prevent default form behavior</span>
+    });
+&nbsp;
+    //$('#opPeriodFormModal').modal('show');
+<span class="cstat-no" title="statement not covered" >    modalWindow.modal("show");</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >populateOpPeriodDropDown(dropdown, currentVal, onChangeHandler) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if ($.isNumeric(currentVal)) {</span>
+      //is an index
+<span class="cstat-no" title="statement not covered" >      if (currentVal &lt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >        dropdown.data("kendoDropDownList").value("00000000-0000-0000-0000-000000000000");</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        dropdown.data("kendoDropDownList").select(currentVal);</span>
+      }
+    } else {
+      //is a guid (or emptystring)
+<span class="cstat-no" title="statement not covered" >      dropdown.data("kendoDropDownList").value(currentVal);</span>
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >showChangeOpPeriodDialog(instanceGUID) {</span>
+    //bring up modal popup to ask for new name
+<span class="cstat-no" title="statement not covered" >    $("#opChangeFormInstanceGUID").val(instanceGUID);</span>
+    let val = <span class="cstat-no" title="statement not covered" >$("#formInfoDiv").data("opGuid");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    populateOpPeriodDropDown($("#opPeriodChangeComboBox"), val, null);</span>
+    // dropdownlist.value($("#value").val());
+<span class="cstat-no" title="statement not covered" >    $("#opPeriodFormModal").modal("show");</span>
+  }
+<span class="cstat-no" title="statement not covered" >  $("#opPeriodFormModal").on("shown.bs.modal", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    $("#opPeriodChangeComboBox").focus();</span>
+  });
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

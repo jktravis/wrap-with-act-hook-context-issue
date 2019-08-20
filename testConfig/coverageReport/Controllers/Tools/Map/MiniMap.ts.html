@@ -1,0 +1,2078 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/Map/MiniMap.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/Map</a> MiniMap.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/307</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/214</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/304</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable
+@typescript-eslint/camelcase,
+@typescript-eslint/no-angle-bracket-type-assertion,
+@typescript-eslint/no-namespace,
+*/
+/* global
+currentUrlPrefix,
+Guid,
+*/
+import "../../../../Content/ExtraStyles/MiniMap.scss";
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import GeoJSON from "ol/format/GeoJSON";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import VectorSource from "ol/source/Vector";</span>
+<span class="cstat-no" title="statement not covered" >import VectorLayer from "ol/layer/Vector";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import KML from "ol/format/KML";</span>
+<span class="cstat-no" title="statement not covered" >import { fromLonLat, toLonLat } from "ol/proj.js";</span>
+<span class="cstat-no" title="statement not covered" >import { LineString, Point } from "ol/geom.js";</span>
+<span class="cstat-no" title="statement not covered" >import { getLength } from "ol/sphere.js";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import URI from "urijs";</span>
+<span class="cstat-no" title="statement not covered" >import usng from "usng/usng.js";</span>
+<span class="cstat-no" title="statement not covered" >import { extend } from "ol/extent.js";</span>
+<span class="cstat-no" title="statement not covered" >import { fromExtent } from "ol/geom/Polygon";</span>
+<span class="cstat-no" title="statement not covered" >import WKT from "ol/format/WKT";</span>
+<span class="cstat-no" title="statement not covered" >import { COBRAMap, FeatureDataType } from "./BaseMap";</span>
+<span class="cstat-no" title="statement not covered" >import { GeoLocator } from "./GeoLocator";</span>
+<span class="cstat-no" title="statement not covered" >import { Draw } from "ol/interaction";</span>
+<span class="cstat-no" title="statement not covered" >import { Fill, Stroke, Style, Icon, Circle, Text } from "ol/style.js";</span>
+&nbsp;
+declare var angular; //hack because i don't want to REQUIRE angular, but i want to be able to search for it if it exists and is being used
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export namespace <span class="cstat-no" title="statement not covered" ></span>MiniMap {</span></span>
+  interface IGlobalPrompts {
+    baseMapAPI: string;
+    corsurl: string;
+    googleKey: string;
+    DefaultBaseMap: string;
+    NGIUrl: string;
+    RootOrganization: string;
+    ProjectGUID: string;
+    DisableDraw: boolean;
+    IncludeTool: string;
+    IncidentLat: string;
+    IncidentLon: string;
+  }
+  let _globalPrompts: IGlobalPrompts;
+&nbsp;
+  let cobramap: COBRAMap;
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getDefaultLonLat(): [number, number] {</span>
+    const incLat = <span class="cstat-no" title="statement not covered" >parseFloat(_globalPrompts.IncidentLat);</span>
+    const incLon = <span class="cstat-no" title="statement not covered" >parseFloat(_globalPrompts.IncidentLon);</span>
+<span class="cstat-no" title="statement not covered" >    if (incLat !== undefined &amp;&amp; incLon !== undefined &amp;&amp; !isNaN(incLat) &amp;&amp; !isNaN(incLon)) {</span>
+<span class="cstat-no" title="statement not covered" >      return [incLon, incLat];</span>
+    }
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >init(globalPrompts: IGlobalPrompts) {</span></span>
+    let defaultLonLat;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    _globalPrompts = globalPrompts;</span>
+<span class="cstat-no" title="statement not covered" >    cobramap = new COBRAMap(</span>
+      globalPrompts.DefaultBaseMap,
+      globalPrompts.NGIUrl,
+      singleClickAction,
+      null,
+      "",
+      "",
+      getDefaultLonLat(),
+    );
+<span class="cstat-no" title="statement not covered" >    if (_globalPrompts.IncludeTool === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      _globalPrompts.IncludeTool = "";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    usngConv = new usng.Converter();</span>
+<span class="cstat-no" title="statement not covered" >    LoadFeatureEntries();</span>
+<span class="cstat-no" title="statement not covered" >    if (!_globalPrompts.DisableDraw) {</span>
+<span class="cstat-no" title="statement not covered" >      cobramap.AddLayer(drawVector);</span>
+<span class="cstat-no" title="statement not covered" >      addInteraction();</span>
+    }
+  }
+  let usngConv;
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >singleClickAction(evt) {</span>
+    const lonLatVal = <span class="cstat-no" title="statement not covered" >toLonLat(evt.coordinate);</span>
+<span class="cstat-no" title="statement not covered" >    GeoLocator.setLatLongOnPage(lonLatVal[1], lonLatVal[0]);</span>
+<span class="cstat-no" title="statement not covered" >    writeOutMGRS(lonLatVal[1], lonLatVal[0], true);</span>
+<span class="cstat-no" title="statement not covered" >    if (document.getElementById("Street1") !== null) {</span>
+<span class="cstat-no" title="statement not covered" >      GeoLocator.GetAddressValue(_globalPrompts.googleKey);</span>
+    }
+  }
+&nbsp;
+  let featEntryLayer;
+  let featEntrySource;
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >LoadFeatureEntries() {</span></span>
+    let geoJsonUrl = <span class="cstat-no" title="statement not covered" >_globalPrompts.baseMapAPI;</span>
+<span class="cstat-no" title="statement not covered" >    if (</span>
+      _globalPrompts.ProjectGUID !== undefined &amp;&amp;
+      _globalPrompts.ProjectGUID !== null &amp;&amp;
+      _globalPrompts.ProjectGUID !== Guid.emptyGuidString
+    ) {
+<span class="cstat-no" title="statement not covered" >      geoJsonUrl =</span>
+        geoJsonUrl +
+        "ExportIncidentAsGeoJSON/" +
+        _globalPrompts.ProjectGUID +
+        "?MiniMapOnly=true&amp;IncludeTool=" +
+        _globalPrompts.IncludeTool;
+    } else {
+<span class="cstat-no" title="statement not covered" >      geoJsonUrl = geoJsonUrl + "ExportOrganizationAsGeoJSON?orgName=" + _globalPrompts.RootOrganization;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    featEntrySource = new VectorSource({</span>
+      format: new GeoJSON(),
+      url: geoJsonUrl,
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    featEntryLayer = new VectorLayer({</span>
+      source: featEntrySource,
+      style: getStyleForFeature,
+    });
+    const listenerKey = <span class="cstat-no" title="statement not covered" >featEntrySource.on("change", <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >      if (featEntrySource.getState() === "ready") {</span>
+        const features = <span class="cstat-no" title="statement not covered" >featEntrySource.getFeatures();</span>
+<span class="cstat-no" title="statement not covered" >        if (features !== undefined &amp;&amp; features.length &gt; 0) {</span>
+          const uri = <span class="cstat-no" title="statement not covered" >new URI(window.location);</span>
+<span class="cstat-no" title="statement not covered" >          if (!uri.hasQuery("CurrentMapZoom")) {</span>
+            let alreadyZoomed = <span class="cstat-no" title="statement not covered" >false;</span>
+<span class="cstat-no" title="statement not covered" >            if (features.length === 1) {</span>
+              //
+              const geom = <span class="cstat-no" title="statement not covered" >features[0].getGeometry();</span>
+              const geomType = <span class="cstat-no" title="statement not covered" >geom.getType();</span>
+<span class="cstat-no" title="statement not covered" >              if (geomType === "Point") {</span>
+                //this is a point then, not a polygon
+<span class="cstat-no" title="statement not covered" >                cobramap.AnimateOrFitToExtent(geom.getExtent(), defaultZoomLevel);</span>
+<span class="cstat-no" title="statement not covered" >                alreadyZoomed = true;</span>
+              }
+            }
+<span class="cstat-no" title="statement not covered" >            if (!alreadyZoomed) {</span>
+<span class="cstat-no" title="statement not covered" >              cobramap.AnimateOrFitToExtent(featEntrySource.getExtent(), 0);</span>
+            }
+          }
+<span class="cstat-no" title="statement not covered" >          LoadKMLFeatures(</span>
+            features.filter(<span class="fstat-no" title="function not covered" >function(</span>item) {
+<span class="cstat-no" title="statement not covered" >              return item.get("KMLUrl") !== undefined;</span>
+            }),
+          );
+        }
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    cobramap.AddLayer(featEntryLayer);</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >LoadKMLFeatures(features) {</span>
+<span class="cstat-no" title="statement not covered" >    for (const feature<span class="cstat-no" title="statement not covered" > of features) {</span></span>
+      const logGUID = <span class="cstat-no" title="statement not covered" >feature.get("LogEntryGUID");</span>
+      const kmlURL = <span class="cstat-no" title="statement not covered" >feature.get("KMLUrl");</span>
+<span class="cstat-no" title="statement not covered" >      if (kmlURL !== undefined) {</span>
+        //https://openlayers.org/en/latest/examples/kml.html
+        const localKmlSource = <span class="cstat-no" title="statement not covered" >new VectorSource({</span>
+          url: kmlURL,
+          format: new KML(),
+        });
+        const localKmlVector = <span class="cstat-no" title="statement not covered" >new VectorLayer({</span>
+          source: localKmlSource,
+        });
+&nbsp;
+        const listenerKey = <span class="cstat-no" title="statement not covered" >localKmlSource.on("change", <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >          if (localKmlSource.getState() === "ready") {</span>
+            //so this is weird, this loads every time i do a zoom/pan, not just when kml gets loaded.  why?
+            const kmlFeatures = <span class="cstat-no" title="statement not covered" >localKmlSource.getFeatures();</span>
+<span class="cstat-no" title="statement not covered" >            if (kmlFeatures !== undefined &amp;&amp; kmlFeatures.length &gt; 1) {</span>
+              //do anything?
+            }
+          }
+        });
+        (&lt;any&gt;<span class="cstat-no" title="statement not covered" >localKmlVector).LogEntryGUID = logGUID;</span>
+<span class="cstat-no" title="statement not covered" >        localKmlVector.setZIndex(9998);</span>
+<span class="cstat-no" title="statement not covered" >        cobramap.AddLayer(localKmlVector);</span>
+      }
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getStyleForFeature(feature) {</span>
+    const hiddenFeats = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >    if (!($("#OrgForm").length &gt; 0)) {</span>
+<span class="cstat-no" title="statement not covered" >      hiddenFeats.push(_globalPrompts.RootOrganization);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return cobramap.GetStyleForFeature(feature, hiddenFeats);</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >ZoomToFeature(logGUID) {</span></span>
+    let logFeatures;
+<span class="cstat-no" title="statement not covered" >    cobramap.GetLayers("LogEntryGUID").forEach(<span class="fstat-no" title="function not covered" >function(</span>lyr) {</span>
+<span class="cstat-no" title="statement not covered" >      if (lyr.LogEntryGUID === logGUID) {</span>
+        //const tmpFeatures =lyr.getSource().getFeatures();
+<span class="cstat-no" title="statement not covered" >        logFeatures = lyr.getSource().getFeatures();</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    if (logFeatures !== undefined) {</span>
+      let featExtent = <span class="cstat-no" title="statement not covered" >null;</span>
+<span class="cstat-no" title="statement not covered" >      for (const feature<span class="cstat-no" title="statement not covered" > of logFeatures) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (featExtent === null) {</span>
+<span class="cstat-no" title="statement not covered" >          featExtent = feature.getGeometry().getExtent();</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          extend(featExtent, feature.getGeometry().getExtent());</span>
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      cobramap.AnimateOrFitToExtent(featExtent, 0);</span>
+    }
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >ZoomAndPan(writemgrs, latVal, lonVal, showMarker, zoomLevel, updateMGRSTextBoxes) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (latVal !== null &amp;&amp; lonVal !== null) {</span>
+      const lonLatInSpher = <span class="cstat-no" title="statement not covered" >fromLonLat([lonVal, latVal]);</span>
+<span class="cstat-no" title="statement not covered" >      if (zoomLevel === null || zoomLevel === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        cobramap.AnimateOrFitToExtent(lonLatInSpher, defaultZoomLevel);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (writemgrs) {</span>
+<span class="cstat-no" title="statement not covered" >        writeOutMGRS(latVal, lonVal, updateMGRSTextBoxes);</span>
+      }
+    }
+  }
+&nbsp;
+  const defaultZoomLevel = <span class="cstat-no" title="statement not covered" >12;</span>
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >placeMarker(useLatLon: boolean, zoomLevel: number) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (typeof useLatLon === "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >      useLatLon = true;</span>
+    }
+    let latVal = <span class="cstat-no" title="statement not covered" >null;</span>
+    let lonVal = <span class="cstat-no" title="statement not covered" >null;</span>
+    let updatemgrstextBoxes = <span class="cstat-no" title="statement not covered" >false;</span>
+    const znTxt = <span class="cstat-no" title="statement not covered" >getGridZoneObj();</span>
+    const weTxt = <span class="cstat-no" title="statement not covered" >getGridWEObj();</span>
+    const nsTxt = <span class="cstat-no" title="statement not covered" >getGridNSObj();</span>
+<span class="cstat-no" title="statement not covered" >    if (!useLatLon &amp;&amp; (znTxt.length &amp;&amp; weTxt.length &amp;&amp; nsTxt.length)) {</span>
+      //placeMGRSMarker(znTxt, weTxt, nsTxt);
+      const latlng = <span class="cstat-no" title="statement not covered" >[];</span>
+      const str = <span class="cstat-no" title="statement not covered" >znTxt.val() + weTxt.val() + nsTxt.val();</span>
+<span class="cstat-no" title="statement not covered" >      if (str.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        usngConv.USNGtoLL(str, latlng);</span>
+<span class="cstat-no" title="statement not covered" >        if (latlng !== null &amp;&amp; latlng[0] !== null &amp;&amp; latlng[1] !== null &amp;&amp; !isNaN(latlng[0]) &amp;&amp; !isNaN(latlng[1])) {</span>
+<span class="cstat-no" title="statement not covered" >          lonVal = latlng[1];</span>
+          //var lonLatInSpher = OpenLayers.LonLat.fromString( + ',' + latlng[0]).transform(geodeticProj, spherProj);
+<span class="cstat-no" title="statement not covered" >          latVal = latlng[0];</span>
+        }
+<span class="cstat-no" title="statement not covered" >        updatemgrstextBoxes = false;</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      if (typeof angular !== "undefined" &amp;&amp; angular.element("#mapController").scope() !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        latVal = (&lt;any&gt;angular.element("#mapController").scope()).Lat;</span>
+<span class="cstat-no" title="statement not covered" >        lonVal = (&lt;any&gt;angular.element("#mapController").scope()).Lon;</span>
+      } else {
+        const latTextBox = <span class="cstat-no" title="statement not covered" >getLatObj();</span>
+<span class="cstat-no" title="statement not covered" >        if (latTextBox === null || latTextBox === undefined) {</span>
+          let latBox = <span class="cstat-no" title="statement not covered" >$("#Lat");</span>
+<span class="cstat-no" title="statement not covered" >          if (latBox.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            latVal = latBox.val();</span>
+          } else {
+            //final check for readonly!
+<span class="cstat-no" title="statement not covered" >            latBox = $("#LatView");</span>
+<span class="cstat-no" title="statement not covered" >            if (latBox !== null &amp;&amp; latBox.length &gt; 0) {</span>
+              //first try to get the dataval
+              let latStr: string = <span class="cstat-no" title="statement not covered" >latBox.data("latval");</span>
+<span class="cstat-no" title="statement not covered" >              if (latStr === "") {</span>
+<span class="cstat-no" title="statement not covered" >                latStr = latBox.text();</span>
+              }
+<span class="cstat-no" title="statement not covered" >              latVal = parseFloat(latStr);</span>
+<span class="cstat-no" title="statement not covered" >              if (latVal === "NaN") {</span>
+<span class="cstat-no" title="statement not covered" >                latVal = null;</span>
+              }
+            }
+          }
+        } else {
+<span class="cstat-no" title="statement not covered" >          latVal = latTextBox.value();</span>
+        }
+&nbsp;
+        const lonTextBox = <span class="cstat-no" title="statement not covered" >getLonObj();</span>
+<span class="cstat-no" title="statement not covered" >        if (lonTextBox === null || lonTextBox === undefined) {</span>
+          let lonBox = <span class="cstat-no" title="statement not covered" >$("#Lon");</span>
+<span class="cstat-no" title="statement not covered" >          if (lonBox.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            lonBox = lonBox.val();</span>
+          } else {
+            //final check for readonly!
+<span class="cstat-no" title="statement not covered" >            lonBox = $("#LonView");</span>
+<span class="cstat-no" title="statement not covered" >            if (lonBox !== null &amp;&amp; lonBox.length &gt; 0) {</span>
+              //first try to get the dataval
+              let lonStr: string = <span class="cstat-no" title="statement not covered" >lonBox.data("lonval");</span>
+<span class="cstat-no" title="statement not covered" >              if (lonStr === "") {</span>
+<span class="cstat-no" title="statement not covered" >                lonStr = lonBox.text();</span>
+              }
+<span class="cstat-no" title="statement not covered" >              lonVal = parseFloat(lonStr);</span>
+<span class="cstat-no" title="statement not covered" >              if (lonVal === "NaN") {</span>
+<span class="cstat-no" title="statement not covered" >                lonVal = null;</span>
+              }
+            }
+          }
+        } else {
+<span class="cstat-no" title="statement not covered" >          lonVal = lonTextBox.value();</span>
+        }
+<span class="cstat-no" title="statement not covered" >        updatemgrstextBoxes = true;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (latVal !== null &amp;&amp; latVal !== "" &amp;&amp; lonVal !== null &amp;&amp; lonVal !== "" &amp;&amp; !isNaN(latVal) &amp;&amp; !isNaN(lonVal)) {</span>
+<span class="cstat-no" title="statement not covered" >        ZoomAndPan(useLatLon, latVal, lonVal, true, zoomLevel, updatemgrstextBoxes);</span>
+      }
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getGridZoneObj() {</span>
+    let ret = <span class="cstat-no" title="statement not covered" >$("#GridZone");</span>
+<span class="cstat-no" title="statement not covered" >    if (!ret.length) {</span>
+<span class="cstat-no" title="statement not covered" >      ret = $("#UTMGrid");</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return ret;</span>
+  }
+  function <span class="fstat-no" title="function not covered" >getGridWEObj() {</span>
+    let ret = <span class="cstat-no" title="statement not covered" >$("#GridWE");</span>
+<span class="cstat-no" title="statement not covered" >    if (!ret.length) {</span>
+<span class="cstat-no" title="statement not covered" >      ret = $("#UTMEW");</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return ret;</span>
+  }
+  function <span class="fstat-no" title="function not covered" >getGridNSObj() {</span>
+    let ret = <span class="cstat-no" title="statement not covered" >$("#GridNS");</span>
+<span class="cstat-no" title="statement not covered" >    if (!ret.length) {</span>
+<span class="cstat-no" title="statement not covered" >      ret = $("#UTMNS");</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return ret;</span>
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getLatObj() {</span></span>
+    const ret = <span class="cstat-no" title="statement not covered" >$("#Lat");</span>
+<span class="cstat-no" title="statement not covered" >    if (ret.length) {</span>
+<span class="cstat-no" title="statement not covered" >      return ret.data("kendoNumericTextBox");</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return null;</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getLonObj() {</span></span>
+    const ret = <span class="cstat-no" title="statement not covered" >$("#Lon");</span>
+<span class="cstat-no" title="statement not covered" >    if (ret.length) {</span>
+<span class="cstat-no" title="statement not covered" >      return ret.data("kendoNumericTextBox");</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return null;</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >writeOutMGRS(latVal, lonVal, updateTextBoxes: boolean) {</span>
+<span class="cstat-no" title="statement not covered" >    if (usngConv !== null &amp;&amp; usngConv !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >      if (updateTextBoxes === null || updateTextBoxes === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        updateTextBoxes = true;</span>
+      }
+      let mg = <span class="cstat-no" title="statement not covered" >usngConv.LLtoUSNG(latVal, lonVal, 5); //3rd value is 5 in CoBARTS stuff</span>
+      /* NOT doing this anymore.  think it's confusing the with address acting differently.
+      const mgRS = $('#MGRS');
+      if (mgRS.length) {
+        mgRS.val(mg);
+      }*/
+<span class="cstat-no" title="statement not covered" >      if (updateTextBoxes) {</span>
+<span class="cstat-no" title="statement not covered" >        mg = mg.replace(/\s+/g, ""); //remove all spaces in the response</span>
+<span class="cstat-no" title="statement not covered" >        if (mg !== null &amp;&amp; mg.length &gt; 0) {</span>
+          const znTxt = <span class="cstat-no" title="statement not covered" >getGridZoneObj();</span>
+          const weTxt = <span class="cstat-no" title="statement not covered" >getGridWEObj();</span>
+          const nsTxt = <span class="cstat-no" title="statement not covered" >getGridNSObj();</span>
+<span class="cstat-no" title="statement not covered" >          if (!(znTxt.length &amp;&amp; weTxt.length &amp;&amp; nsTxt.length)) {</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          if (mg.length &gt; 5) {</span>
+<span class="cstat-no" title="statement not covered" >            znTxt.val(mg.substr(0, 5));</span>
+<span class="cstat-no" title="statement not covered" >            weTxt.val(mg.substr(5, 4));</span>
+<span class="cstat-no" title="statement not covered" >            nsTxt.val(mg.substr(9, 4));</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            znTxt.val(mg);</span>
+          }
+        }
+      }
+    }
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >initiate_watchlocation() {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (navigator.geolocation) {</span>
+<span class="cstat-no" title="statement not covered" >      navigator.geolocation.getCurrentPosition(geoSuccess, postionerrorCallback);</span>
+    }
+  }
+  function <span class="fstat-no" title="function not covered" >postionerrorCallback(error) {</span>
+    //alert("unknown error with postition tracking");
+  }
+  function <span class="fstat-no" title="function not covered" >geoSuccess(position) {</span>
+    const addressLoc = <span class="cstat-no" title="statement not covered" >fromLonLat([position.coords.longitude, position.coords.latitude]);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof angular !== "undefined" &amp;&amp; angular.element("#mapController").scope() !== undefined) {</span>
+      (&lt;any&gt;<span class="cstat-no" title="statement not covered" >angular.element("#mapController").scope()).Lat = position.coords.latitude;</span>
+      (&lt;any&gt;<span class="cstat-no" title="statement not covered" >angular.element("#mapController").scope()).Lon = position.coords.longitude;</span>
+      (&lt;any&gt;<span class="cstat-no" title="statement not covered" >angular.element("#mapController").scope()).$apply();</span>
+    } else {
+      const latObj = <span class="cstat-no" title="statement not covered" >getLatObj();</span>
+<span class="cstat-no" title="statement not covered" >      if (latObj) {</span>
+<span class="cstat-no" title="statement not covered" >        latObj.value(position.coords.latitude);</span>
+      }
+      const lonObj = <span class="cstat-no" title="statement not covered" >getLonObj();</span>
+<span class="cstat-no" title="statement not covered" >      if (lonObj) {</span>
+<span class="cstat-no" title="statement not covered" >        lonObj.value(position.coords.longitude);</span>
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    if (cobramap !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      cobramap.AnimateOrFitToExtent(addressLoc, defaultZoomLevel);</span>
+    }
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetDistanceBetweenLocations(</span></span>
+    latValA: number,
+    lonValA: number,
+    latValB: number,
+    lonValB: number,
+<span class="cstat-no" title="statement not covered" >    useMetric: boolean = false,</span>
+  ): IDistanceReturn {
+<span class="cstat-no" title="statement not covered" >    if (lonValA !== null &amp;&amp; lonValB !== null &amp;&amp; latValA !== null &amp;&amp; latValB !== null) {</span>
+      const points = <span class="cstat-no" title="statement not covered" >[[lonValA, latValA], [lonValB, latValB]];</span>
+      const distanceLine = <span class="cstat-no" title="statement not covered" >new LineString(points);</span>
+      //https://openlayers.org/en/latest/apidoc/module-ol_sphere.html#.getLength
+      const distance = <span class="cstat-no" title="statement not covered" >getLength(distanceLine, { projection: "EPSG:4326" });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return convertDistanceMeasurementToOutputUnits(distance, useMetric);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return null;</span>
+  }
+  interface IDistanceReturn {
+    distance: number;
+    units: string;
+  }
+  function <span class="fstat-no" title="function not covered" >convertDistanceMeasurementToOutputUnits(distance: number, useMetric: boolean): IDistanceReturn {</span>
+    const rtnObj: IDistanceReturn = <span class="cstat-no" title="statement not covered" >{</span>
+      distance: distance,
+      units: "m",
+    };
+<span class="cstat-no" title="statement not covered" >    if (!useMetric) {</span>
+      //in feet, do we switch to miles?
+      const feet = <span class="cstat-no" title="statement not covered" >distance * 3.28084;</span>
+<span class="cstat-no" title="statement not covered" >      if (feet &gt; 5280) {</span>
+        //switch to miles
+<span class="cstat-no" title="statement not covered" >        distance = feet / 5280;</span>
+<span class="cstat-no" title="statement not covered" >        rtnObj.distance = Math.round(distance); //get nearest mile</span>
+<span class="cstat-no" title="statement not covered" >        rtnObj.units = "mi";</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        rtnObj.distance = Math.round(distance / 10) * 10; //round to 10</span>
+<span class="cstat-no" title="statement not covered" >        rtnObj.units = "ft";</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      if (distance &gt; 1000) {</span>
+        //greater than 1 meter
+<span class="cstat-no" title="statement not covered" >        rtnObj.distance = distance / 1000;</span>
+<span class="cstat-no" title="statement not covered" >        rtnObj.units = "km";</span>
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    return rtnObj;</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetThreeWords(apiKey: string) {</span></span>
+<span class="cstat-no" title="statement not covered" >    GeoLocator.GetThreeWords(apiKey);</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getGeoLocateURL(): string {</span></span>
+<span class="cstat-no" title="statement not covered" >    return GeoLocator.getGeoLocateURL();</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetAddressValue(apiKey): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    GeoLocator.GetAddressValue(apiKey);</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetLatLonValue(isDisabled, localeTwo, localeName, apiKey): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!isDisabled) {</span>
+<span class="cstat-no" title="statement not covered" >      GeoLocator.GetLatLonValue(cobramap, undefined, localeTwo, localeName, apiKey, undefined);</span>
+    }
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetLatLonValueFromLocationPartial(localeTwo, localeName, apiKey): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    GeoLocator.GetLatLonValueFromLocationPartial(cobramap, localeTwo, localeName, apiKey);</span>
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetLatLonByMGRS(isDisabled) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!isDisabled) {</span>
+<span class="cstat-no" title="statement not covered" >      GeoLocator.GetLatLonByMGRS(getLatObj(), getLonObj(), writeOutMGRS);</span>
+    }
+  }
+&nbsp;
+  //#region "Draw Icon"
+&nbsp;
+  const defaultColor = <span class="cstat-no" title="statement not covered" >"rgba(52,58,64,0.9)";</span>
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getDrawStyle() {</span>
+    const styleRet = <span class="cstat-no" title="statement not covered" >new Style({</span>
+      stroke: new Stroke({
+        color: defaultColor,
+        width: 1,
+      }),
+      fill: new Fill({
+        color: defaultColor,
+      }),
+      image: getDrawIconStyle(),
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return styleRet;</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getDrawIconStyle() {</span>
+    const defaultIcon = <span class="cstat-no" title="statement not covered" >currentUrlPrefix() + "Content/images/logo.png";</span>
+    let customIcon = <span class="cstat-no" title="statement not covered" >$("#map")</span>
+      .closest("div[data-imgurl]")
+      .attr("data-imgurl");
+<span class="cstat-no" title="statement not covered" >    if (customIcon !== undefined &amp;&amp; customIcon.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      customIcon = currentUrlPrefix() + customIcon;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      customIcon = defaultIcon;</span>
+    }
+    //if (_iconURL !== undefined &amp;&amp; _iconURL.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >    return new Icon({</span>
+      src: customIcon + "?w=25&amp;404=logo.png",
+    });
+    //}
+  }
+  let draw;
+  const drawSource = <span class="cstat-no" title="statement not covered" >new VectorSource({ wrapX: false });</span>
+  const drawVector = <span class="cstat-no" title="statement not covered" >new VectorLayer({</span>
+    source: drawSource,
+    style: getDrawStyle,
+  });
+  function <span class="fstat-no" title="function not covered" >addInteraction() {</span>
+<span class="cstat-no" title="statement not covered" >    draw = new Draw({</span>
+      source: drawSource,
+      type: "Point",
+    });
+<span class="cstat-no" title="statement not covered" >    draw.on(</span>
+      "drawend",
+<span class="fstat-no" title="function not covered" >      function(</span>evt) {
+        //... unset sketch
+<span class="cstat-no" title="statement not covered" >        drawSource.clear();</span>
+      },
+      this,
+    );
+    //draw.on('drawend', function(evt) {
+    //... unset sketch
+    //cobramap.mapObj.removeInteraction(draw);
+    //}, this);
+<span class="cstat-no" title="statement not covered" >    cobramap.mapObj.addInteraction(draw);</span>
+  }
+&nbsp;
+  //#endregion
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >LoadUploadedKML(kmlURL, kmlFileName, orgName) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (kmlFileName === null || kmlFileName === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+    //find a way to remove past KML layers
+    const kmlSource = <span class="cstat-no" title="statement not covered" >new VectorSource({</span>
+      url: kmlURL + "?kmlFileName=" + kmlFileName + "&amp;orgName=" + orgName,
+      format: new KML(),
+    });
+    const kmlVector = <span class="cstat-no" title="statement not covered" >new VectorLayer({</span>
+      source: kmlSource,
+    });
+<span class="cstat-no" title="statement not covered" >    kmlVector.IsKML = true;</span>
+    const listenerKey = <span class="cstat-no" title="statement not covered" >kmlSource.on("change", <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >      if (kmlSource.getState() === "ready") {</span>
+        const kmlFeatures = <span class="cstat-no" title="statement not covered" >kmlSource.getFeatures();</span>
+<span class="cstat-no" title="statement not covered" >        if (kmlFeatures !== undefined &amp;&amp; kmlFeatures.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >          cobramap.AnimateOrFitToExtent(kmlSource.getExtent(), 0);</span>
+        }
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    cobramap.AddLayer(kmlVector);</span>
+  }
+&nbsp;
+  //#region "Multi Orgs - usually for shared incident page"
+&nbsp;
+  let orgLayer;
+  let orgSource;
+&nbsp;
+  //this shouldn't be in this class available to all, this is really only used by angularProjectAdmin.  Refactor another time
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >LoadOrganizations(orgURL) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (orgLayer) {</span>
+<span class="cstat-no" title="statement not covered" >      cobramap.mapObj.removeLayer(orgLayer);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    orgSource = new VectorSource({</span>
+      format: new GeoJSON(),
+      url: orgURL,
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    orgLayer = new VectorLayer({</span>
+      source: orgSource,
+      style: getStyleForMultiOrgs,
+    });
+    const listenerKey = <span class="cstat-no" title="statement not covered" >orgSource.on("change", <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >      if (orgSource.getState() === "ready") {</span>
+        const features = <span class="cstat-no" title="statement not covered" >orgSource.getFeatures();</span>
+<span class="cstat-no" title="statement not covered" >        if (features !== undefined &amp;&amp; features.length &gt; 0) {</span>
+          const uri = <span class="cstat-no" title="statement not covered" >new URI(window.location);</span>
+<span class="cstat-no" title="statement not covered" >          if (!uri.hasQuery("CurrentMapZoom")) {</span>
+            const prjLatLon = <span class="cstat-no" title="statement not covered" >getDefaultLonLat();</span>
+<span class="cstat-no" title="statement not covered" >            if (prjLatLon) {</span>
+              const baselonLatInWebMercator = <span class="cstat-no" title="statement not covered" >fromLonLat(prjLatLon);</span>
+<span class="cstat-no" title="statement not covered" >              cobramap.AnimateOrFitToExtent(baselonLatInWebMercator, defaultZoomLevel);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              cobramap.AnimateOrFitToExtent(orgSource.getExtent(), 0);</span>
+            }
+          }
+        }
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    cobramap.AddLayer(orgLayer);</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getStyleForMultiOrgs(feature) {</span>
+    //styling for KML will be handled by the KML itself.
+    const kmlURL = <span class="cstat-no" title="statement not covered" >feature.get("KMLUrl");</span>
+<span class="cstat-no" title="statement not covered" >    if (kmlURL !== undefined &amp;&amp; kmlURL.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    }
+&nbsp;
+    const title = <span class="cstat-no" title="statement not covered" >feature.get("Title");</span>
+    const iconURL = <span class="cstat-no" title="statement not covered" >feature.get("marker-symbol");</span>
+    const styleRet = <span class="cstat-no" title="statement not covered" >new Style({</span>
+      fill: new Fill({
+        color: selectColorFunc(Math.floor(Math.random() * 100), 40),
+        //color:'rgba(52,58,64,0.9)'
+      }),
+      stroke: new Stroke({
+        color: "rgba(52,58,64,0.9)",
+      }),
+      image: getIconStyle(feature),
+      //text: new Text({
+      //  font: "12px bold Gruppo,Lato",
+      //  fill: new Fill({
+      //    color: "#000",
+      //  }),
+      //  text: title,
+      //}),
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return styleRet;</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getIconStyle(feature) {</span>
+    const iconURL = <span class="cstat-no" title="statement not covered" >feature.get("marker-symbol");</span>
+<span class="cstat-no" title="statement not covered" >    if (iconURL !== undefined &amp;&amp; iconURL !== null &amp;&amp; iconURL.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      return new Icon({</span>
+        src: iconURL + "?w=25&amp;404=logo.png",
+      });
+    } else {
+<span class="cstat-no" title="statement not covered" >      return new Circle({</span>
+        radius: 5,
+        fill: new Fill({
+          color: "rgba(52,58,64,0.9)",
+        }),
+      });
+    }
+  }
+  const selectColorFunc = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>colorNum, colors) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (colors &lt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >      colors === 1;</span>
+    } // defaults to one color - avoid divide by zero
+<span class="cstat-no" title="statement not covered" >    return "hsl(" + ((colorNum * (360 / colors)) % 360) + ",100%,50%,.5)";</span>
+  };
+&nbsp;
+  //#endregion
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getWKTFromMapExtent() {</span></span>
+    const mapExt = <span class="cstat-no" title="statement not covered" >cobramap.mapView.calculateExtent();</span>
+    const poly = <span class="cstat-no" title="statement not covered" >fromExtent(mapExt);</span>
+    const wktFormat = <span class="cstat-no" title="statement not covered" >new WKT();</span>
+    const ret = <span class="cstat-no" title="statement not covered" >wktFormat.writeGeometry(poly, {</span>
+      dataProjection: "EPSG:4326",
+      featureProjection: "EPSG:3857",
+    });
+<span class="cstat-no" title="statement not covered" >    return ret;</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

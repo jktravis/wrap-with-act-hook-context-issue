@@ -1,0 +1,2387 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Shared/AddressSelector.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">Controllers/Shared</a> AddressSelector.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/216</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/123</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/215</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable
+@typescript-eslint/class-name-casing,
+@typescript-eslint/no-angle-bracket-type-assertion,
+@typescript-eslint/no-inferrable-types,
+@typescript-eslint/no-namespace,
+*/
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export<span class="cstat-no" title="statement not covered" > namespace </span>addressSelector {</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  class serviceMappingVals {</span></span>
+    city: string;
+    zip: string;
+    streets: string;
+    housenums: string;
+    addresses: string;
+<span class="cstat-no" title="statement not covered" >  }</span>
+  interface IAddress {
+    AddressGUID: string;
+    StreetName: string;
+    HouseNumber: string;
+    ZipCode: string;
+    AdminSubDivisionGUID: string;
+    Country: string;
+    City: string;
+    DivisionName: string;
+    Latitude: Float32Array;
+    Longitude: Float32Array;
+    State: string;
+  }
+  interface IAddressObservable extends kendo.data.ObservableObject {
+    AddressGUID: string;
+    StreetName: string;
+    HouseNumber: string;
+    ZipCode: string;
+    Country: string;
+    City: string;
+    Latitude: Float32Array;
+    Longitude: Float32Array;
+    //Province: IProvince;
+    ProvinceName: string;
+    AdminSubDivisionGUID: string;
+    DivisionName: string;
+  }
+  //interface IProvince {
+  //ProvinceName: string;
+  //}
+  interface IHouseObservable extends kendo.data.ObservableObject {
+    HouseNumber: string;
+  }
+  interface IRealAutoComplete extends kendo.ui.AutoComplete {
+    popup;
+  }
+  const addressSelectorArray = <span class="cstat-no" title="statement not covered" >{};</span>
+  let _serviceMapping: serviceMappingVals = <span class="cstat-no" title="statement not covered" >new serviceMappingVals();</span>
+  let _popupDiv = <span class="cstat-no" title="statement not covered" >"addressLookupModal";</span>
+  const _loadedReference = <span class="cstat-no" title="statement not covered" >false;</span>
+  //var _openButtonName = '';
+  let _callingButton = <span class="cstat-no" title="statement not covered" >null;</span>
+  let _selectNextFunc = <span class="cstat-no" title="statement not covered" >null;</span>
+&nbsp;
+  let _municDS = <span class="cstat-no" title="statement not covered" >null;</span>
+  let _zipDS = <span class="cstat-no" title="statement not covered" >null;</span>
+  let _addressDS = <span class="cstat-no" title="statement not covered" >null;</span>
+&nbsp;
+  const _fieldNames = <span class="cstat-no" title="statement not covered" >{</span>
+    City: {
+      Header: "City",
+      Prompt: "Choose a city",
+    },
+    State: {
+      Header: "State",
+      Prompt: "",
+    },
+    Zip: {
+      Header: "Zip Code",
+      Prompt: "Choose zip",
+    },
+    Street: {
+      Header: "Street",
+      Prompt: "Select street",
+    },
+    House: {
+      Header: "House Number",
+      Prompt: "Enter house number",
+    },
+  };
+&nbsp;
+  //(string countryCode, string subAdminID, string zipCode)
+  const _addressSearchParams = <span class="cstat-no" title="statement not covered" >{</span>
+    countryCode: "",
+    subAdminID: "",
+    zipCode: "",
+    stFilter: "",
+    houseFilter: "",
+  };
+&nbsp;
+  ///serviceMapping is an object that holds all of the service end points used by the
+  ///address selector
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >Initialize(serviceMapping, selectNextFunc, fieldNames, popupName) {</span></span>
+<span class="cstat-no" title="statement not covered" >    _serviceMapping = serviceMapping;</span>
+<span class="cstat-no" title="statement not covered" >    if (popupName !== null &amp;&amp; popupName !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      _popupDiv = popupName;</span>
+    }
+    //_openButtonName = openButtonName;
+<span class="cstat-no" title="statement not covered" >    _selectNextFunc = selectNextFunc;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    configureFromFieldsObj(fieldNames);</span>
+    //size modal popup
+    //$("#" + popupName + ".modal-wide").on("show.bs.modal", function () {
+    //    var height = $(window).height() - 200;
+    //    $(this).find(".modal-body").css("max-height", height);
+    //});
+&nbsp;
+    //clear values on popup hiding
+<span class="cstat-no" title="statement not covered" >    $("#" + _popupDiv).on("hidden.bs.modal", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      _callingButton = null;</span>
+<span class="cstat-no" title="statement not covered" >      clearPopup();</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    configureDropDowns();</span>
+<span class="cstat-no" title="statement not covered" >    configureAddressGrid();</span>
+    const btns = <span class="cstat-no" title="statement not covered" >$(" .btnAddressLookup"); //get all buttons that are wired to show popup</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (btns !== null &amp;&amp; btns.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      $.each(btns, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        $(this).on("click", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >          Show($(this));</span>
+        });
+      });
+    }
+    //var btn = $('#' + openButtonName);
+    //if (btn.length &gt; 0) {
+    //    btn.on('click', function(){
+    //        Show($(this));
+    //});
+    //}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#btnUseAddress").on("click", useAddress);</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >clearPopup() {</span>
+<span class="cstat-no" title="statement not covered" >    $("#streetSelector")</span>
+      .data("kendoAutoComplete")
+      .value("");
+<span class="cstat-no" title="statement not covered" >    $("#houseSelector")</span>
+      .data("kendoAutoComplete")
+      .value("");
+<span class="cstat-no" title="statement not covered" >    $("#zipSelector")</span>
+      .data("kendoAutoComplete")
+      .value("");
+<span class="cstat-no" title="statement not covered" >    $("#citySelector")</span>
+      .data("kendoAutoComplete")
+      .value("");
+&nbsp;
+    //clear grid
+<span class="cstat-no" title="statement not covered" >    _addressDS.read();</span>
+<span class="cstat-no" title="statement not covered" >    _addressDS.page(1);</span>
+    const addGrid = <span class="cstat-no" title="statement not covered" >$("#addressList")</span>
+      .data("kendoGrid")
+      .refresh();
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >useAddress() {</span>
+    const addr = <span class="cstat-no" title="statement not covered" >getSelectedAddress();</span>
+<span class="cstat-no" title="statement not covered" >    $("#" + _popupDiv).modal("hide");</span>
+<span class="cstat-no" title="statement not covered" >    if (_selectNextFunc !== null &amp;&amp; _selectNextFunc !== undefined &amp;&amp; $.isFunction(_selectNextFunc)) {</span>
+<span class="cstat-no" title="statement not covered" >      _selectNextFunc(addr, _callingButton);</span>
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getSelectedAddress() {</span>
+    const rtnAddress: IAddress = <span class="cstat-no" title="statement not covered" >{</span>
+      AddressGUID: "",
+      HouseNumber: "",
+      StreetName: "",
+      ZipCode: "",
+      City: "",
+      State: "",
+      Country: "",
+      Latitude: null,
+      Longitude: null,
+      AdminSubDivisionGUID: "",
+      DivisionName: "",
+    };
+&nbsp;
+    //if grid has selected item, use it
+    const grid = <span class="cstat-no" title="statement not covered" >$("#addressList").data("kendoGrid");</span>
+    let sel: IAddressObservable = &lt;IAddressObservable&gt;<span class="cstat-no" title="statement not covered" >grid.dataItem(grid.select());</span>
+    //else if grid has 1 item, use it,
+<span class="cstat-no" title="statement not covered" >    if (sel === null) {</span>
+      //try to get it from first item
+<span class="cstat-no" title="statement not covered" >      sel = grid.dataSource.data()[0];</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (sel !== null &amp;&amp; sel !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.AddressGUID = sel.AddressGUID;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.StreetName = sel.StreetName;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.HouseNumber = sel.HouseNumber;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.ZipCode = sel.ZipCode;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.AdminSubDivisionGUID = sel.AdminSubDivisionGUID;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.City = sel.DivisionName;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.Latitude = sel.Latitude;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.Longitude = sel.Longitude;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.Country = sel.Country;</span>
+      //if (sel.Province !== null) {
+<span class="cstat-no" title="statement not covered" >      rtnAddress.State = sel.ProvinceName;</span>
+      //}
+    } else {
+      //else build address from selected fields in autocomplete boxes
+<span class="cstat-no" title="statement not covered" >      rtnAddress.AddressGUID = "";</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.StreetName = $("#streetSelector")</span>
+        .data("kendoAutoComplete")
+        .value();
+<span class="cstat-no" title="statement not covered" >      rtnAddress.HouseNumber = $("#houseSelector")</span>
+        .data("kendoAutoComplete")
+        .value();
+<span class="cstat-no" title="statement not covered" >      rtnAddress.ZipCode = $("#zipSelector")</span>
+        .data("kendoAutoComplete")
+        .value();
+      const cityVal = <span class="cstat-no" title="statement not covered" >$("#citySelector")</span>
+        .data("kendoAutoComplete")
+        .dataItem(0);
+<span class="cstat-no" title="statement not covered" >      if (cityVal !== null &amp;&amp; cityVal !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        rtnAddress.City = cityVal.DivisionName;</span>
+<span class="cstat-no" title="statement not covered" >        rtnAddress.AdminSubDivisionGUID = cityVal.AdminSubDivisionGUID;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        rtnAddress.City = $("#citySelector")</span>
+          .data("kendoAutoComplete")
+          .value();
+      }
+<span class="cstat-no" title="statement not covered" >      rtnAddress.Latitude = null;</span>
+<span class="cstat-no" title="statement not covered" >      rtnAddress.Longitude = null;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return rtnAddress;</span>
+  }
+&nbsp;
+  //#region Public Methods
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >Show(callingButton) {</span></span>
+<span class="cstat-no" title="statement not covered" >    _callingButton = callingButton;</span>
+    //load some datasets and attach them to dropdowns if not previously done
+<span class="cstat-no" title="statement not covered" >    if (_municDS === null || _municDS === undefined) {</span>
+      //build kendo ds
+<span class="cstat-no" title="statement not covered" >      _municDS = new kendo.data.DataSource({</span>
+        transport: {
+          read: {
+            url: _serviceMapping.city,
+            dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            data: {
+              countryCode: "",
+              filterToCurrentCulture: true,
+            },
+            cache: true,
+          },
+        },
+      });
+      //go get the data
+<span class="cstat-no" title="statement not covered" >      _municDS.fetch(<span class="fstat-no" title="function not covered" >function() {</span></span>
+        //console.log(dataSource.view().length); // debug, find how many munics returned
+      });
+<span class="cstat-no" title="statement not covered" >      $("#citySelector")</span>
+        .data("kendoAutoComplete")
+        .setDataSource(_municDS);
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (_zipDS === null || _zipDS === undefined) {</span>
+      //build kendo ds
+<span class="cstat-no" title="statement not covered" >      _zipDS = new kendo.data.DataSource({</span>
+        transport: {
+          read: {
+            url: _serviceMapping.zip,
+            dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            cache: true,
+          },
+          parameterMap: <span class="fstat-no" title="function not covered" >function(</span>options, operation) {
+<span class="cstat-no" title="statement not covered" >            if (operation === "read") {</span>
+              //var selector = $("#citySelector").data("kendoAutoComplete");
+              //var cityVal = selector.dataItem(0);
+              //var adminID = '';
+              //if (cityVal !== null &amp;&amp; cityVal !== undefined) {
+              //    //filter out zips by city subadminguid
+              //    adminID = cityVal.AdminSubDivisionGUID;
+              //}
+<span class="cstat-no" title="statement not covered" >              return {</span>
+                countryCode: "",
+                subAdminID: _addressSearchParams.subAdminID,
+              };
+            }
+          },
+        },
+      });
+      //go get the data
+<span class="cstat-no" title="statement not covered" >      _zipDS.fetch(<span class="fstat-no" title="function not covered" >function() {</span></span>
+        //console.log(dataSource.view().length); // debug, find how many munics returned
+      });
+<span class="cstat-no" title="statement not covered" >      $("#zipSelector")</span>
+        .data("kendoAutoComplete")
+        .setDataSource(_zipDS);
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#" + _popupDiv).modal("show");</span>
+  }
+&nbsp;
+  ///#endregion
+&nbsp;
+  //#region Helper Methods
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >configureFromFieldsObj(fieldNames) {</span>
+<span class="cstat-no" title="statement not covered" >    if (fieldNames !== null &amp;&amp; fieldNames !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      if (fieldNames.City !== null &amp;&amp; fieldNames.City !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        _fieldNames.City = fieldNames.City;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (fieldNames.State !== null &amp;&amp; fieldNames.State !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        _fieldNames.State = fieldNames.State;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (fieldNames.Zip !== null &amp;&amp; fieldNames.Zip !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        _fieldNames.Zip = fieldNames.Zip;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (fieldNames.Street !== null &amp;&amp; fieldNames.Street !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        _fieldNames.Street = fieldNames.Street;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (fieldNames.House !== null &amp;&amp; fieldNames.House !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        _fieldNames.House = fieldNames.House;</span>
+      }
+    }
+    const ellipses: string = <span class="cstat-no" title="statement not covered" >"...";</span>
+<span class="cstat-no" title="statement not covered" >    if (!_fieldNames.House.Prompt.endsWith(ellipses)) {</span>
+<span class="cstat-no" title="statement not covered" >      _fieldNames.House.Prompt = _fieldNames.House.Prompt + ellipses;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (!_fieldNames.State.Prompt.endsWith(ellipses)) {</span>
+<span class="cstat-no" title="statement not covered" >      _fieldNames.State.Prompt = _fieldNames.State.Prompt + ellipses;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (!_fieldNames.City.Prompt.endsWith(ellipses)) {</span>
+<span class="cstat-no" title="statement not covered" >      _fieldNames.City.Prompt = _fieldNames.City.Prompt + ellipses;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (!_fieldNames.Street.Prompt.endsWith(ellipses)) {</span>
+<span class="cstat-no" title="statement not covered" >      _fieldNames.Street.Prompt = _fieldNames.Street.Prompt + ellipses;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (!_fieldNames.Zip.Prompt.endsWith(ellipses)) {</span>
+<span class="cstat-no" title="statement not covered" >      _fieldNames.Zip.Prompt = _fieldNames.Zip.Prompt + ellipses;</span>
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >changeStreetAndHouseNumberState() {</span>
+    let isEnabled = <span class="cstat-no" title="statement not covered" >false;</span>
+<span class="cstat-no" title="statement not covered" >    if (_addressSearchParams.subAdminID !== "" || _addressSearchParams.zipCode !== "") {</span>
+      //activate
+<span class="cstat-no" title="statement not covered" >      isEnabled = true;</span>
+      //fetch data
+      //_addressDS.fetch(function (e) {
+      //    var a = 1;
+      //});
+    } else {
+      //deactivate
+<span class="cstat-no" title="statement not covered" >      isEnabled = false;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    $("#streetSelector")</span>
+      .data("kendoAutoComplete")
+      .enable(isEnabled);
+<span class="cstat-no" title="statement not covered" >    $("#houseSelector")</span>
+      .data("kendoAutoComplete")
+      .enable(isEnabled);
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >configureDropDowns() {</span>
+    //create AutoComplete UI component
+<span class="cstat-no" title="statement not covered" >    $("#countrySelector").kendoAutoComplete({</span>
+      filter: "startswith",
+      suggest: false,
+      placeholder: "Select country...",
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#citySelector").kendoAutoComplete({</span>
+      filter: "startswith",
+      suggest: false,
+      placeholder: _fieldNames.City.Prompt,
+      dataTextField: "DivisionName",
+      filtering: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        //get filter descriptor
+        const filter = <span class="cstat-no" title="statement not covered" >e.filter;</span>
+<span class="cstat-no" title="statement not covered" >        if (!filter.value) {</span>
+          //prevent filtering if the filter does not value
+<span class="cstat-no" title="statement not covered" >          e.preventDefault();</span>
+        }
+        // handle the event
+      },
+      dataBound: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        // handle the event
+        const a = <span class="cstat-no" title="statement not covered" >e;</span>
+      },
+      change: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        const value = <span class="cstat-no" title="statement not covered" >this.value();</span>
+        //clear out zipselector
+        const zipSelector = <span class="cstat-no" title="statement not covered" >$("#zipSelector").data("kendoAutoComplete");</span>
+<span class="cstat-no" title="statement not covered" >        zipSelector.select(null); //clear selection?</span>
+&nbsp;
+        //now check for match
+        let found = <span class="cstat-no" title="statement not covered" >null;</span>
+        const data = <span class="cstat-no" title="statement not covered" >this.dataSource.view();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (let idx = 0, length = data.length; idx &lt; length; idx++) {</span>
+<span class="cstat-no" title="statement not covered" >          if (data[idx].DivisionName === value) {</span>
+<span class="cstat-no" title="statement not covered" >            found = data[idx];</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        if (found !== null) {</span>
+          //update params object
+<span class="cstat-no" title="statement not covered" >          _addressSearchParams.zipCode = "";</span>
+<span class="cstat-no" title="statement not covered" >          _addressSearchParams.subAdminID = found.AdminSubDivisionGUID;</span>
+          //activate housenum/street search
+        } else {
+<span class="cstat-no" title="statement not covered" >          _addressSearchParams.subAdminID = ""; //clear subadmin because custom entered</span>
+        }
+        //always refresh the zip ds?
+<span class="cstat-no" title="statement not covered" >        _zipDS.read();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        changeStreetAndHouseNumberState();</span>
+      },
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#zipSelector").kendoAutoComplete({</span>
+      filter: "startswith",
+      suggest: false,
+      placeholder: _fieldNames.Zip.Prompt,
+      dataTextField: "ZipCode",
+      minLength: 0,
+      //template: '&lt;span class="k-state-default"&gt;&lt;h3&gt;#: data.ZipCode #&lt;/h3&gt;&lt;p&gt;  --  #: data.DivisionName #&lt;/p&gt;&lt;/span&gt;',
+      template: "&lt;p&gt;#: data.ZipCode # --  #: data.DivisionName #&lt;/p&gt;",
+      filtering: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        //var cityVal = $("#citySelector").data("kendoAutoComplete").dataItem();
+        //if(cityVal !==null &amp;&amp; cityVal !== undefined){
+        //    //filter out zips by city subadminguid
+        //    //if (e) {
+        //    //    e.preventDefault();
+        //    //    e.sender.dataSource.data([]);
+        //    //}
+        //}
+      },
+      dataBound: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        //if there is only one item in list, just choose it for them!
+<span class="cstat-no" title="statement not covered" >        if (this.dataItems().length === 1) {</span>
+          //just select it!
+<span class="cstat-no" title="statement not covered" >          $("#zipSelector")</span>
+            .data("kendoAutoComplete")
+            .select(this.dataItems[0]);
+        }
+      },
+      change: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        const value = <span class="cstat-no" title="statement not covered" >this.value();</span>
+        //do we check sub admins?
+        let found = <span class="cstat-no" title="statement not covered" >null;</span>
+        const data = <span class="cstat-no" title="statement not covered" >this.dataSource.view();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (let idx = 0, length = data.length; idx &lt; length; idx++) {</span>
+<span class="cstat-no" title="statement not covered" >          if (data[idx].ZipCode === value) {</span>
+<span class="cstat-no" title="statement not covered" >            found = data[idx];</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        if (found !== null) {</span>
+          //try to update city dropdown
+          const citySelector = <span class="cstat-no" title="statement not covered" >$("#citySelector").data("kendoAutoComplete");</span>
+          const foundMunics = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >          $.each(_municDS._data, <span class="fstat-no" title="function not covered" >function(</span>idxTwo, record) {</span>
+<span class="cstat-no" title="statement not covered" >            if (record.AdminSubDivisionGUID === found.AdminSubDivisionGUID) {</span>
+<span class="cstat-no" title="statement not covered" >              foundMunics.push(record);</span>
+              //return false;//break out
+            }
+          });
+<span class="cstat-no" title="statement not covered" >          if (foundMunics.length === 1) {</span>
+<span class="cstat-no" title="statement not covered" >            citySelector.value(foundMunics[0].DivisionName);</span>
+<span class="cstat-no" title="statement not covered" >            _addressSearchParams.subAdminID = foundMunics[0].AdminSubDivisionGUID;</span>
+          } else {
+            //_addressSearchParams.subAdminID = '';
+          }
+&nbsp;
+          //update params object
+<span class="cstat-no" title="statement not covered" >          _addressSearchParams.zipCode = found.ZipCode;</span>
+          //activate housenum/street search
+        } else {
+          //clear params object zipID
+<span class="cstat-no" title="statement not covered" >          _addressSearchParams.zipCode = "";</span>
+        }
+<span class="cstat-no" title="statement not covered" >        changeStreetAndHouseNumberState();</span>
+      },
+    });
+&nbsp;
+    //show choices for zip with on focus with no entry
+<span class="cstat-no" title="statement not covered" >    $("#zipSelector").on("focus", <span class="fstat-no" title="function not covered" >function() {</span></span>
+      const zipSelector: IRealAutoComplete = &lt;IRealAutoComplete&gt;<span class="cstat-no" title="statement not covered" >$("#zipSelector").data("kendoAutoComplete");</span>
+      const val = <span class="cstat-no" title="statement not covered" >zipSelector.value();</span>
+<span class="cstat-no" title="statement not covered" >      if (val === null || val === undefined || val === "") {</span>
+<span class="cstat-no" title="statement not covered" >        zipSelector.popup.open();</span>
+      }
+    });
+&nbsp;
+    //show choices for munic with on focus with no entry
+<span class="cstat-no" title="statement not covered" >    $("#citySelector").on("focus", <span class="fstat-no" title="function not covered" >function() {</span></span>
+      const citySelector: IRealAutoComplete = &lt;IRealAutoComplete&gt;<span class="cstat-no" title="statement not covered" >$("#citySelector").data("kendoAutoComplete");</span>
+      const val = <span class="cstat-no" title="statement not covered" >citySelector.value();</span>
+<span class="cstat-no" title="statement not covered" >      if (val === null || val === undefined || val === "") {</span>
+<span class="cstat-no" title="statement not covered" >        citySelector.popup.open();</span>
+      }
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#streetSelector").kendoAutoComplete({</span>
+      filter: "startswith",
+      enable: false,
+      suggest: false,
+      dataSource: {
+        transport: {
+          read: {
+            url: _serviceMapping.streets,
+            dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            //data: _addressSearchParams,
+            cache: true,
+          },
+          parameterMap: <span class="fstat-no" title="function not covered" >function(</span>options, operation) {
+<span class="cstat-no" title="statement not covered" >            if (operation === "read") {</span>
+              const st = <span class="cstat-no" title="statement not covered" >$("#streetSelector").data("kendoAutoComplete");</span>
+              //_addressSearchParams.stFilter = st.value();
+              const house = <span class="cstat-no" title="statement not covered" >$("#houseSelector").data("kendoAutoComplete");</span>
+              //_addressSearchParams.houseFilter = house.value();
+              //return _addressSearchParams;
+<span class="cstat-no" title="statement not covered" >              return {</span>
+                countryCode: _addressSearchParams.countryCode,
+                subAdminID: _addressSearchParams.subAdminID,
+                zipCode: _addressSearchParams.zipCode,
+                stFilter: st.value(),
+                houseFilter: house.value(),
+              };
+            }
+          }, //parameterMap
+        },
+        change: <span class="fstat-no" title="function not covered" >function(</span>e) {
+          //var data = this.data();
+          //console.log(data.length); // how many records found?
+        },
+        serverFiltering: true,
+        schema: {
+          type: "json",
+          data: "Data",
+          model: {
+            fields: {
+              StreetName: { field: "StreetName", type: "string" },
+              HouseNumber: { field: "HouseNumber", type: "number" },
+              ZipCode: { field: "ZipCode", type: "string" },
+              AddressGUID: { field: "AddressGUID", type: "guid" },
+              AdminSubDivisionGUID: { field: "AdminSubDivisionGUID", type: "guid" },
+            },
+          },
+        },
+      },
+      minLength: 1,
+      dataTextField: "StreetName", //need to build this field in the model
+      placeholder: _fieldNames.Street.Prompt,
+      filtering: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        //get filter descriptor
+        const filter = <span class="cstat-no" title="statement not covered" >e.filter;</span>
+<span class="cstat-no" title="statement not covered" >        if (!filter.value) {</span>
+          //prevent filtering if the filter does not value
+<span class="cstat-no" title="statement not covered" >          e.preventDefault();</span>
+        } else {
+          // _addressDS.read();
+        }
+        // handle the event
+<span class="cstat-no" title="statement not covered" >        updateDataGrid();</span>
+      },
+      change: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        //_addressDS.read();
+<span class="cstat-no" title="statement not covered" >        updateDataGrid();</span>
+      },
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#houseSelector").kendoAutoComplete({</span>
+      filter: "startswith",
+      enable: false,
+      suggest: false,
+      minLength: 1,
+      dataSource: {
+        transport: {
+          read: {
+            url: _serviceMapping.housenums,
+            dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            //data: _addressSearchParams,
+            cache: true,
+          },
+          parameterMap: <span class="fstat-no" title="function not covered" >function(</span>options, operation) {
+<span class="cstat-no" title="statement not covered" >            if (operation === "read") {</span>
+              const st = <span class="cstat-no" title="statement not covered" >$("#streetSelector").data("kendoAutoComplete");</span>
+              const house = <span class="cstat-no" title="statement not covered" >$("#houseSelector").data("kendoAutoComplete");</span>
+<span class="cstat-no" title="statement not covered" >              return {</span>
+                countryCode: _addressSearchParams.countryCode,
+                subAdminID: _addressSearchParams.subAdminID,
+                zipCode: _addressSearchParams.zipCode,
+                stFilter: st.value(),
+                houseFilter: house.value(),
+              };
+            }
+          }, //parameterMap
+        },
+        change: <span class="fstat-no" title="function not covered" >function(</span>e) {
+          //var data = this.data();
+          //console.log(data.length); // how many records found?
+        },
+        serverFiltering: true,
+        schema: {
+          type: "json",
+          data: "Data",
+          model: {
+            fields: {
+              StreetName: { field: "StreetName", type: "string" },
+              HouseNumber: { field: "HouseNumber", type: "number" },
+              ZipCode: { field: "ZipCode", type: "string" },
+              AddressGUID: { field: "AddressGUID", type: "guid" },
+              AdminSubDivisionGUID: { field: "AdminSubDivisionGUID", type: "guid" },
+            },
+          },
+        },
+      },
+      dataTextField: "HouseNumber",
+      placeholder: _fieldNames.House.Prompt,
+      filtering: <span class="fstat-no" title="function not covered" >function(</span>e) {
+<span class="cstat-no" title="statement not covered" >        updateDataGrid();</span>
+      },
+      change: <span class="fstat-no" title="function not covered" >function(</span>e) {
+<span class="cstat-no" title="statement not covered" >        updateDataGrid();</span>
+        //var value = this.value();
+        ////do we check sub admins?
+        //var found = null;
+        //var data = this.dataSource.view();
+        //for (var idx = 0, length = data.length; idx &lt; length; idx++) {
+        //    if (data[idx].HouseNumber === value) {
+        //        found = data[idx];
+        //        break;
+        //    }
+        //}
+        //if (found !== null) {
+        //    _addressDS.read();
+        //} else {
+&nbsp;
+        //}
+      },
+    });
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >updateDataGrid() {</span>
+    //_addressDS.read();
+    //get st name and house num
+    const st = <span class="cstat-no" title="statement not covered" >$("#streetSelector").data("kendoAutoComplete");</span>
+    const stVal = <span class="cstat-no" title="statement not covered" >st.value();</span>
+    const house = <span class="cstat-no" title="statement not covered" >$("#houseSelector").data("kendoAutoComplete");</span>
+    const houseNum = <span class="cstat-no" title="statement not covered" >house.value();</span>
+    const addGrid = <span class="cstat-no" title="statement not covered" >$("#addressList").data("kendoGrid");</span>
+<span class="cstat-no" title="statement not covered" >    if (stVal === "" &amp;&amp; houseNum === "") {</span>
+<span class="cstat-no" title="statement not covered" >      _addressDS.read();</span>
+<span class="cstat-no" title="statement not covered" >      _addressDS.page(1);</span>
+<span class="cstat-no" title="statement not covered" >      addGrid.refresh();</span>
+    } else <span class="cstat-no" title="statement not covered" >if (stVal.length &gt; 1 || houseNum.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      _addressDS.read();</span>
+<span class="cstat-no" title="statement not covered" >      _addressDS.page(1);</span>
+<span class="cstat-no" title="statement not covered" >      addGrid.refresh();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      $("#addressList")</span>
+        .data("kendoGrid")
+        .refresh();
+    } else {
+      //do nothing
+      //_addressDS.read();
+    }
+<span class="cstat-no" title="statement not covered" >    if ($("#addressList").is(":hidden")) {</span>
+<span class="cstat-no" title="statement not covered" >      $("#addressList").removeAttr("hidden");</span>
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >configureAddressGrid() {</span>
+    //configure ds for addresses
+<span class="cstat-no" title="statement not covered" >    if (_addressDS === null || _addressDS === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      _addressDS = new kendo.data.DataSource({</span>
+        //type: 'aspnetmvc-ajax',
+        transport: {
+          read: {
+            url: _serviceMapping.addresses,
+            dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            //data: _addressSearchParams,
+            cache: true,
+          },
+          parameterMap: <span class="fstat-no" title="function not covered" >function(</span>options, operation) {
+<span class="cstat-no" title="statement not covered" >            if (operation === "read") {</span>
+              //var st = $("#streetSelector").data('kendoAutoComplete');
+              //_addressSearchParams.filters = st.dataSource.filter().filters;
+              const st = <span class="cstat-no" title="statement not covered" >$("#streetSelector").data("kendoAutoComplete");</span>
+<span class="cstat-no" title="statement not covered" >              _addressSearchParams.stFilter = st.value();</span>
+              const house = <span class="cstat-no" title="statement not covered" >$("#houseSelector").data("kendoAutoComplete");</span>
+<span class="cstat-no" title="statement not covered" >              _addressSearchParams.houseFilter = house.value();</span>
+<span class="cstat-no" title="statement not covered" >              return _addressSearchParams;</span>
+            }
+          }, //parameterMap
+        },
+        change: <span class="fstat-no" title="function not covered" >function(</span>e) {
+          const data = <span class="cstat-no" title="statement not covered" >this.data();</span>
+          //console.log(data.length); // how many records found
+<span class="cstat-no" title="statement not covered" >          if (data.length === 1) {</span>
+            //select first row
+            const grid = <span class="cstat-no" title="statement not covered" >$("#addressList").data("kendoGrid"),</span>
+              row = <span class="cstat-no" title="statement not covered" >grid.tbody.find("&gt;tr:not(.k-grouping-row)").eq(0);</span>
+<span class="cstat-no" title="statement not covered" >            grid.select(row);</span>
+          }
+        },
+        pageSize: 15,
+        serverFiltering: false,
+        serverPaging: false,
+        sort: {
+          field: "HousePlusStreet",
+          dir: "asc",
+        },
+        schema: {
+          type: "json",
+          data: "Data",
+          model: {
+            fields: {
+              //StreetName: { field: "StreetName", type: "string" },
+              //HouseNumber: { field: "HouseNumber", type: "number" },
+              HousePlusStreet: { field: "HousePlusStreet", type: "string" },
+              ZipCode: { field: "ZipCode", type: "string" },
+              AddressGUID: { field: "AddressGUID", type: "guid" },
+              AdminSubDivisionGUID: { field: "AdminSubDivisionGUID", type: "guid" },
+              DivisionName: { field: "DivisionName", type: "string" },
+            },
+          },
+          total: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >            return response.Total;</span>
+          },
+        },
+      });
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#addressList").kendoGrid({</span>
+      dataSource: _addressDS,
+      autoBind: false,
+      scrollable: false,
+      selectable: "row",
+      change: <span class="fstat-no" title="function not covered" >function(</span>arg) {
+        const grid = <span class="cstat-no" title="statement not covered" >$("#addressList").data("kendoGrid");</span>
+        const selectedItem: IAddressObservable = &lt;IAddressObservable&gt;<span class="cstat-no" title="statement not covered" >grid.dataItem(grid.select());</span>
+        const houseNum = <span class="cstat-no" title="statement not covered" >selectedItem.HouseNumber;</span>
+      },
+      pageable: true,
+      dataBound: <span class="fstat-no" title="function not covered" >function(</span>e) {
+        //console.log("dataBound");
+      },
+      columns: [
+        //  {
+        //  field: "HouseNumber",
+        //  title: _fieldNames.House.Header,
+        //  width: 40
+        //},
+        {
+          field: "HousePlusStreet",
+          title: _fieldNames.Street.Header,
+        },
+        {
+          field: "ZipCode",
+          title: _fieldNames.Zip.Header,
+          width: 60,
+        },
+        {
+          field: "DivisionName",
+          title: _fieldNames.City.Header,
+          width: 95,
+        },
+      ],
+    });
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

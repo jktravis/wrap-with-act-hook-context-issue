@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/Map/Components/MapDrawingTools/windows/SaveShapeDrawingWindow.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/Map/Components/MapDrawingTools/windows</a> SaveShapeDrawingWindow.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.23% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/65</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.36% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>5/44</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from "react";
+import FormGroup from "reactstrap/lib/FormGroup";
+import Label from "reactstrap/lib/Label";
+import Input from "reactstrap/lib/Input";
+import Form from "reactstrap/lib/Form";
+import { Formik, ErrorMessage } from "formik";
+import { createEditingStyle, createDefaultStyle } from "ol/style/Style";
+import { Fill, Stroke, Style } from "ol/style";
+import { fromCircle } from "ol/geom/Polygon";
+import { curry } from "ramda";
+import * as Yup from "yup";
+&nbsp;
+import SaveDrawingWindow from "./SaveDrawingWindow";
+import ColorPicker from "Controllers/Shared/Components/ColorSwatchButton";
+import { addSketchToIncident } from "Api/mapApi";
+import { convertColorObjectToRgba, getWktFromShape } from "../utilities";
+import { MapLocalizationConsumer } from "Controllers/Tools/Map/Components/MapLocalization";
+import createSaveCancelButtons from "Controllers/Tools/Map/Components/MapDrawingTools/SaveCancelButtons";
+&nbsp;
+interface Props {
+  projectId: string;
+  feature: any;
+  successSaveFn: () =&gt; void;
+  cancelSaveFn: () =&gt; void;
+  headerText?: string;
+  getWktFn?: (any) =&gt; any;
+  showFillEdit?: boolean;
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >class SaveShapeDrawingWindow extends Component&lt;Props, any&gt; {</span>
+  /**
+   * Modified version of default `createDefaultStyle` from OL
+   */
+<span class="fstat-no" title="function not covered" >  static createStyle(</span>{ <span class="cstat-no" title="statement not covered" >strokeColor,</span> <span class="cstat-no" title="statement not covered" >fillColor,</span> <span class="cstat-no" title="statement not covered" >strokeWidth </span>}) {
+    const fill = <span class="cstat-no" title="statement not covered" >new Fill({</span>
+      color: fillColor,
+    });
+&nbsp;
+    const stroke = <span class="cstat-no" title="statement not covered" >new Stroke({</span>
+      color: strokeColor,
+      width: strokeWidth,
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return new Style({</span>
+      fill: fill,
+      stroke: stroke,
+    });
+  }
+&nbsp;
+  static defaultProps: Partial&lt;Props&gt; = {
+    headerText: "Save Shape",
+    getWktFn: getWktFromShape,
+    showFillEdit: false,
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  renderError = <span class="fstat-no" title="function not covered" >error =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >    return &lt;div className="invalid-feedback"&gt; {error} &lt;/div&gt;;</span>
+  };
+&nbsp;
+  /**
+   * Sets the field's value.
+   * @param {string} fieldName The Formik property to update
+   * @param {(string, any) =&gt; void} setFieldValue Formik's setFieldValue function
+   * @param {object} values Formik's values object containing current values
+   * @returns {(object, object) =&gt; void} Change handler function used by react-color.
+   */
+<span class="cstat-no" title="statement not covered" >  createHandleColorChange = curry(<span class="fstat-no" title="function not covered" >(</span>fieldName, setFieldValue, values) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    curry(<span class="fstat-no" title="function not covered" >(</span>color, event: any) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (fieldName === "StrokeWidth") {</span>
+<span class="cstat-no" title="statement not covered" >        setFieldValue(fieldName, event.target.value);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        setFieldValue(fieldName, color);</span>
+      }
+      const strokeColor = <span class="cstat-no" title="statement not covered" >fieldName === "StrokeColor" ? color : values.StrokeColor;</span>
+      const fillColor = <span class="cstat-no" title="statement not covered" >fieldName === "FillColor" ? color : values.FillColor;</span>
+      const strokeWidth = <span class="cstat-no" title="statement not covered" >fieldName === "StrokeWidth" ? event.target.value : values.StrokeWidth;</span>
+&nbsp;
+      const style = <span class="cstat-no" title="statement not covered" >SaveShapeDrawingWindow.createStyle({</span>
+        strokeColor: convertColorObjectToRgba(strokeColor),
+        fillColor: convertColorObjectToRgba(fillColor),
+        strokeWidth: strokeWidth,
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.props.feature.setStyle(style);</span>
+    }),
+  );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  handleFillColorChange = this.createHandleColorChange("FillColor");</span>
+<span class="cstat-no" title="statement not covered" >  handleStrokeColorChange = this.createHandleColorChange("StrokeColor");</span>
+<span class="cstat-no" title="statement not covered" >  handleStrokeWidthChange = this.createHandleColorChange("StrokeWidth");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  render() {</span></span>
+    const <span class="cstat-no" title="statement not covered" >{ <span class="cstat-no" title="statement not covered" >feature,</span> <span class="cstat-no" title="statement not covered" >getWktFn,</span> <span class="cstat-no" title="statement not covered" >projectId,</span> <span class="cstat-no" title="statement not covered" >successSaveFn,</span> <span class="cstat-no" title="statement not covered" >showFillEdit,</span> <span class="cstat-no" title="statement not covered" >cancelSaveFn } = this.props;</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;MapLocalizationConsumer&gt;
+        {<span class="fstat-no" title="function not covered" >(</span>{
+<span class="cstat-no" title="statement not covered" >          SketchName,</span>
+<span class="cstat-no" title="statement not covered" >          IsRequired,</span>
+<span class="cstat-no" title="statement not covered" >          ValueNoLessThan1,</span>
+<span class="cstat-no" title="statement not covered" >          AnnotationNamePlaceHolder,</span>
+<span class="cstat-no" title="statement not covered" >          DescriptionTitle,</span>
+<span class="cstat-no" title="statement not covered" >          BriefDescription,</span>
+<span class="cstat-no" title="statement not covered" >          Line,</span>
+<span class="cstat-no" title="statement not covered" >          Color,</span>
+<span class="cstat-no" title="statement not covered" >          Width,</span>
+<span class="cstat-no" title="statement not covered" >          Fill,</span>
+        }) =&gt; {
+<span class="cstat-no" title="statement not covered" >          return (</span>
+            &lt;Formik
+              initialValues={{
+                StrokeColor: {
+                  rgb: { r: 51, g: 153, b: 204, a: 1 },
+                },
+                FillColor: {
+                  rgb: { r: 255, g: 255, b: 255, a: 0.4 },
+                },
+                IconURL: "",
+                StrokeWidth: 1,
+                SketchName: "",
+                SketchDescription: "",
+                WKT: getWktFn(feature),
+                SymbolGUID: "",
+                LogEntryGUID: "",
+                DrawType: 0,
+              }}
+              validationSchema={Yup.object().shape({
+                SketchName: Yup.string().required(`${SketchName} ${IsRequired}`),
+                SketchDescription: Yup.string(),
+                StrokeWidth: Yup.number().min(1, `${ValueNoLessThan1} ${IsRequired}`),
+              })}
+              onSubmit={<span class="fstat-no" title="function not covered" >(</span>data, { <span class="cstat-no" title="statement not covered" >setSubmitting,</span> <span class="cstat-no" title="statement not covered" >resetForm </span>}) =&gt; {
+<span class="cstat-no" title="statement not covered" >                setSubmitting(true);</span>
+                const { <span class="cstat-no" title="statement not covered" >StrokeColor,</span> <span class="cstat-no" title="statement not covered" >FillColor </span>} = data;
+<span class="cstat-no" title="statement not covered" >                addSketchToIncident({</span>
+                  incidentId: projectId,
+                  ...data,
+                  StrokeColor: convertColorObjectToRgba(StrokeColor),
+                  FillColor: convertColorObjectToRgba(FillColor),
+                } as any).then(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                  setSubmitting(false);</span>
+<span class="cstat-no" title="statement not covered" >                  resetForm();</span>
+<span class="cstat-no" title="statement not covered" >                  successSaveFn();</span>
+                });
+              }}
+            &gt;
+              {<span class="fstat-no" title="function not covered" >(</span>{ <span class="cstat-no" title="statement not covered" >handleChange,</span> <span class="cstat-no" title="statement not covered" >handleBlur,</span> <span class="cstat-no" title="statement not covered" >values,</span> <span class="cstat-no" title="statement not covered" >setFieldValue,</span> <span class="cstat-no" title="statement not covered" >handleSubmit,</span> <span class="cstat-no" title="statement not covered" >isValid,</span> <span class="cstat-no" title="statement not covered" >isSubmitting </span>}) =&gt; <span class="cstat-no" title="statement not covered" >(</span>
+                &lt;Form onSubmit={handleSubmit} style={{ position: "absolute", top: 0 }}&gt;
+                  &lt;SaveDrawingWindow
+                    footerRenderer={createSaveCancelButtons({ isValid, isSubmitting, cancelSaveFn })}
+                    headerText={this.props.headerText}
+                    dismissFn={cancelSaveFn}
+                  &gt;
+                    &lt;FormGroup&gt;
+                      &lt;Label for="SketchName"&gt;{SketchName}&lt;/Label&gt;
+                      &lt;Input
+                        placeholder={AnnotationNamePlaceHolder}
+                        id="SketchName"
+                        name="SketchName"
+                        onChange={handleChange}
+                        value={values.SketchName}
+                        disabled={isSubmitting}
+                      /&gt;
+                      &lt;ErrorMessage name="SketchName" render={this.renderError} /&gt;
+                    &lt;/FormGroup&gt;
+&nbsp;
+                    &lt;FormGroup&gt;
+                      &lt;Label for="SketchDescription"&gt;{DescriptionTitle}&lt;/Label&gt;
+                      &lt;Input
+                        type="textarea"
+                        placeholder={BriefDescription}
+                        id="SketchDescription"
+                        name="SketchDescription"
+                        onChange={handleChange}
+                        value={values.SketchDescription}
+                        disabled={isSubmitting}
+                      /&gt;
+                      &lt;ErrorMessage name="SketchDescription" render={this.renderError} /&gt;
+                    &lt;/FormGroup&gt;
+&nbsp;
+                    &lt;div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    &gt;
+                      &lt;FormGroup&gt;
+                        &lt;Label&gt;{`${Line} ${Color}`}&lt;/Label&gt;
+                        &lt;ColorPicker
+                          color={values.StrokeColor}
+                          colorChangeFn={this.handleStrokeColorChange(setFieldValue, values)}
+                        /&gt;
+                      &lt;/FormGroup&gt;
+&nbsp;
+                      &lt;FormGroup&gt;
+                        &lt;Label&gt;{`${Line} ${Width}`}&lt;/Label&gt;
+                        &lt;Input
+                          type="number"
+                          value={values.StrokeWidth}
+                          name="StrokeWidth"
+                          min="1"
+                          onChange={this.handleStrokeWidthChange(setFieldValue, values)("")}
+                        /&gt;
+                      &lt;/FormGroup&gt;
+                    &lt;/div&gt;
+&nbsp;
+                    {showFillEdit &amp;&amp; (
+                      &lt;FormGroup&gt;
+                        &lt;Label&gt;{`${Fill} ${Color}`}&lt;/Label&gt;
+                        &lt;ColorPicker
+                          color={values.FillColor}
+                          colorChangeFn={this.handleFillColorChange(setFieldValue, values)}
+                        /&gt;
+                      &lt;/FormGroup&gt;
+                    )}
+                  &lt;/SaveDrawingWindow&gt;
+                &lt;/Form&gt;
+              )}
+            &lt;/Formik&gt;
+          );
+        }}
+      &lt;/MapLocalizationConsumer&gt;
+    );
+  }
+}
+&nbsp;
+export default SaveShapeDrawingWindow;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

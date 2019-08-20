@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/MultiLogbook/MultiTool.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/MultiLogbook</a> MultiTool.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/110</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/110</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//import { Main, QueryString } from '../../../basicCoBRAScript';
+//import { $Ajax } from '../../../jqAjaxCSF';
+//import { QueryString } from "../../../Utilities/Simple/QueryString";
+/*export*/
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >namespace </span>MultiLogbook {</span>
+  var _sendNoteURL;
+  var _sendDetailedNoteURL;
+  var _deleteNoteURL;
+  var _logTypeURL;
+  var _isMobile: boolean;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >init(toolName, sendNoteURL, sendDetailedNoteURL, deleteNoteURL, isMobile: boolean, logTypeUrl) {</span></span>
+<span class="cstat-no" title="statement not covered" >    _sendNoteURL = sendNoteURL;</span>
+<span class="cstat-no" title="statement not covered" >    _deleteNoteURL = deleteNoteURL;</span>
+<span class="cstat-no" title="statement not covered" >    _sendDetailedNoteURL = sendDetailedNoteURL;</span>
+<span class="cstat-no" title="statement not covered" >    _logTypeURL = logTypeUrl;</span>
+<span class="cstat-no" title="statement not covered" >    _isMobile = isMobile;</span>
+<span class="cstat-no" title="statement not covered" >    $("#NewNoteText").focus();</span>
+<span class="cstat-no" title="statement not covered" >    DisableCatButton();</span>
+<span class="cstat-no" title="statement not covered" >    $("#NewNoteText").keyup(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (IsCatTextboxValid()) {</span>
+<span class="cstat-no" title="statement not covered" >        EnableCatButton();</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        DisableCatButton();</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    $("#NewNoteText").keypress(<span class="fstat-no" title="function not covered" >function(</span>event) {</span>
+      var keycode = <span class="cstat-no" title="statement not covered" >event.keyCode ? event.keyCode : event.which;</span>
+<span class="cstat-no" title="statement not covered" >      if (keycode === 13) {</span>
+<span class="cstat-no" title="statement not covered" >        sendnote();</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    if ((&lt;any&gt;QueryString).RoomGUID != null &amp;&amp; (&lt;any&gt;QueryString).RoomGUID.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      if (_isMobile) {</span>
+<span class="cstat-no" title="statement not covered" >        $("#RoomGUID")</span>
+          .data("kendoComboBox")
+          .value((&lt;any&gt;QueryString).RoomGUID);
+      } else {
+<span class="cstat-no" title="statement not covered" >        $("#RoomGUID")</span>
+          .data("kendoDropDownList")
+          .value((&lt;any&gt;QueryString).RoomGUID);
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    Main.cbraPush.client.logentryForToolUpdated = refreshgrid;</span>
+<span class="cstat-no" title="statement not covered" >    $.connection.hub.start().done(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      Main.cbraPush.server.watchTool(toolName, Main.currentProjectGUID);</span>
+    });
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >LogListExport(e) {</span></span>
+<span class="cstat-no" title="statement not covered" >    $.ajax({</span>
+      url: _logTypeURL,
+      type: "GET",
+      async: false,
+      success: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >        response.forEach(<span class="fstat-no" title="function not covered" >function(</span>item, index) {</span>
+          //Start at 1 so we skip the first row, which is all headers in the excel document
+<span class="cstat-no" title="statement not covered" >          for (var i = 1; i &lt; e.workbook.sheets[0].rows.length; i++) {</span>
+            //Position cells[1], because the logtype is the second column in the grid.
+            //Not a fan of the absolute here, but no sure how else to dynamically check it.
+            //The column title is based on current culture translations from the resx, which
+            //I dont know how to get easily from a ts file.
+            //Possibility for the future?
+<span class="cstat-no" title="statement not covered" >            if (e.workbook.sheets[0].rows[i].cells[1].value === item.LogTypeKey) {</span>
+<span class="cstat-no" title="statement not covered" >              e.workbook.sheets[0].rows[i].cells[1].value = item.CurrentCultureTranslation;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            e.workbook.sheets[0].rows[i].cells[3].value = Main.htmlUnescape(</span>
+              e.workbook.sheets[0].rows[i].cells[3].value,
+            );
+<span class="cstat-no" title="statement not covered" >            e.workbook.sheets[0].rows[i].cells[4].value = Main.htmlUnescape(</span>
+              e.workbook.sheets[0].rows[i].cells[4].value,
+            );
+          }
+        });
+      },
+      error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >        Main.handlejqerr(xhr, status, error);</span>
+      },
+    });
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >sendDetailedNote() {</span></span>
+    var url = <span class="cstat-no" title="statement not covered" >_sendDetailedNoteURL;</span>
+    var notetext = <span class="cstat-no" title="statement not covered" >$("#NewNoteText").val();</span>
+    var copyLog = <span class="cstat-no" title="statement not covered" >copyLogIsChecked();</span>
+    var logType = <span class="cstat-no" title="statement not covered" >$("#LogType").val();</span>
+    var roomGUIDs = <span class="cstat-no" title="statement not covered" >getSelectedRooms();</span>
+    var newUrl = <span class="cstat-no" title="statement not covered" >url + "?CopyLog=" + copyLog;</span>
+<span class="cstat-no" title="statement not covered" >    newUrl = newUrl + "?SelectedRooms=" + roomGUIDs;</span>
+<span class="cstat-no" title="statement not covered" >    if (logType.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      newUrl = newUrl + "&amp;LogType=" + logType;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (notetext.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      newUrl = newUrl + "&amp;NewNoteText=" + notetext;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    newUrl = newUrl + "&amp;RoomGUID=" + currentRoomValue();</span>
+<span class="cstat-no" title="statement not covered" >    window.location.href = newUrl;</span>
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >sendnote() {</span></span>
+    var notetext = <span class="cstat-no" title="statement not covered" >$("#NewNoteText").val();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (notetext.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.blockit($("#divEntry"));</span>
+      var copyLog = <span class="cstat-no" title="statement not covered" >copyLogIsChecked();</span>
+      var logType = <span class="cstat-no" title="statement not covered" >$("#LogType").val();</span>
+      var url = <span class="cstat-no" title="statement not covered" >_sendNoteURL;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      $Ajax.ajaxAntiForgery({</span>
+        url: url,
+        type: "POST",
+        data: {
+          NewNoteText: Main.htmlEncode(notetext),
+          CopyLog: copyLog,
+          roomGUIDs: getSelectedRooms(),
+          RoomGUID: currentRoomValue(),
+          LogType: logType,
+        },
+        success: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >          if (response.success === true) {</span>
+<span class="cstat-no" title="statement not covered" >            $("#NewNoteText").val("");</span>
+<span class="cstat-no" title="statement not covered" >            $("#NewNoteText").focus();</span>
+<span class="cstat-no" title="statement not covered" >            uncheckCopyLog();</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            $.notify({ message: response.Message }, { type: "danger" });</span>
+          }
+<span class="cstat-no" title="statement not covered" >          Main.unblockit($("#divEntry"));</span>
+        },
+        error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >          Main.handlejqerr(xhr, status, error);</span>
+        },
+      });
+    }
+  }
+  function <span class="fstat-no" title="function not covered" >uncheckCopyLog() {</span>
+<span class="cstat-no" title="statement not covered" >    if ($("#CopyLog") != null &amp;&amp; $("#CopyLog").length &gt; 0) {</span>
+      var tmpCopyLog = <span class="cstat-no" title="statement not covered" >$("#CopyLog").data("kendoMultiSelect");</span>
+<span class="cstat-no" title="statement not covered" >      if (tmpCopyLog != null &amp;&amp; tmpCopyLog !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        $("#CopyLog")</span>
+          .data("kendoMultiSelect")
+          .value([]);
+      } else {
+        //$('#CopyLog').attr('checked', false);
+        (&lt;HTMLInputElement&gt;<span class="cstat-no" title="statement not covered" >document.getElementById("CopyLog")).checked = false;</span>
+      }
+    }
+  }
+  function <span class="fstat-no" title="function not covered" >copyLogIsChecked() {</span>
+<span class="cstat-no" title="statement not covered" >    if ($("#CopyLog") != null &amp;&amp; $("#CopyLog").length &gt; 0) {</span>
+      var tmpCopyLog = <span class="cstat-no" title="statement not covered" >$("#CopyLog").data("kendoMultiSelect");</span>
+<span class="cstat-no" title="statement not covered" >      if (tmpCopyLog != null &amp;&amp; tmpCopyLog !== undefined) {</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        if ($("#CopyLog").is(":checked")) {</span>
+<span class="cstat-no" title="statement not covered" >          return true;</span>
+        }
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+  function <span class="fstat-no" title="function not covered" >getSelectedRooms() {</span>
+<span class="cstat-no" title="statement not covered" >    if ($("#CopyLog") != null &amp;&amp; $("#CopyLog").length &gt; 0) {</span>
+      var tmpRoomObj = <span class="cstat-no" title="statement not covered" >$("#CopyLog").data("kendoMultiSelect");</span>
+<span class="cstat-no" title="statement not covered" >      if (tmpRoomObj != null &amp;&amp; tmpRoomObj !== undefined &amp;&amp; tmpRoomObj.value != null) {</span>
+<span class="cstat-no" title="statement not covered" >        return JSON.stringify(</span>
+          $("#CopyLog")
+            .data("kendoMultiSelect")
+            .value(),
+        );
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    return "";</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >IsCatTextboxValid() {</span>
+<span class="cstat-no" title="statement not covered" >    return $("#NewNoteText").val().length &gt; 0;</span>
+  }
+  function <span class="fstat-no" title="function not covered" >EnableCatButton() {</span>
+<span class="cstat-no" title="statement not covered" >    $("#addnote").removeAttr("disabled");</span>
+  }
+  function <span class="fstat-no" title="function not covered" >DisableCatButton() {</span>
+<span class="cstat-no" title="statement not covered" >    $("#addnote").attr("disabled", "disabled");</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >archiverow(staticGUID, logentryguid) {</span></span>
+    var theUrl = <span class="cstat-no" title="statement not covered" >_deleteNoteURL;</span>
+<span class="cstat-no" title="statement not covered" >    $Ajax.ajaxAntiForgery({</span>
+      url: theUrl,
+      type: "POST",
+      data: {
+        StaticGUID: staticGUID,
+        LogEntryGUID: logentryguid,
+      },
+      success: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >        if (response.success === false) {</span>
+<span class="cstat-no" title="statement not covered" >          $.notify({ message: response.Message }, { type: "danger" });</span>
+        } else {
+          //do nothing
+        }
+      },
+      error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >        Main.handlejqerr(xhr, status, error);</span>
+      },
+    });
+  }
+  function <span class="fstat-no" title="function not covered" >currentRoomValue() {</span>
+<span class="cstat-no" title="statement not covered" >    if ($("#RoomGUID") != null &amp;&amp; $("#RoomGUID").length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      if (_isMobile) {</span>
+<span class="cstat-no" title="statement not covered" >        return $("#RoomGUID")</span>
+          .data("kendoComboBox")
+          .value();
+      }
+<span class="cstat-no" title="statement not covered" >      return $("#RoomGUID")</span>
+        .data("kendoDropDownList")
+        .value();
+    }
+<span class="cstat-no" title="statement not covered" >    return "";</span>
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >RoomFilter() {</span></span>
+<span class="cstat-no" title="statement not covered" >    return { RoomGUID: currentRoomValue() };</span>
+  }
+  function <span class="fstat-no" title="function not covered" >refreshgrid() {</span>
+<span class="cstat-no" title="statement not covered" >    roomChanged();</span>
+<span class="cstat-no" title="statement not covered" >    Main.notifySomethingHasChanged();</span>
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >roomChanged() {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (_isMobile) {</span>
+      var lstV = <span class="cstat-no" title="statement not covered" >$("#lstLog").data("kendoMobileListView");</span>
+<span class="cstat-no" title="statement not covered" >      if (lstV !== null &amp;&amp; lstV !== undefined) {</span>
+        let gridDataSource = <span class="cstat-no" title="statement not covered" >lstV.dataSource;</span>
+<span class="cstat-no" title="statement not covered" >        gridDataSource.read();</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      if ($("#loggrid").length &gt; 0) {</span>
+        let gridDataSource = <span class="cstat-no" title="statement not covered" >$("#loggrid").data("kendoGrid").dataSource;</span>
+<span class="cstat-no" title="statement not covered" >        gridDataSource.read();</span>
+      }
+    }
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >roomMobileChanged() {</span></span>
+    var lstV = <span class="cstat-no" title="statement not covered" >$("#lstLog").data("kendoMobileListView");</span>
+<span class="cstat-no" title="statement not covered" >    if (lstV !== null &amp;&amp; lstV !== undefined) {</span>
+      let gridDataSource = <span class="cstat-no" title="statement not covered" >lstV.dataSource;</span>
+<span class="cstat-no" title="statement not covered" >      gridDataSource.read();</span>
+    }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

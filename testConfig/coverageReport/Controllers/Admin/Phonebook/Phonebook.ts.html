@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Admin/Phonebook/Phonebook.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Admin/Phonebook</a> Phonebook.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/70</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { forEach } from "ramda";
+/* global
+Main,
+$Ajax,
+*/
+&nbsp;
+interface IGlobalPrompt {
+  firstNameValidate: string;
+  lastNameValidate: string;
+  emailAddressValidate: string;
+  PhoneNumberMessage: string;
+  MobileNumberMessage: string;
+  contactUrl: string;
+  returnURL: string;
+  markAsIncorrectUrl: string;
+}
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export class Phonebook {</span></span>
+  private _globalPrompts: IGlobalPrompt;
+<span class="fstat-no" title="function not covered" >  constructor(prompts: IGlobalPrompt) {</span>
+<span class="cstat-no" title="statement not covered" >    this._globalPrompts = prompts;</span>
+  }
+&nbsp;
+  private checkField;
+&nbsp;
+<span class="fstat-no" title="function not covered" >  private <span class="cstat-no" title="statement not covered" >validateForm(): boolean {</span></span>
+    const errResponse = <span class="cstat-no" title="statement not covered" >{</span>
+      Messages: [],
+    };
+&nbsp;
+    const fieldsToCheck = <span class="cstat-no" title="statement not covered" >[</span>
+      {
+        field: $("#FirstName"),
+        validation: this._globalPrompts.firstNameValidate,
+      },
+      {
+        field: $("#LastName"),
+        validation: this._globalPrompts.lastNameValidate,
+      },
+      {
+        field: $("#EmailAddress"),
+        validation: this._globalPrompts.emailAddressValidate,
+      },
+    ];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    forEach(<span class="fstat-no" title="function not covered" >inputData =&gt; {</span></span>
+      const currentFieldCheck = <span class="cstat-no" title="statement not covered" >inputData.field.val();</span>
+<span class="cstat-no" title="statement not covered" >      if (!currentFieldCheck || !currentFieldCheck.length) {</span>
+<span class="cstat-no" title="statement not covered" >        Main.markObjectAsError(inputData.field);</span>
+<span class="cstat-no" title="statement not covered" >        errResponse.Messages.push(inputData.validation);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        Main.clearObjectErrorStatus(inputData.field);</span>
+      }
+    }, fieldsToCheck);
+&nbsp;
+    const phonesToCheck = <span class="cstat-no" title="statement not covered" >[</span>
+      {
+        field: $("#PhoneNum"),
+        validation: this._globalPrompts.PhoneNumberMessage,
+      },
+      //{
+      //  field: $("#MobileNum"),
+      //  validation: this._globalPrompts.MobileNumberMessage,
+      //},
+    ];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    forEach(<span class="fstat-no" title="function not covered" >inputData =&gt; {</span></span>
+      const currentFieldCheck = <span class="cstat-no" title="statement not covered" >inputData.field.val();</span>
+<span class="cstat-no" title="statement not covered" >      if (currentFieldCheck &amp;&amp; currentFieldCheck.length &gt; 0 &amp;&amp; Main.validatePhoneNumber(currentFieldCheck)) {</span>
+<span class="cstat-no" title="statement not covered" >        Main.clearObjectErrorStatus(inputData.field);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        Main.markObjectAsError(inputData.field);</span>
+<span class="cstat-no" title="statement not covered" >        errResponse.Messages.push(inputData.validation);</span>
+      }
+    }, phonesToCheck);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (errResponse.Messages.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.silentHandleValErr(null, errResponse);</span>
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public <span class="cstat-no" title="statement not covered" >handleOrgReturn(</span>orgObj, sourceButton) {</span>
+    let val = <span class="cstat-no" title="statement not covered" >"";</span>
+<span class="cstat-no" title="statement not covered" >    if (orgObj !== null) {</span>
+<span class="cstat-no" title="statement not covered" >      val = orgObj.OrganizationName;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    $("#OrganizationName").val(val);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public <span class="cstat-no" title="statement not covered" >handleUserReturn(</span>userObj, sourceButton) {</span>
+    let val = <span class="cstat-no" title="statement not covered" >"";</span>
+<span class="cstat-no" title="statement not covered" >    if (userObj !== null) {</span>
+<span class="cstat-no" title="statement not covered" >      if (userObj.UserGUID) {</span>
+<span class="cstat-no" title="statement not covered" >        val = userObj.UserGUID;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        val = userObj.CoBRAUserGUID;</span>
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    $("#DataOwner2GUID").val(val);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public <span class="cstat-no" title="statement not covered" >handleAddressReturn(</span>selectedAddress) {</span>
+    let streetText = <span class="cstat-no" title="statement not covered" >selectedAddress.HouseNumber + " " + selectedAddress.StreetName;</span>
+    let country = <span class="cstat-no" title="statement not covered" >"";</span>
+<span class="cstat-no" title="statement not covered" >    if (Main.serverBuildType === "Belgium") {</span>
+<span class="cstat-no" title="statement not covered" >      streetText = selectedAddress.StreetName + " " + selectedAddress.HouseNumber;</span>
+<span class="cstat-no" title="statement not covered" >      country = "Belgium";</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#WorkAddress_Street1").val($.trim(streetText));</span>
+<span class="cstat-no" title="statement not covered" >    $("#WorkAddress_City").val($.trim(selectedAddress.City));</span>
+<span class="cstat-no" title="statement not covered" >    $("#WorkAddress_Zip_PostalCode").val($.trim(selectedAddress.ZipCode));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#WorkAddress_Country")</span>
+      .data("kendoDropDownList")
+      .text($.trim(country));
+<span class="cstat-no" title="statement not covered" >    $("#WorkAddress_Country")</span>
+      .data("kendoDropDownList")
+      .trigger("change");
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $("#WorkAddress_State_Province")</span>
+      .data("kendoComboBox")
+      .text($.trim(selectedAddress.State));
+<span class="cstat-no" title="statement not covered" >    $("#WorkAddress_State_Province")</span>
+      .data("kendoComboBox")
+      .trigger("change");
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public <span class="cstat-no" title="statement not covered" >filterStateListWork() {</span></span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      CountryCode: $("WorkAddress_Country").val(),
+    };
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public <span class="cstat-no" title="statement not covered" >SaveContact() {</span></span>
+<span class="cstat-no" title="statement not covered" >    $(this)</span>
+      .find("input[type=submit]")
+      .prop("disabled", true);
+<span class="cstat-no" title="statement not covered" >    if (this.validateForm()) {</span>
+      //good, send off
+      const contact = <span class="cstat-no" title="statement not covered" >{</span>
+        FirstName: $("#FirstName").val(),
+        LastName: $("#LastName").val(),
+        EmailAddress: $("#EmailAddress").val(),
+        PhoneNum: $("#PhoneNum").val(),
+        MobileNum: $("#MobileNum").val(),
+        OrganizationName: $("#OrganizationName").val(),
+        DataOwner2GUID: $("#DataOwner2GUID").val(),
+        PhonebookContactGUID: $("#PhonebookContactGUID").val(),
+        CreatedByGUID: $("#CreatedByGUID").val(), //this is probably a bad idea honestly.
+        WorkAddress: {
+          Street1: $("#WorkAddress_Street1").val(),
+          Street2: $("#WorkAddress_Street2").val(),
+          City: $("#WorkAddress_City").val(),
+          State_Province: $("#WorkAddress_State_Province") // eslint-disable-line @typescript-eslint/camelcase
+            .data("kendoComboBox")
+            .value(),
+          Zip_PostalCode: $("#WorkAddress_Zip_PostalCode").val(), // eslint-disable-line  @typescript-eslint/camelcase
+          Country: $("#WorkAddress_Country")
+            .data("kendoDropDownList")
+            .value(),
+          County_Region: $("#WorkAddress_County_Region").val(), // eslint-disable-line  @typescript-eslint/camelcase
+          Lat: "",
+          Lon: "",
+          What3Words: "",
+        },
+      };
+      const returnUrl = <span class="cstat-no" title="statement not covered" >this._globalPrompts.returnURL;</span>
+<span class="cstat-no" title="statement not covered" >      $Ajax.ajaxAntiForgery({</span>
+        url: this._globalPrompts.contactUrl,
+        data: JSON.stringify(contact),
+        contentType: "application/json",
+        type: "POST",
+        success: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >          window.location.href = returnUrl;</span>
+        },
+        error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >          Main.handlejqerr(xhr, status, error);</span>
+        },
+      });
+    } else {
+<span class="cstat-no" title="statement not covered" >      $(this)</span>
+        .find("input[type=submit]")
+        .prop("disabled", false);
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public <span class="cstat-no" title="statement not covered" >RemoveContact(</span>contactGUID) {</span>
+<span class="cstat-no" title="statement not covered" >    if (contactGUID) {</span>
+<span class="cstat-no" title="statement not covered" >      $Ajax.ajaxAntiForgery({</span>
+        url: this._globalPrompts.contactUrl + "?PhonebookContactGUID=" + contactGUID,
+        type: "DELETE",
+        success: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >          $("#phnlistgrid")</span>
+            .data("kendoGrid")
+            .dataSource.read();
+        },
+        error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >          Main.handlejqerr(xhr, status, error);</span>
+        },
+      });
+    }
+  }
+<span class="fstat-no" title="function not covered" >  public <span class="cstat-no" title="statement not covered" >MarkAsIncorrect(</span>contactGUID) {</span>
+<span class="cstat-no" title="statement not covered" >    if (contactGUID) {</span>
+      const returnUrl = <span class="cstat-no" title="statement not covered" >this._globalPrompts.returnURL;</span>
+<span class="cstat-no" title="statement not covered" >      $Ajax.ajaxAntiForgery({</span>
+        url: this._globalPrompts.markAsIncorrectUrl + "?PhonebookContactGUID=" + contactGUID,
+        type: "POST",
+        success: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >          window.location.href = returnUrl;</span>
+        },
+        error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >          Main.handlejqerr(xhr, status, error);</span>
+        },
+      });
+    }
+  }
+<span class="cstat-no" title="statement not covered" >}</span>
+export default Phonebook;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

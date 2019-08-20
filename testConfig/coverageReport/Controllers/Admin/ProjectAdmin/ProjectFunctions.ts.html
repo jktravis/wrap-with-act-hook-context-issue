@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Admin/ProjectAdmin/ProjectFunctions.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Admin/ProjectAdmin</a> ProjectFunctions.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/75</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/75</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">declare const MiniMap;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >namespace </span>projectFunctions {</span>
+  interface IPrompt {
+    MissingIncidentMessage: string;
+    MissingLatitudeMessage: string;
+    MissingLongitudeMessage: string;
+    MissingProjectTypeMessage: string;
+  }
+  let _globalVars: IPrompt;
+  let _mainDiv = <span class="cstat-no" title="statement not covered" >null;</span>
+&nbsp;
+  let _lastLoc = <span class="cstat-no" title="statement not covered" >{</span>
+    lat: NaN,
+    lon: NaN,
+  };
+&nbsp;
+  let _matchingOrgList = <span class="cstat-no" title="statement not covered" >[];</span>
+&nbsp;
+  let _selectedOrgNames = <span class="cstat-no" title="statement not covered" >[];</span>
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetMatchingOrganizations() {</span></span>
+<span class="cstat-no" title="statement not covered" >    return _matchingOrgList;</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >init(globalVars: IPrompt) {</span></span>
+<span class="cstat-no" title="statement not covered" >    _globalVars = globalVars;</span>
+<span class="cstat-no" title="statement not covered" >    $("#Lat").on("change", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      updateLocation();</span>
+    });
+<span class="cstat-no" title="statement not covered" >    $("#Lon").on("change", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      updateLocation();</span>
+    });
+    //$("#shareIncidentButton").on("click", shareIncidentButtonClick);
+    //$("#shareIncidentSaveButton").on("click", saveOrganizationsToShareList);
+<span class="cstat-no" title="statement not covered" >    $("#prjForm").submit(<span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+      //validation check
+<span class="cstat-no" title="statement not covered" >      if (!projectFunctions.validate()) {</span>
+<span class="cstat-no" title="statement not covered" >        e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        Main.blockit($("#prjForm"));</span>
+      }
+    });
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >changeChecksByIncType() {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (Main.serverBuildType === "Belgium") {</span>
+      let prjTypeText = <span class="cstat-no" title="statement not covered" >$("#IncidentTypeGUID")</span>
+        .data("kendoDropDownList")
+        .text();
+<span class="cstat-no" title="statement not covered" >      $("#SendNotificationOfNewIncident").removeAttr("disabled");</span>
+<span class="cstat-no" title="statement not covered" >      if (prjTypeText.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        prjTypeText = prjTypeText.toUpperCase();</span>
+<span class="cstat-no" title="statement not covered" >        if (prjTypeText === "EXER" || prjTypeText === "EVENT" || prjTypeText === "TEST" || prjTypeText === "SCEN") {</span>
+<span class="cstat-no" title="statement not covered" >          $("#SendNotificationOfNewIncident").prop("checked", false);</span>
+<span class="cstat-no" title="statement not covered" >          if (prjTypeText === "TEST" || prjTypeText === "SCEN") {</span>
+<span class="cstat-no" title="statement not covered" >            $("#SendNotificationOfNewIncident").attr("disabled", "disabled");</span>
+          }
+        } else {
+<span class="cstat-no" title="statement not covered" >          $("#SendNotificationOfNewIncident").prop("checked", true);</span>
+        }
+      }
+    }
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >validate(): boolean {</span></span>
+    //check for a project name, lat, and lon
+    //if any are missing, show popup and return false
+    let errResponse = <span class="cstat-no" title="statement not covered" >{</span>
+      Messages: [],
+    };
+    const projName = <span class="cstat-no" title="statement not covered" >$("#ProjectName").val();</span>
+<span class="cstat-no" title="statement not covered" >    if (!(projName.length &gt; 0)) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.markObjectAsError($("#ProjectName"));</span>
+<span class="cstat-no" title="statement not covered" >      errResponse.Messages.push(_globalVars.MissingIncidentMessage);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      Main.clearObjectErrorStatus($("#ProjectName"));</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (Main.serverBuildType === "Belgium") {</span>
+      const latVal = <span class="cstat-no" title="statement not covered" >MiniMap.getLatObj().value();</span>
+<span class="cstat-no" title="statement not covered" >      if (latVal === null || latVal === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        Main.markObjectAsError($("#Lat"));</span>
+<span class="cstat-no" title="statement not covered" >        errResponse.Messages.push(_globalVars.MissingLatitudeMessage);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        Main.clearObjectErrorStatus($("#Lat"));</span>
+      }
+      const lonVal = <span class="cstat-no" title="statement not covered" >MiniMap.getLonObj().value();</span>
+<span class="cstat-no" title="statement not covered" >      if (lonVal === null || lonVal === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        Main.markObjectAsError($("#Lon"));</span>
+<span class="cstat-no" title="statement not covered" >        errResponse.Messages.push(_globalVars.MissingLongitudeMessage);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        Main.clearObjectErrorStatus($("#Lon"));</span>
+      }
+    }
+    const prjType = <span class="cstat-no" title="statement not covered" >$("#IncidentTypeGUID")</span>
+      .data("kendoDropDownList")
+      .value();
+<span class="cstat-no" title="statement not covered" >    if (!(prjType.length &gt; 0)) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.markObjectAsError($("#IncidentTypeGUID"));</span>
+<span class="cstat-no" title="statement not covered" >      errResponse.Messages.push(_globalVars.MissingProjectTypeMessage);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      Main.clearObjectErrorStatus($("#IncidentTypeGUID"));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (errResponse.Messages.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.handleValErr(null, errResponse);</span>
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >updateLocation() {</span>
+    //no need to update location because that just gets orgs to share with which has been disabled.
+    //const lat = $("#Lat").val();
+    //const lon = $("#Lon").val();
+    //if (lat !== "" &amp;&amp; lon !== "") {
+    //    const origLoc = $.extend(true, {}, _lastLoc);
+    //    if (lat !== origLoc.lat &amp;&amp; lon !== origLoc.lon) {
+    //        _lastLoc.lat = lat;
+    //        _lastLoc.lon = lon;
+    //        const timeDiff = $.now() - _lastOrgListGetTime;
+    //        if (timeDiff &gt; 1000) {
+    //            //wait at least one second
+    //            changeSourceLocation(lat, lon);
+    //        }
+    //    }
+    //}
+  }
+&nbsp;
+  //export function changeSourceLocation(lat, lon) {
+  //    $.getJSON(_globalVars.GetOrganizationsContainingLocationURL,
+  //        { latitude: lat, longitude: lon })
+  //        .done(function (result) {
+  //            _lastOrgListGetTime = $.now();
+  //            _matchingOrgList = JSON.parse(result.orgList);
+  //            const placemarkList = JSON.parse(result.placemarks);
+  //            if (_matchingOrgList.length &gt; 0) {
+  //                //found matching org, display modal dialog with the list
+  //                $("#shareIncidentButton").prop("disabled", false);
+  //                $("#shareIncidentButton").prop("title", "There are no other organizations involved in this area");
+  //            } else {
+  //                $("#shareIncidentButton").prop("disabled", true);
+  //                $("#shareIncidentButton").prop("title", "Other Organizations may be interested in this incident.");
+  //            }
+  //        })
+  //        .fail(function (error) {
+  //            console.log("error retrieving Organization List from Project Location");
+  //        });
+  //}
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >GetKMLForOrg(orgName) {</span></span>
+    //look in placemark list to find matching org kml and return it.
+<span class="cstat-no" title="statement not covered" >    return "";</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >shareIncidentButtonClick(e) {</span>
+<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
+    let ul = <span class="cstat-no" title="statement not covered" >$("#checkedOrganizationList");</span>
+<span class="cstat-no" title="statement not covered" >    ul.empty(); //clear out earlier organization list</span>
+    //build new org list (checking previously selected orgs?)
+<span class="cstat-no" title="statement not covered" >    $.each(_matchingOrgList, <span class="fstat-no" title="function not covered" >function(</span>index, item) {</span>
+      let checkbox = <span class="cstat-no" title="statement not covered" >$("&lt;input type='checkbox'&gt;");</span>
+      let index2 = <span class="cstat-no" title="statement not covered" >$.inArray(item.OrganizationName, _selectedOrgNames);</span>
+<span class="cstat-no" title="statement not covered" >      if (index2 &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >        checkbox.prop("checked", true);</span>
+      }
+      let label = <span class="cstat-no" title="statement not covered" >$("&lt;label &gt;" + "&lt;/label&gt;");</span>
+<span class="cstat-no" title="statement not covered" >      label.append(checkbox);</span>
+<span class="cstat-no" title="statement not covered" >      label.append(item.OrganizationName);</span>
+      let li = <span class="cstat-no" title="statement not covered" >$("&lt;li class='list-box-item checkbox'&gt;&lt;/li&gt;");</span>
+<span class="cstat-no" title="statement not covered" >      li.append(label);</span>
+      //const li = $("&lt;li&gt;&lt;label class="checkbox"&gt;&lt;input type="checkbox"&gt;" + item.OrganizationName + "&lt;/label&gt;&lt;/li&gt;");
+<span class="cstat-no" title="statement not covered" >      li.prop("title", item.OrgDescription);</span>
+<span class="cstat-no" title="statement not covered" >      ul.append(li);</span>
+    });
+    //show modal dialog
+<span class="cstat-no" title="statement not covered" >    $("#shareIncidentWithOrgDialog").modal("show");</span>
+  }
+<span class="cstat-no" title="statement not covered" >  $("#shareIncidentWithOrgDialog").on("shown.bs.modal", <span class="fstat-no" title="function not covered" >function() {</span></span>
+    //$("#opPeriodNameInput").focus();
+  });
+&nbsp;
+  //function saveOrganizationsToShareList(e) {
+  //    e.preventDefault();
+  //    _selectedOrgNames = [];
+&nbsp;
+  //    $("#checkedOrganizationList input:checked").each(function (idx, li) {
+  //        _selectedOrgNames.push($(li).parent().text());
+  //    });
+  //    $("#selectedOrgsHiddenField").val(JSON.stringify(_selectedOrgNames));
+  //    $("#shareIncidentWithOrgDialog").modal("hide");
+&nbsp;
+  //}
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Admin/Facility/FacilityEVAC.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Admin/Facility</a> FacilityEVAC.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/99</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/99</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//import { Main,Guid } from '../../../basicCoBRAScript';
+//import { Guid } from "../../../Utilities/Simple/Guid";
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >namespace </span>Facility_EVAC {</span>
+  interface IGlobalPrompt {
+    MissingNormalBuildingMessage: string;
+    MissingSomeoneIsPresentMessage: string;
+    MissingPrimaryContactMessage: string;
+  }
+  let _globalPrompts: IGlobalPrompt;
+  let shelterChar = <span class="cstat-no" title="statement not covered" >[];</span>
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >Init(globalPrompts) {</span></span>
+<span class="cstat-no" title="statement not covered" >    _globalPrompts = globalPrompts;</span>
+<span class="cstat-no" title="statement not covered" >    $("form").on("submit", <span class="fstat-no" title="function not covered" >function(</span>e) {</span>
+<span class="cstat-no" title="statement not covered" >      e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >      $(this)</span>
+        .find("input[type=submit]")
+        .prop("disabled", true);
+<span class="cstat-no" title="statement not covered" >      if (validateForm()) {</span>
+        //populate hidden fields
+        const primContacts = <span class="cstat-no" title="statement not covered" >$("#primaryContactsDiv").data("userlist");</span>
+<span class="cstat-no" title="statement not covered" >        $("#POCContactsList").val(JSON.stringify(primContacts));</span>
+&nbsp;
+        const supContacts = <span class="cstat-no" title="statement not covered" >$("#supContactsDiv").data("userlist");</span>
+<span class="cstat-no" title="statement not covered" >        $("#SupContactsList").val(JSON.stringify(supContacts));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        $("#ShelterRoomDetailsAsJSON").val(JSON.stringify(shelterChar));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.submit();</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        $(this)</span>
+          .find("input[type=submit]")
+          .prop("disabled", false);
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    $("#ShelCharModal").on("shown.bs.modal", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      $("#txtIdentification").focus();</span>
+    });
+<span class="cstat-no" title="statement not covered" >    loadShelterGrid();</span>
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >validateForm(): Boolean {</span></span>
+    const errResponse = <span class="cstat-no" title="statement not covered" >{</span>
+      Messages: [],
+    };
+    const buildUsage = <span class="cstat-no" title="statement not covered" >$("#NormalBuildingUsage").val();</span>
+<span class="cstat-no" title="statement not covered" >    if (!(buildUsage.length &gt; 0)) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.markObjectAsError($("#NormalBuildingUsage"));</span>
+<span class="cstat-no" title="statement not covered" >      errResponse.Messages.push(_globalPrompts.MissingNormalBuildingMessage);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      Main.clearObjectErrorStatus($("#NormalBuildingUsage"));</span>
+    }
+    const contacts = <span class="cstat-no" title="statement not covered" >$("#primaryContactsDiv").data("userlist");</span>
+    const contactsString = <span class="cstat-no" title="statement not covered" >JSON.stringify(contacts);</span>
+<span class="cstat-no" title="statement not covered" >    if (contacts.length &gt; 0 &amp;&amp; contacts[0] !== Guid.emptyGuidString) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.clearObjectErrorStatus($("#primaryContactsDiv"));</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      Main.markObjectAsError($("#primaryContactsDiv"));</span>
+<span class="cstat-no" title="statement not covered" >      errResponse.Messages.push(_globalPrompts.MissingPrimaryContactMessage);</span>
+    }
+    const someone = <span class="cstat-no" title="statement not covered" >$("#SomeoneIsPresent")</span>
+      .data("kendoDropDownList")
+      .value();
+<span class="cstat-no" title="statement not covered" >    if (!(someone.length &gt; 0) || someone === Guid.emptyGuidString) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.markObjectAsError($("#SomeoneIsPresent"));</span>
+<span class="cstat-no" title="statement not covered" >      errResponse.Messages.push(_globalPrompts.MissingSomeoneIsPresentMessage);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      Main.clearObjectErrorStatus($("#SomeoneIsPresent"));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (errResponse.Messages.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      Main.handleValErr(null, errResponse);</span>
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+    }
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >loadShelterGrid() {</span>
+    const shelterAsJSON = <span class="cstat-no" title="statement not covered" >$("#ShelterRoomDetailsAsJSON").val();</span>
+<span class="cstat-no" title="statement not covered" >    if (shelterAsJSON.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      shelterChar = JSON.parse(shelterAsJSON);</span>
+    }
+    const dataSource = <span class="cstat-no" title="statement not covered" >new kendo.data.DataSource({</span>
+      transport: {
+        read: <span class="fstat-no" title="function not covered" >function(</span>e) {
+<span class="cstat-no" title="statement not covered" >          e.success(shelterChar);</span>
+        },
+      },
+      batch: false,
+      schema: {
+        model: {
+          id: "ID",
+          fields: {
+            ID: { type: "number", editable: false },
+            Identification: { type: "string", editable: true },
+            Description: { type: "string", editable: true },
+            NumericalCapacityDay: { type: "number", defaultValue: null, editable: true },
+            EquipmentForDayShelter: { type: "string", editable: true },
+            NumericalCapacityNightDorm: { type: "number", defaultValue: null, editable: true },
+            NumericalCapacityRoom: { type: "number", defaultValue: null, editable: true },
+            EquipmentForNightShelter: { type: "string", editable: true },
+            TimeToOPsStatus: { type: "number", defaultValue: null, editable: true },
+            PublicInfoEquipment: { type: "string", editable: true },
+            Notes: { type: "string", editable: true },
+          },
+        },
+      },
+    });
+    const grid = <span class="cstat-no" title="statement not covered" >$("#shelGrid").data("kendoGrid");</span>
+<span class="cstat-no" title="statement not covered" >    grid.setDataSource(dataSource);</span>
+<span class="cstat-no" title="statement not covered" >    reloadShelChar();</span>
+  }
+  function <span class="fstat-no" title="function not covered" >reloadShelChar() {</span>
+<span class="cstat-no" title="statement not covered" >    $("#shelGrid")</span>
+      .data("kendoGrid")
+      .dataSource.read();
+  }
+  function <span class="fstat-no" title="function not covered" >clearValues() {</span>
+<span class="cstat-no" title="statement not covered" >    $("#txtIdentification").val("");</span>
+<span class="cstat-no" title="statement not covered" >    $("#txtDescription").val("");</span>
+<span class="cstat-no" title="statement not covered" >    $("#txtNumericalCapacityDay")</span>
+      .data("kendoNumericTextBox")
+      .value("");
+<span class="cstat-no" title="statement not covered" >    $("#txtEquipmentForDayShelter").val("");</span>
+<span class="cstat-no" title="statement not covered" >    $("#txtNumericalCapacityNightDorm")</span>
+      .data("kendoNumericTextBox")
+      .value("");
+<span class="cstat-no" title="statement not covered" >    $("#txtNumericalCapacityRoom")</span>
+      .data("kendoNumericTextBox")
+      .value("");
+<span class="cstat-no" title="statement not covered" >    $("#txtEquipmentForNightShelter").val("");</span>
+<span class="cstat-no" title="statement not covered" >    $("#txtTimeToOPsStatus")</span>
+      .data("kendoNumericTextBox")
+      .value("");
+<span class="cstat-no" title="statement not covered" >    $("#txtPublicInfoEquipment").val("");</span>
+<span class="cstat-no" title="statement not covered" >    $("#txtNotes").val("");</span>
+<span class="cstat-no" title="statement not covered" >    $("#txtValSummShelChar").text("");</span>
+  }
+&nbsp;
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >addShelChar() {</span></span>
+<span class="cstat-no" title="statement not covered" >    clearValues();</span>
+<span class="cstat-no" title="statement not covered" >    $("#ShelCharModal").modal("show");</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >getIndexById(id) {</span>
+    let idx,
+      l = <span class="cstat-no" title="statement not covered" >shelterChar.length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (let j = 0; j &lt; l; j++) {</span>
+<span class="cstat-no" title="statement not covered" >      if (shelterChar[j].ID === id) {</span>
+<span class="cstat-no" title="statement not covered" >        return j;</span>
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    return null;</span>
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >deleteShelterRow(idVal, deleteText) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (confirm(deleteText)) {</span>
+<span class="cstat-no" title="statement not covered" >      shelterChar.splice(getIndexById(idVal), 1);</span>
+<span class="cstat-no" title="statement not covered" >      reloadShelChar();</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  class ShelterDetails {</span></span>
+    Identification: string;
+    Description: string;
+    NumericalCapacityDay: string;
+    EquipmentForDayShelter: string;
+    NumericalCapacityNightDorm: string;
+    NumericalCapacityRoom: string;
+    EquipmentForNightShelter: string;
+    TimeToOPsStatus: string;
+    PublicInfoEquipment: string;
+    Notes: string;
+    ID: number;
+<span class="cstat-no" title="statement not covered" >  }</span>
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >saveShelChar() {</span></span>
+    const txtIdentification = <span class="cstat-no" title="statement not covered" >$("#txtIdentification").val();</span>
+<span class="cstat-no" title="statement not covered" >    if (txtIdentification.length &gt; 0) {</span>
+      //create object
+      const obj: ShelterDetails = <span class="cstat-no" title="statement not covered" >new ShelterDetails();</span>
+<span class="cstat-no" title="statement not covered" >      obj.Identification = txtIdentification;</span>
+<span class="cstat-no" title="statement not covered" >      obj.Description = $("#txtDescription").val();</span>
+<span class="cstat-no" title="statement not covered" >      obj.NumericalCapacityDay = $("#txtNumericalCapacityDay").val();</span>
+<span class="cstat-no" title="statement not covered" >      obj.EquipmentForDayShelter = $("#txtEquipmentForDayShelter").val();</span>
+<span class="cstat-no" title="statement not covered" >      obj.NumericalCapacityNightDorm = $("#txtNumericalCapacityNightDorm").val();</span>
+<span class="cstat-no" title="statement not covered" >      obj.NumericalCapacityRoom = $("#txtNumericalCapacityRoom").val();</span>
+<span class="cstat-no" title="statement not covered" >      obj.EquipmentForNightShelter = $("#txtEquipmentForNightShelter").val();</span>
+<span class="cstat-no" title="statement not covered" >      obj.TimeToOPsStatus = $("#txtTimeToOPsStatus").val();</span>
+<span class="cstat-no" title="statement not covered" >      obj.PublicInfoEquipment = $("#txtPublicInfoEquipment").val();</span>
+<span class="cstat-no" title="statement not covered" >      obj.Notes = $("#txtNotes").val();</span>
+      //add to shelterChar array
+<span class="cstat-no" title="statement not covered" >      obj.ID = shelterChar.length + 1;</span>
+<span class="cstat-no" title="statement not covered" >      shelterChar.push(obj);</span>
+<span class="cstat-no" title="statement not covered" >      reloadShelChar();</span>
+<span class="cstat-no" title="statement not covered" >      $("#ShelCharModal").modal("hide");</span>
+    }
+  }
+  export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >deleteAttachment(attGUID, theUrl) {</span></span>
+<span class="cstat-no" title="statement not covered" >    $Ajax.ajaxAntiForgery({</span>
+      url: theUrl,
+      type: "POST",
+      data: {
+        PrimaryKey: attGUID,
+      },
+      success: <span class="fstat-no" title="function not covered" >function(</span>response) {
+<span class="cstat-no" title="statement not covered" >        if (response.success === false) {</span>
+<span class="cstat-no" title="statement not covered" >          $.notify({ message: response.Message }, { type: "danger" });</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          $("#lstattAtt")</span>
+            .data("kendoListView")
+            .dataSource.read();
+<span class="cstat-no" title="statement not covered" >          $("#lstothAtt")</span>
+            .data("kendoListView")
+            .dataSource.read();
+        }
+      },
+      error: <span class="fstat-no" title="function not covered" >function(</span>xhr, status, error) {
+<span class="cstat-no" title="statement not covered" >        Main.handlejqerr(xhr, status, error);</span>
+      },
+    });
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

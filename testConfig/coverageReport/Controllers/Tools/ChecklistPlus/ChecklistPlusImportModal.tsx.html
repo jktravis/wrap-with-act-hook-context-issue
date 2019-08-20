@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/ChecklistPlus/ChecklistPlusImportModal.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/ChecklistPlus</a> ChecklistPlusImportModal.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { Component } from "react";</span>
+<span class="cstat-no" title="statement not covered" >import { FormGroup, Input, Modal, ModalHeader, ModalBody, ModalFooter, Button, Label } from "reactstrap";</span>
+<span class="cstat-no" title="statement not covered" >import { FilePond, File, registerPlugin } from "react-filepond";</span>
+<span class="cstat-no" title="statement not covered" >import "../../../../Content/ExtraStyles/ChecklistPlus.scss";</span>
+import "filepond/dist/filepond.min.css";
+&nbsp;
+interface Props {
+  closeModalfn?: Function;
+  importFromFile?: Function;
+  setTitleDesc?: Function;
+  isEdit?: boolean;
+  hasUploaded?: boolean;
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >class ChecklistPlusImportModal extends <span class="cstat-no" title="statement not covered" >Component&lt;Props, any&gt; {</span></span></span>
+  static <span class="cstat-no" title="statement not covered" >defaultProps: Partial&lt;Props&gt; = {</span>
+    closeModalfn: Function.prototype,
+    importFromFile: Function.prototype,
+    setTitleDesc: Function.prototype,
+    isEdit: false,
+    hasUploaded: false,
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  state = {</span>
+    selectedFile: null,
+    modalTitle: "Import Checklist from File",
+    uploadTitle: "Upload",
+    title: "",
+    description: "",
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  componentDidMount() {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (this.props.isEdit || this.props.hasUploaded) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setState({ modalTitle: "Update Title / Description", uploadTitle: "Update" });</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.setState({ modalTitle: "Import Checklist from File", uploadTitle: "Upload" });</span>
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  toggle = <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.props.closeModalfn();</span>
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  upload = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async () =&gt; {</span></span></span>
+    const { <span class="cstat-no" title="statement not covered" >selectedFile } = this.state;</span>
+&nbsp;
+    const <span class="cstat-no" title="statement not covered" >formData = new FormData();</span>
+<span class="cstat-no" title="statement not covered" >    formData.append("filename", selectedFile.name);</span>
+<span class="cstat-no" title="statement not covered" >    formData.append("file", selectedFile);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    await this.props.importFromFile(formData);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.props.setTitleDesc(this.state.title, this.state.description);</span>
+<span class="cstat-no" title="statement not covered" >    this.toggle();</span>
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  update = <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.props.setTitleDesc(this.state.title, this.state.description);</span>
+<span class="cstat-no" title="statement not covered" >    this.toggle();</span>
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  render() {</span></span></span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;div&gt;
+        &lt;Modal isOpen={true} backdrop={true}&gt;
+          &lt;ModalHeader&gt;{this.state.modalTitle}&lt;/ModalHeader&gt;
+          &lt;ModalBody&gt;
+            {!this.props.isEdit &amp;&amp; !this.props.hasUploaded ? (
+              &lt;FilePond
+                allowMultiple={false}
+                onupdatefiles={<span class="fstat-no" title="function not covered" >fileItems =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                  this.setState({</span>
+                    selectedFile: fileItems[0].file,
+                  });
+                }}
+              &gt;
+                &lt;File key={this.state.selectedFile} src={this.state.selectedFile} origin="local" /&gt;
+              &lt;/FilePond&gt;
+            ) : null}
+            &lt;FormGroup&gt;
+              &lt;Label&gt;Checklist Template Title&lt;/Label&gt;
+              &lt;Input
+                type="text"
+                name="notesinput"
+                id="titleInput"
+                bsSize="sm"
+                style={{ resize: "none" }}
+                onBlur={<span class="fstat-no" title="function not covered" >e =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ title: e.target.value })}</span></span>
+              /&gt;
+              &lt;Label&gt;Checklist Description&lt;/Label&gt;
+              &lt;Input
+                type="textarea"
+                name="notesinput"
+                id="titleInput"
+                bsSize="sm"
+                style={{ resize: "none" }}
+                onBlur={<span class="fstat-no" title="function not covered" >e =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ description: e.target.value })}</span></span>
+              /&gt;
+            &lt;/FormGroup&gt;
+          &lt;/ModalBody&gt;
+          &lt;ModalFooter&gt;
+            &lt;Button color="primary" onClick={!this.props.isEdit &amp;&amp; !this.props.hasUploaded ? this.upload : this.update}&gt;
+              {this.state.uploadTitle}
+            &lt;/Button&gt;
+            &lt;Button color="warning" onClick={this.toggle}&gt;
+              Cancel
+            &lt;/Button&gt;
+          &lt;/ModalFooter&gt;
+        &lt;/Modal&gt;
+      &lt;/div&gt;
+    );
+  }
+<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
+export default ChecklistPlusImportModal;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

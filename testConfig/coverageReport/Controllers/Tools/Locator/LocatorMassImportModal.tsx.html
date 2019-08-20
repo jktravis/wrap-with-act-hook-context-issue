@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Tools/Locator/LocatorMassImportModal.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">Controllers/Tools/Locator</a> LocatorMassImportModal.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/41</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { Component } from "react";</span>
+<span class="cstat-no" title="statement not covered" >import { massImportLocatorsFromFile } from "Api/LocatorApi";</span>
+<span class="cstat-no" title="statement not covered" >import Modal from "reactstrap/lib/Modal";</span>
+<span class="cstat-no" title="statement not covered" >import ModalFooter from "reactstrap/lib/ModalFooter";</span>
+<span class="cstat-no" title="statement not covered" >import ModalHeader from "reactstrap/lib/ModalHeader";</span>
+<span class="cstat-no" title="statement not covered" >import Button from "reactstrap/lib/Button";</span>
+<span class="cstat-no" title="statement not covered" >import ModalBody from "reactstrap/lib/ModalBody";</span>
+<span class="cstat-no" title="statement not covered" >import { FilePond, File, registerPlugin } from "react-filepond";</span>
+<span class="cstat-no" title="statement not covered" >import "filepond/dist/filepond.min.css";</span>
+<span class="cstat-no" title="statement not covered" >import "../../../../Content/ExtraStyles/Locator.scss";</span>
+<span class="cstat-no" title="statement not covered" >import LoadSpinner from "../Map/Components/LoadSpinner";</span>
+&nbsp;
+type Props = {
+  translatedFields?: any;
+  buttonColor?: string;
+  closeModalfn?: Function;
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >class LocatorMassImportModal extends <span class="cstat-no" title="statement not covered" >Component&lt;Props, any&gt; {</span></span></span>
+  static <span class="cstat-no" title="statement not covered" >defaultProps: Partial&lt;Props&gt; = {</span>
+    translatedFields: {},
+    buttonColor: "primary",
+    closeModalfn: Function.prototype,
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  state = {</span>
+    selectedFile: null,
+    processing: false,
+    errorMessage: "",
+    prevUploadFailed: false,
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  toggle = <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.props.closeModalfn();</span>
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  upload = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async () =&gt; {</span></span></span>
+    const { <span class="cstat-no" title="statement not covered" >selectedFile } = this.state;</span>
+    let <span class="cstat-no" title="statement not covered" >errorMessage = "";</span>
+&nbsp;
+    const <span class="cstat-no" title="statement not covered" >formData = new FormData();</span>
+<span class="cstat-no" title="statement not covered" >    formData.append("filename", selectedFile.name);</span>
+<span class="cstat-no" title="statement not covered" >    formData.append("file", selectedFile);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setState({ processing: true });</span>
+&nbsp;
+    const <span class="cstat-no" title="statement not covered" >response = <span class="cstat-no" title="statement not covered" >await massImportLocatorsFromFile(formData);</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (response) {</span>
+<span class="cstat-no" title="statement not covered" >      alert(this.props.translatedFields.ImportSuccess);</span>
+      // The actual download
+      const <span class="cstat-no" title="statement not covered" >blob = new Blob([response], { type: "application/vnd.ms-excel" });</span>
+      const <span class="cstat-no" title="statement not covered" >link = document.createElement("a");</span>
+<span class="cstat-no" title="statement not covered" >      link.href = window.URL.createObjectURL(blob);</span>
+<span class="cstat-no" title="statement not covered" >      link.download = "MassImportResults.xlsx";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      document.body.appendChild(link);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      link.click();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      document.body.removeChild(link);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.toggle();</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      alert(this.props.translatedFields.ImportFailure);</span>
+<span class="cstat-no" title="statement not covered" >      errorMessage = this.props.translatedFields.ImportFailure;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.setState({ processing: false, errorMessage: errorMessage });</span>
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  render() {</span></span></span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;Modal isOpen={true}&gt;
+        &lt;ModalHeader&gt;{this.props.translatedFields.LocatorFileImport}&lt;/ModalHeader&gt;
+        &lt;ModalBody&gt;
+          {this.state.processing ? (
+            &lt;LoadSpinner /&gt;
+          ) : (
+            &lt;FilePond
+              allowMultiple={false}
+              onupdatefiles={<span class="fstat-no" title="function not covered" >fileItems =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                this.setState({</span>
+                  selectedFile: fileItems[0].file,
+                });
+              }}
+            &gt;
+              {this.state.selectedFile ? (
+                &lt;File key={this.state.selectedFile} src={this.state.selectedFile} origin="local" /&gt;
+              ) : null}
+            &lt;/FilePond&gt;
+          )}
+          {this.state.prevUploadFailed ? (
+            &lt;span style={{ color: "red" }}&gt;
+              &lt;b&gt;{this.state.errorMessage}&lt;/b&gt;
+            &lt;/span&gt;
+          ) : null}
+        &lt;/ModalBody&gt;
+        &lt;ModalFooter&gt;
+          &lt;Button color="primary" onClick={this.upload} disabled={this.state.processing}&gt;
+            {this.props.translatedFields.Upload}
+          &lt;/Button&gt;{" "}
+          &lt;Button color="warning" onClick={this.toggle}&gt;
+            {this.props.translatedFields.CancelText}
+          &lt;/Button&gt;
+        &lt;/ModalFooter&gt;
+      &lt;/Modal&gt;
+    );
+  }
+<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
+export default LocatorMassImportModal;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

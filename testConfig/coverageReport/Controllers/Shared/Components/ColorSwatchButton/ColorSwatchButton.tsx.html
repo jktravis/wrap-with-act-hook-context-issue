@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Controllers/Shared/Components/ColorSwatchButton/ColorSwatchButton.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">Controllers/Shared/Components/ColorSwatchButton</a> ColorSwatchButton.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.41% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>10/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">34.62% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/26</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
+import { ChromePicker } from "react-color";
+import ReactDOM from "react-dom";
+import { Manager, Popper, Reference } from "react-popper";
+import styled from "react-emotion";
+import { css } from "emotion";
+import createDataToggle from "Utilities/createDataToggle";
+import rgba from "polished/lib/color/rgba";
+import { FaTimes } from "react-icons/fa";
+import Button from "reactstrap/lib/Button";
+&nbsp;
+const colorPickerSwatch = css`
+  background: #fff;
+  border-color: #d2d2d2;
+  padding: 0.4rem;
+&nbsp;
+  .color-picker__color {
+    width: 38px;
+    height: 24px;
+    border-radius: 2px;
+    background: whitesmoke;
+  }
+`;
+&nbsp;
+const ColorWindowHeader = styled("div")`
+  background: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.15rem 0.25rem;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: #cccccc;
+  border-radius: 4px 4px 0px 0px;
+`;
+&nbsp;
+const ColorPickerSwatchPopover = styled("div")`
+  .color-picker-popover__color {
+    border: 1px solid #ccc;
+  }
+`;
+&nbsp;
+interface Props {
+  colorChangeFn: (color, event) =&gt; void;
+  color: any;
+}
+&nbsp;
+class ColorSwatchButton extends React.Component&lt;Props, any&gt; {
+  static defaultProps: Partial&lt;Props&gt; = {
+    color: {
+      rgb: { r: 0, g: 0, b: 0, a: 0.7 },
+    },
+  };
+&nbsp;
+  popperMount: HTMLElement;
+<span class="cstat-no" title="statement not covered" >  state = {</span>
+    showPicker: false,
+  };
+&nbsp;
+<span class="fstat-no" title="function not covered" >  constructor(</span>props) {
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+<span class="cstat-no" title="statement not covered" >    this.popperMount = document.createElement("div");</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  togglePicker = <span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>this.setState(createDataToggle("showPicker"));</span></span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  componentDidMount() {</span>
+    const body = <span class="cstat-no" title="statement not covered" >document.querySelector("body");</span>
+<span class="cstat-no" title="statement not covered" >    body.appendChild(this.popperMount);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  componentWillUnmount() {</span>
+    const body = <span class="cstat-no" title="statement not covered" >document.querySelector("body");</span>
+<span class="cstat-no" title="statement not covered" >    body.removeChild(this.popperMount);</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  render() {</span></span>
+    const <span class="cstat-no" title="statement not covered" >{ <span class="cstat-no" title="statement not covered" >colorChangeFn,</span> <span class="cstat-no" title="statement not covered" >color } = this.props;</span></span>
+    const { <span class="cstat-no" title="statement not covered" >showPicker </span>} = this.state;
+    const backgroundColor = <span class="cstat-no" title="statement not covered" >rgba(color.rgb.r, color.rgb.g, color.rgb.b, color.rgb.a);</span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;div&gt;
+        &lt;Manager&gt;
+          &lt;Reference&gt;
+            {<span class="fstat-no" title="function not covered" >(</span>{ <span class="cstat-no" title="statement not covered" >ref </span>}) =&gt; <span class="cstat-no" title="statement not covered" >(</span>
+              &lt;button
+                type="button"
+                className={`btn btn-light ${colorPickerSwatch}`}
+                onClick={this.togglePicker}
+                ref={ref}
+              &gt;
+                &lt;div className="color-picker__color" style={{ backgroundColor }} /&gt;
+              &lt;/button&gt;
+            )}
+          &lt;/Reference&gt;
+          {ReactDOM.createPortal(
+            &lt;Popper placement="bottom-start"&gt;
+              {<span class="fstat-no" title="function not covered" >(</span>{ <span class="cstat-no" title="statement not covered" >placement,</span> <span class="cstat-no" title="statement not covered" >ref,</span> <span class="cstat-no" title="statement not covered" >style </span>}) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (showPicker) {</span>
+<span class="cstat-no" title="statement not covered" >                  return (</span>
+                    &lt;div style={{ display: showPicker ? "block" : "none" }}&gt;
+                      &lt;ColorPickerSwatchPopover
+                        className="color-picker-popover"
+                        innerRef={ref}
+                        style={{ ...style, zIndex: 4 }}
+                        data-placement={placement}
+                      &gt;
+                        &lt;ColorWindowHeader&gt;
+                          &lt;Button color="close" size="sm" onClick={this.togglePicker}&gt;
+                            &lt;FaTimes /&gt;
+                          &lt;/Button&gt;
+                        &lt;/ColorWindowHeader&gt;
+                        &lt;div className="color-picker-popover__color"&gt;
+                          &lt;ChromePicker color={color ? color.rgb : undefined} onChangeComplete={colorChangeFn as any} /&gt;
+                        &lt;/div&gt;
+                      &lt;/ColorPickerSwatchPopover&gt;
+                    &lt;/div&gt;
+                  );
+                }
+<span class="cstat-no" title="statement not covered" >                return null;</span>
+              }}
+            &lt;/Popper&gt;,
+            this.popperMount,
+          )}
+        &lt;/Manager&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+&nbsp;
+export default ColorSwatchButton;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:48:44 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
