@@ -31,18 +31,8 @@ jest.mock("Api/translationApi", () => {
 });
 
 describe("FacilitySelector", () => {
-  let props, searchResultMock;
+  let props;
   beforeEach(() => {
-    searchResultMock = [
-      {
-        PrimaryKey: "123",
-        CurrentCultureTranslation: "Name 1",
-        FriendlyOrgName: "Org Name 1",
-        ScrubbedFacilityDescription: "Description1",
-        FacilityCategory: "Category 1",
-        FacilitySubCategory: "Sub Cat 1",
-      },
-    ];
     props = {
       isOpen: true,
       toggleFn: jest.fn(),
@@ -50,98 +40,11 @@ describe("FacilitySelector", () => {
     };
   });
 
-  describe("on load", () => {
-    it("should call the translation api", async () => {
-      renderWithTheme(<FacilitySelector {...props} />);
-      // @ts-ignore
-      expect(getTranslations).toHaveBeenCalled();
-    });
-
-    describe("when incidentId is missing", () => {
-      it("should _not_ get categories for available facilities", () => {
-        renderWithTheme(<FacilitySelector {...props} />);
-        // @ts-ignore
-        expect(getCategoriesForIncident).not.toHaveBeenCalled();
-      });
-    });
-
-    describe("when incidentId is given", () => {
-      it("should get categories for available facilities", () => {
-        renderWithTheme(<FacilitySelector {...props} incidentId={"123"} />);
-        // @ts-ignore
-        expect(getCategoriesForIncident).toHaveBeenCalledWith("123");
-      });
-    });
-
-    it("should show a load spinner", () => {
-      const { getByTestId } = renderWithTheme(<FacilitySelector {...props} />);
-
-      // @ts-ignore
-      expect(getByTestId("spinner")).toBeInTheDocument();
-    });
-  });
-
   describe("when translations load successfully", () => {
     it("should show the content", async () => {
       const { getByTestId } = renderWithTheme(<FacilitySelector {...props} />);
       // @ts-ignore
       await wait(() => expect(getByTestId("content")).toBeInTheDocument());
-    });
-
-    describe("when no incidentId is provided", () => {
-      it("should NOT offer category search", async () => {
-        const { queryByTestId } = renderWithTheme(<FacilitySelector {...props} />);
-
-        await wait();
-
-        // @ts-ignore
-        expect(queryByTestId("category-selection")).not.toBeInTheDocument();
-      });
-
-      it("should NOT offer tag search", async () => {
-        const { queryByLabelText } = renderWithTheme(<FacilitySelector {...props} />);
-
-        await wait();
-
-        // @ts-ignore
-        expect(queryByLabelText("Tags")).not.toBeInTheDocument();
-      });
-    });
-
-    describe("when incidentId is provided", () => {
-      it("should offer category search", async () => {
-        const { getByTestId } = renderWithTheme(<FacilitySelector {...props} incidentId={"123"} />);
-
-        await waitForElement(() => getByTestId("category-selection"));
-      });
-
-      it("should offer tag search", async () => {
-        const { getByLabelText } = renderWithTheme(<FacilitySelector {...props} incidentId={"123"} />);
-
-        await waitForElement(() => getByLabelText("Tags"));
-      });
-    });
-
-    describe("when no input has been entered", () => {
-      it("should disable the search button", async () => {
-        const { getByText } = renderWithTheme(<FacilitySelector {...props} />);
-        await wait(() => {
-          // @ts-ignore
-          expect(getByText("Search")).toHaveAttribute("disabled");
-        });
-      });
-    });
-
-    describe("when input has been entered", () => {
-      it("should enable the search button", async () => {
-        const { getByText, getByLabelText } = renderWithTheme(<FacilitySelector {...props} />);
-        await wait(() => {
-          const keywordInput = getByLabelText("Keyword");
-          fireEvent.change(keywordInput, { target: { value: "test" } });
-          // @ts-ignore
-          expect(getByText("Search")).not.toHaveAttribute("disabled");
-        });
-      });
     });
 
     describe("when waiting for search results ", () => {
@@ -158,42 +61,4 @@ describe("FacilitySelector", () => {
     });
   });
 
-  describe("when there are no search results ", () => {
-    it("should show a message stating so", async () => {
-      const { getByLabelText, getByText } = renderWithTheme(<FacilitySelector {...props} />);
-      const keywordInput = await waitForElement(() => getByLabelText("Keyword"));
-
-      fireEvent.change(keywordInput, { target: { value: "test" } });
-      fireEvent.click(getByText("Search"), {});
-
-      const message = await waitForElement(() => getByText("No data matched that criteria."));
-      // @ts-ignore
-      expect(message).toBeInTheDocument();
-    });
-  });
-
-  describe("when translations fail to load", () => {
-    const originalError = console.error;
-    beforeEach(() => {
-      /**
-       * Avoid error in console
-       */
-      console.error = jest.fn();
-    });
-
-    afterEach(() => {
-      /**
-       * restore original console
-       */
-      console.error = originalError;
-    });
-    it("should show the content", async () => {
-      // @ts-ignore
-      getTranslations.mockImplementationOnce(() => Promise.reject("Test error"));
-      const { getByTestId } = renderWithTheme(<FacilitySelector {...props} />);
-
-      // @ts-ignore
-      await wait(() => expect(getByTestId("error")).toBeInTheDocument());
-    });
-  });
 });

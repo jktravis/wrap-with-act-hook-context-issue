@@ -1,9 +1,6 @@
 import isEven from "../isEven";
-import { compose, not } from "ramda";
+import { complement } from "ramda";
 
-const isOdd = compose(
-  not,
-  isEven,
-);
+const isOdd = complement( isEven, );
 
 export default isOdd;
