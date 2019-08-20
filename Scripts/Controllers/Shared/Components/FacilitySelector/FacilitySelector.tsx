@@ -16,7 +16,6 @@ import styled from "@emotion/styled";
 import Switch from "react-switch";
 import Select from "react-select";
 import sweetAlert from "sweetalert2";
-import Table from "Controllers/Shared/Components/Table";
 
 import {
   getCategoriesForIncident,
@@ -501,14 +500,7 @@ const renderBaseContent = ({
                   />
                 </FormGroup>
 
-                <Table
-                  className="-striped -highlight"
-                  data={facilityData}
-                  columns={getColumns(localizedStrings, handleToggleChange, selectedItems)}
-                  pageSize={getPageSize(facilityData.length)}
-                  showPageSizeOptions={false}
-                  getTrProps={getTrProps}
-                />
+                {/*Table Goes here*/}
               </div>
             ),
           ],

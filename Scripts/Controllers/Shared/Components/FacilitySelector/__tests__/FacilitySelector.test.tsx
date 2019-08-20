@@ -172,22 +172,6 @@ describe("FacilitySelector", () => {
     });
   });
 
-  describe("when there are search results ", () => {
-    it("should display table with contents", async () => {
-      // @ts-ignore
-      searchAllFacilities.mockImplementationOnce(() => Promise.resolve(searchResultMock));
-      const { getByLabelText, getByText, getByTestId } = renderWithTheme(<FacilitySelector {...props} />);
-      const keywordInput = await waitForElement(() => getByLabelText("Keyword"));
-
-      fireEvent.change(keywordInput, { target: { value: "test" } });
-      fireEvent.click(getByText("Search"), {});
-
-      const row = await waitForElement(() => getByTestId(searchResultMock[0].PrimaryKey));
-      // @ts-ignore
-      expect(row).toBeInTheDocument();
-    });
-  });
-
   describe("when translations fail to load", () => {
     const originalError = console.error;
     beforeEach(() => {
