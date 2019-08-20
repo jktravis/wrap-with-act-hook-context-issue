@@ -1,9 +1,6 @@
 import React from "react";
-import { wait, waitForElement, fireEvent } from "@testing-library/react";
-import renderWithTheme from "Utilities/testUtils/renderWithTheme";
+import { wait, waitForElement, fireEvent, render } from "@testing-library/react";
 import FacilitySelector from "../FacilitySelector";
-import { getTranslations } from "Api/translationApi";
-import { searchAllFacilities, getCategoriesForIncident } from "Api/facilityApi";
 
 jest.mock("Api/facilityApi");
 jest.mock("Api/mapApi");
@@ -42,14 +39,14 @@ describe("FacilitySelector", () => {
 
   describe("when translations load successfully", () => {
     it("should show the content", async () => {
-      const { getByTestId } = renderWithTheme(<FacilitySelector {...props} />);
+      const { getByTestId } = render(<FacilitySelector {...props} />);
       // @ts-ignore
       await wait(() => expect(getByTestId("content")).toBeInTheDocument());
     });
 
     describe("when waiting for search results ", () => {
       it("should show a spinner", async () => {
-        const { getByTestId, getByLabelText, getByText } = renderWithTheme(<FacilitySelector {...props} />);
+        const { getByTestId, getByLabelText, getByText } = render(<FacilitySelector {...props} />);
         const keywordInput = await waitForElement(() => getByLabelText("Keyword"));
 
         fireEvent.change(keywordInput, { target: { value: "test" } });

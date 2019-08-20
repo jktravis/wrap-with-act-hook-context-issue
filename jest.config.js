@@ -5,7 +5,7 @@ module.exports = {
     "./testConfig/mockSignalR.js",
     "./testConfig/test-setup.js",
   ],
-  setupFilesAfterEnv: ["@testing-library/react/cleanup-after-each", "@testing-library/jest-dom/extend-expect"],
+  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
   snapshotSerializers: ["jest-emotion"],
   transform: {
     "^.+\\.tsx?$": "babel-jest",

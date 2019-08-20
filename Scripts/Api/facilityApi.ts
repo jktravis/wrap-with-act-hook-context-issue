@@ -19,24 +19,6 @@ interface SearchAllFacilitiesParams {
   facilityTags?: string;
 }
 
-interface BiosecurityCard {
-  FacilityCardGUID: string;
-  CreatedByUserGUID: string;
-  FacilityGUID: string;
-  Comments: string;
-  Agents: {};
-}
-
-interface SimpleHospitalCard {
-  FacilityCardGUID: string;
-  CreatedByUserGUID: string;
-  FacilityGUID: string;
-  Comments: string;
-  Doctors: {};
-  Beds: {};
-  Ambulances: {};
-}
-
 /**
  * Normalize the Id/PrimaryKey to be just one Id property.
  * @param catOrTag
@@ -80,21 +62,9 @@ function getSubCategoryForCategory(categoryId) {
     .then(normalizeAllCategoryAndTagsFromData);
 }
 
-function getDynamicCardByGUID(DynamicCardGUID, requestedType) {
-  return fetcher
-    .get(`/api/FacilityAPI/GetCardByGUID?cardGUID=${DynamicCardGUID}&cardType=${requestedType}`)
-    .then(({ data }) => data);
-}
-
-function getVolumeList() {
-  return fetcher.get(`/api/ReferenceData/GetVolumeList`).then(({ data }) => data);
-}
-
 export {
   searchAllFacilities,
   getCategoriesForIncident,
   getTagsForIncident,
   getSubCategoryForCategory,
-  getDynamicCardByGUID,
-  getVolumeList,
 };
